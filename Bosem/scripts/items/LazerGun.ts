@@ -5,7 +5,7 @@
         }
         init(holder: Player) {
             holder.heldItems.push(this);
-            holder.ammoType = Ammo.BASIC_AMMO;
+            holder.lazerShooter.ammoType = Ammo.BASIC_AMMO;
         }
     }
 }

@@ -4,6 +4,7 @@
         spriteBody: Phaser.Physics.Arcade.Body;
         static BASIC_AMMO: number = 0;
         static FLAME_AMMO: number = 1;
+
         constructor(key: string, lazerShooter: LazerShooter) {
             if (lazerShooter.holder.facingLeft)
                 super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y + lazerShooter.holder.height / 2, key);

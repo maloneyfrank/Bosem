@@ -1,15 +1,16 @@
 ﻿var Bosem;
 (function (Bosem) {
     var LazerShooter = (function () {
-        function LazerShooter(game, holder) {
+        function LazerShooter(game, holder, ammoType) {
             this.bullets = [];
             this.game = game;
             this.holder = holder;
             this.canShoot = true;
+            this.ammoType = ammoType;
         }
-        LazerShooter.prototype.attack = function (ammoType) {
+        LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
-                this.bullets.push(Bosem.Ammo.returnAmmoType(ammoType, this));
+                this.bullets.push(Bosem.Ammo.returnAmmoType(this.ammoType, this));
                 this.bullets[this.bullets.length - 1].checkWorldBounds = true;
                 this.bullets[this.bullets.length - 1].outOfBoundsKill = true;
                 this.canShoot = false;
@@ -23,7 +24,9 @@
             this.timer.loop(5000 - this.holder.attackSpeed, this.resetShoot, this);
             this.timer.start();
         };
-
+        LazerShooter.prototype.changeAmmoType = function (ammoType) {
+            this.ammoType = ammoType;
+        };
         LazerShooter.prototype.update = function () {
             for (var i = 0; i < this.bullets.length; i++) {
                 //Check Ammo-Player collision

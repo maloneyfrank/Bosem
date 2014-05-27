@@ -2,24 +2,34 @@
     export class LazerShooter {
         game: Phaser.Game;
 
+        /*
+        Properties holder needs to have:
+            facingLeft: boolean - whether the holder is facing left 
+            needs to extend sprite
+            damage:number - amount of damage
+            enemy: Player - enemy to hit...needds to be depricated
+        
+        */
 
 
-        holder: Player; // copy of holder 
+        holder: any; // copy of holder 
         bullets = [];
         timer: Phaser.Timer;
         canShoot: boolean;
-        constructor(game: Phaser.Game, holder: Player) {
+        ammoType: number;
+        constructor(game: Phaser.Game, holder: any, ammoType:number) {
             this.game = game;
             this.holder = holder;
             this.canShoot = true;
+            this.ammoType = ammoType;
 
         }
 
-        attack(ammoType: number) {
+        attack() {
 
             if (this.canShoot) {
-                this.bullets.push(Ammo.returnAmmoType(ammoType, this));
-                this.bullets[this.bullets.length - 1].checkWorldBounds = true
+                this.bullets.push(Ammo.returnAmmoType(this.ammoType, this));
+               this.bullets[this.bullets.length - 1].checkWorldBounds = true
                 this.bullets[this.bullets.length - 1].outOfBoundsKill = true
                 this.canShoot = false;
                 this.timerStuff();
@@ -30,8 +40,11 @@
             this.timer = this.game.time.create(false);
             this.timer.loop(5000 - this.holder.attackSpeed, this.resetShoot, this);
             this.timer.start();
+            
         }
-
+        changeAmmoType(ammoType: number) {
+            this.ammoType = ammoType;
+        }
         update() {
 
             for (var i = 0; i < this.bullets.length; i++) {

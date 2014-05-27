@@ -29,26 +29,27 @@
        
         static randomItem(game: Phaser.Game, x: number, y: number) {
               var num = Math.floor(Math.random() * 6);
-              switch (num) {
-                  case 0:
-                      return new Coffee(game, x, y);
-                      break;
-                  case 1:
-                      return new FlamethrowingFish(game, x, y);
-                      break;
-                  case 2:
-                      return new Shield(game, x, y);
-                      break;
-                  case 3:
-                      return new Kamikaze(game, x, y);
-                      break;
-                  case 4:
-                      return new Tabasco(game, x, y)
-                      break;
-                  case 5:
-                      return new LazerGun(game, x, y);
-                      break;
-              }
+            switch (num) {
+                case 0:
+                    return new Coffee(game, x, y);
+                    break;
+                case 1:
+                    return new FlamethrowingFish(game, x, y);
+                    break;
+                case 2:
+                    return new Shield(game, x, y);
+                    break;
+                case 3:
+                    return new Kamikaze(game, x, y);
+                    break;
+                case 4:
+                    return new Tabasco(game, x, y)
+                    break;
+                case 5:
+                    return new LazerGun(game, x, y);
+                    break;
+            }
+            return new FlamethrowingFish(game, x, y);
             
         }
     }

@@ -9,12 +9,12 @@ var Bosem;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player(game, x, y, playerOptions) {
-            //initilize
-            if (playerOptions == 1) {
+            //initilize...the playeroptions needs to be changed to support more than two if we want too
+            if (playerOptions == 0) {
                 _super.call(this, game, x, y, Bosem.ResKeys.player1Sprite);
                 this.game = game;
                 this.game.add.existing(this);
-            } else if (playerOptions == 2) {
+            } else if (playerOptions == 1) {
                 _super.call(this, game, x, y, Bosem.ResKeys.player2Sprite);
                 this.game = game;
                 this.game.add.existing(this);
@@ -45,7 +45,7 @@ var Bosem;
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO);
 
             //defaults
             this.moveSpeed = 300;
@@ -54,17 +54,16 @@ var Bosem;
             this.hp = 1000;
             this.dmg = 10;
             this.attackSpeed = 3500;
-            this.ammoType = Bosem.Ammo.BASIC_AMMO;
             this.shields = 0;
 
             //player controls
-            if (playerOptions == 1) {
+            if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.CAPS_LOCK);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
             }
-            if (playerOptions == 2) {
+            if (playerOptions == 1) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
@@ -106,7 +105,7 @@ var Bosem;
                 this.facingLeft = false;
                 this.spriteBody.velocity.x = this.moveSpeed;
                 this.animations.play(Bosem.ResKeys.movingRightAttackAnimation);
-                this.lazerShooter.attack(this.ammoType);
+                this.lazerShooter.attack();
             } else if (this.moveRight.isDown) {
                 this.facingLeft = false;
                 this.spriteBody.velocity.x = this.moveSpeed;
@@ -115,16 +114,16 @@ var Bosem;
                 this.facingLeft = true;
                 this.animations.play(Bosem.ResKeys.movingLeftAttackAnimation);
                 this.spriteBody.velocity.x = -this.moveSpeed;
-                this.lazerShooter.attack(this.ammoType);
+                this.lazerShooter.attack();
             } else if (this.moveLeft.isDown) {
                 this.facingLeft = true;
                 this.animations.play(Bosem.ResKeys.movingLeft);
                 this.spriteBody.velocity.x = -this.moveSpeed;
             } else if (this.attackKey.isDown && this.facingLeft == false) {
                 this.animations.play(Bosem.ResKeys.stillAttackRight);
-                this.lazerShooter.attack(this.ammoType);
+                this.lazerShooter.attack();
             } else if (this.attackKey.isDown && this.facingLeft) {
-                this.lazerShooter.attack(this.ammoType);
+                this.lazerShooter.attack();
                 this.animations.play(Bosem.ResKeys.stillAttackLeft);
             } else {
                 if (this.facingLeft) {
@@ -151,18 +150,18 @@ var Bosem;
                 this.shields--;
         };
         Player.prototype.die = function () {
-            if (this.livesEditable)
-                this.lives--;
+            /*    if (this.livesEditable)
+            this.lives--;
             this.livesEditable = false;
             var that = this;
             this.kill();
             setTimeout(function () {
-                that.revive();
-                that.canDie = true;
-                that.position.set(Math.floor(Math.random() * that.game.world.width), 100);
-                that.checkWorldBounds = true;
-                that.hp = 1000;
-            }, 100);
+            that.revive()
+            that.canDie = true;
+            that.position.set(Math.floor(Math.random()*that.game.world.width), 100);
+            that.checkWorldBounds = true;
+            that.hp = 1000;
+            }, 100);*/
         };
         return Player;
     })(Phaser.Sprite);

@@ -17,22 +17,19 @@ var Bosem;
             _super.prototype.init.call(this, holder);
             holder.heldItems.push(this);
             holder.effectItems.push(this);
-            this.pseudoPlayer = new Bosem.Player(this.game, this.x, this.y, 3);
-            this.pseudoPlayer.setEnemy(this.holder.enemy);
-            this.pseudoPlayer.ammoType = Bosem.Ammo.BASIC_AMMO;
+            this.hp = 500;
             this.game.add.existing(this);
-            this.pseudoPlayer.dmg = 8;
             this.spriteBody.acceleration.y = 0;
-            this.pseudoPlayer.scale.y = 0.92;
+
             this.setMovement();
             var timer = this.game.time.create(false);
             timer.loop(2000, this.setMovement, this);
             timer.start();
+
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO);
+            this.enemy = this.holder.enemy;
         };
         FlamethrowingFish.prototype.itemUpdate = function () {
-            this.pseudoPlayer.position.x = this.position.x;
-            this.pseudoPlayer.position.y = this.position.y;
-
             this.checkAttack();
         };
         FlamethrowingFish.prototype.setMovement = function () {
@@ -43,10 +40,10 @@ var Bosem;
             this.game.physics.arcade.accelerateToXY(this, this.toX, this.toY);
             if (this.toX > this.x) {
                 this.animations.play(Bosem.ResKeys.fishRight);
-                this.pseudoPlayer.facingLeft = false;
+                this.facingLeft = false;
             } else {
                 this.animations.play(Bosem.ResKeys.fishLeft);
-                this.pseudoPlayer.facingLeft = true;
+                this.facingLeft = true;
             }
         };
 
@@ -56,7 +53,7 @@ var Bosem;
                 this.attack();
         };
         FlamethrowingFish.prototype.attack = function () {
-            this.pseudoPlayer.lazerShooter.attack(Bosem.Ammo.FLAME_AMMO);
+            this.lazerShooter.attack();
         };
         return FlamethrowingFish;
     })(Bosem.Item);

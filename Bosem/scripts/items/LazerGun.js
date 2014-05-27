@@ -13,7 +13,7 @@ var Bosem;
         }
         LazerGun.prototype.init = function (holder) {
             holder.heldItems.push(this);
-            holder.ammoType = Bosem.Ammo.BASIC_AMMO;
+            holder.lazerShooter.ammoType = Bosem.Ammo.BASIC_AMMO;
         };
         return LazerGun;
     })(Bosem.Item);

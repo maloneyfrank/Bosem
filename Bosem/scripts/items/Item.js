@@ -52,6 +52,7 @@ var Bosem;
                     return new Bosem.LazerGun(game, x, y);
                     break;
             }
+            return new Bosem.FlamethrowingFish(game, x, y);
         };
         return Item;
     })(Phaser.Sprite);
