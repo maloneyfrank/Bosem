@@ -40,14 +40,13 @@
                 player.lives--;
                 var killed = player;
                 player.kill();
-
-                setTimeout(function () {
+                this.game.time.events.add(1000, function () {
                     killed.revive();
                     killed.canDie = true;
                     killed.position.set(Math.floor(Math.random() * killed.game.world.width), 100);
                     killed.checkWorldBounds = true;
                     killed.canDie = true;
-                }, 5000);
+                }, this);
             }
         };
 

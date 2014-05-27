@@ -19,7 +19,7 @@
 
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
-
+            Collidable.addCollidable(this.layer);
             this.itemsInGame = this.game.add.group();
 
             this.players = KillableInGame.getPlayers();

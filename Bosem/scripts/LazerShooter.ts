@@ -40,9 +40,8 @@
         }
         timerStuff() {
             if (this.holder.attackSpeed > 5000) this.holder.attackSpeed = 5000;
-            this.timer = this.game.time.create(false);
-            this.timer.loop(5000 - this.holder.attackSpeed, this.resetShoot, this);
-            this.timer.start();
+            var delay:number = 5000 - this.holder.attackSpeed;
+            this.game.time.events.add(delay, this.resetShoot,this);
             
         }
         changeAmmoType(ammoType: number) {
@@ -58,7 +57,9 @@
                     if (this.game.physics.arcade.collide(collidables.getAt(j), this.bullets[i])) {
                         var collidedWith = collidables.getAt(j);
                         var bullet = this.bullets[i];
-                        collidedWith.hitByBullet(bullet);
+                        try {
+                            collidedWith.hitByBullet(bullet);
+                        } catch (err) { }
                         this.bullets.splice(i, 1);
                         Collidable.removeCollidable(bullet);
                         breakForLoop = true;

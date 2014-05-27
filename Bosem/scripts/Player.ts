@@ -98,11 +98,7 @@
             for (var i = 0; i < this.effectItems.length; i++) {
                 this.effectItems[i].itemUpdate();
             }
-            if (this.hp <= 0 && this.canDie) {
-               // this.canDie = false;
-               // this.livesEditable = true;
-                //this.die();
-            }
+           
             if (!this.inWorld) {
                 this.hp = 0;
             }
