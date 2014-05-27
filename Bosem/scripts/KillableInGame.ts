@@ -44,6 +44,7 @@
                 player.lives--;
                 var killed = player;
                 player.kill();
+                player.hp = 1000;
                 this.game.time.events.add(1000, function () {
                     killed.revive();
                     killed.canDie = true;
@@ -68,6 +69,7 @@
                     }
                 }
             }
+            
         }
 
         static   killKillable(killable: any) {
