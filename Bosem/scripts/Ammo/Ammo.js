@@ -18,7 +18,8 @@ var Bosem;
             this.lazerShooter.game.add.existing(this);
             this.spriteBody = this.body;
         }
-        Ammo.prototype.hit = function () {
+        Ammo.prototype.getDamage = function () {
+            return this.dmg;
         };
         Ammo.returnAmmoType = function (type, lazerShooter) {
             switch (type) {
@@ -27,7 +28,10 @@ var Bosem;
                     break;
                 case Ammo.FLAME_AMMO:
                     return new Bosem.FlameAmmo(lazerShooter);
+                    break;
             }
+        };
+        Ammo.prototype.hitByBullet = function (bullet) {
         };
         Ammo.BASIC_AMMO = 0;
         Ammo.FLAME_AMMO = 1;

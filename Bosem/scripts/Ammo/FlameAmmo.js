@@ -39,7 +39,9 @@ var Bosem;
             if (this.areaRect.contains(this.lazerShooter.holder.enemy.x, this.lazerShooter.holder.enemy.y))
                 this.realHit();
         };
-        FlameAmmo.prototype.hit = function () {
+        FlameAmmo.prototype.getDamage = function () {
+            this.dmg = 0.5 * this.lazerShooter.holder.dmg;
+            return this.dmg;
         };
         FlameAmmo.prototype.realHit = function () {
             this.lazerShooter.holder.enemy.recieveDamage(0.5 * this.lazerShooter.holder.dmg);

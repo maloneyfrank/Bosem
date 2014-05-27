@@ -36,7 +36,9 @@
             if (this.areaRect.contains(this.lazerShooter.holder.enemy.x, this.lazerShooter.holder.enemy.y))
                 this.realHit();
         }
-        hit() {
+        getDamage() {
+            this.dmg = 0.5 * this.lazerShooter.holder.dmg;
+            return this.dmg;
         }
         realHit() {
             this.lazerShooter.holder.enemy.recieveDamage(0.5 * this.lazerShooter.holder.dmg);

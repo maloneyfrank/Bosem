@@ -25,7 +25,7 @@
             timer.loop(2000, this.setMovement, this);
             timer.start();
 
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO,this.onTeam);
             this.enemy = this.holder.enemy;
 
         }

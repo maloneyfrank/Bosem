@@ -3,6 +3,7 @@
         game: Phaser.Game;
         holder: Player; //copy of player that is holding this item
         spriteBody: Phaser.Physics.Arcade.Body;
+        onTeam: number;
         constructor(game: Phaser.Game, x: number, y: number, key: string) {
             super(game, x, y, key);
             this.game = game;
@@ -10,10 +11,10 @@
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 100;
             this.game.add.existing(this);
-            
         }
         init(holder: Player) {
             this.holder = holder;
+            this.onTeam = holder.onTeam;
             //code to be run only once, when the item is picked up by the player
         }
         effect() {
@@ -23,10 +24,9 @@
         itemUpdate() {
             //called every fram for any continuous effect
         }
-        static newInstance(game: Phaser.Game, x: number, y: number) {
+        hitByBullet(bullet: Ammo) {
 
         }
-       
         static randomItem(game: Phaser.Game, x: number, y: number) {
               var num = Math.floor(Math.random() * 6);
             switch (num) {

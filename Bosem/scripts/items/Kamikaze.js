@@ -17,8 +17,11 @@ var Bosem;
             holder.livesEditable = true;
             holder.enemy.livesEditable = true;
             holder.heldItems.push(this);
-            holder.enemy.die();
-            holder.die();
+
+            var players = Bosem.KillableInGame.getPlayers();
+            for (var i = 0; i < players.length; i++) {
+                Bosem.KillableInGame.killPlayer(players[i]);
+            }
         };
         return Kamikaze;
     })(Bosem.Item);

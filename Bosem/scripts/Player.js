@@ -21,7 +21,7 @@ var Bosem;
             } else if (playerOptions == 3) {
                 _super.call(this, game, x, y, Bosem.ResKeys.player2Sprite);
             }
-            this.id = playerOptions;
+            this.onTeam = playerOptions;
             this.heldItems = [];
             this.effectItems = [];
             this.facingLeft = false;
@@ -45,7 +45,7 @@ var Bosem;
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
 
             //defaults
             this.moveSpeed = 300;
@@ -79,16 +79,16 @@ var Bosem;
                 this.effectItems[i].itemUpdate();
             }
             if (this.hp <= 0 && this.canDie) {
-                this.canDie = false;
-                this.livesEditable = true;
-                this.die();
+                // this.canDie = false;
+                // this.livesEditable = true;
+                //this.die();
             }
             if (!this.inWorld) {
                 this.hp = 0;
             }
             if (this.lives == 0) {
                 var style = { font: '100px Impact', fill: 'Pink' };
-                this.game.add.text(300, 300, "PLAYER " + this.enemy.id + " WINS!", style);
+                this.game.add.text(300, 300, "PLAYER " + this.enemy.onTeam + " WINS!", style);
                 var timer = this.game.time.create(true);
                 timer.loop(5000, this.resetErrything, this);
                 timer.start();
@@ -149,19 +149,9 @@ var Bosem;
             } else
                 this.shields--;
         };
-        Player.prototype.die = function () {
-            /*    if (this.livesEditable)
-            this.lives--;
-            this.livesEditable = false;
-            var that = this;
-            this.kill();
-            setTimeout(function () {
-            that.revive()
-            that.canDie = true;
-            that.position.set(Math.floor(Math.random()*that.game.world.width), 100);
-            that.checkWorldBounds = true;
-            that.hp = 1000;
-            }, 100);*/
+
+        Player.prototype.hitByBullet = function (bullet) {
+            this.recieveDamage(bullet.getDamage());
         };
         return Player;
     })(Phaser.Sprite);

@@ -18,6 +18,7 @@ var Bosem;
         }
         Item.prototype.init = function (holder) {
             this.holder = holder;
+            this.onTeam = holder.onTeam;
             //code to be run only once, when the item is picked up by the player
         };
         Item.prototype.effect = function () {
@@ -27,9 +28,8 @@ var Bosem;
         Item.prototype.itemUpdate = function () {
             //called every fram for any continuous effect
         };
-        Item.newInstance = function (game, x, y) {
+        Item.prototype.hitByBullet = function (bullet) {
         };
-
         Item.randomItem = function (game, x, y) {
             var num = Math.floor(Math.random() * 6);
             switch (num) {

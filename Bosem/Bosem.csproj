@@ -49,6 +49,7 @@
     <TypeScriptCompile Include="scripts\items\Tabasco.ts" />
     <TypeScriptCompile Include="scripts\items\LazerGun.ts" />
     <TypeScriptCompile Include="scripts\KillableInGame.ts" />
+    <TypeScriptCompile Include="scripts\Collidable.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

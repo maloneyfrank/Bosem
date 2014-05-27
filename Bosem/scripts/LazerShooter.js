@@ -1,16 +1,19 @@
 ﻿var Bosem;
 (function (Bosem) {
     var LazerShooter = (function () {
-        function LazerShooter(game, holder, ammoType) {
+        function LazerShooter(game, holder, ammoType, teamNum) {
             this.bullets = [];
             this.game = game;
             this.holder = holder;
             this.canShoot = true;
             this.ammoType = ammoType;
+            this.onTeam = teamNum;
         }
         LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
-                this.bullets.push(Bosem.Ammo.returnAmmoType(this.ammoType, this));
+                var bullet = Bosem.Ammo.returnAmmoType(this.ammoType, this);
+                this.bullets.push(bullet);
+                Bosem.Collidable.addCollidable(bullet);
                 this.bullets[this.bullets.length - 1].checkWorldBounds = true;
                 this.bullets[this.bullets.length - 1].outOfBoundsKill = true;
                 this.canShoot = false;
@@ -27,30 +30,26 @@
         LazerShooter.prototype.changeAmmoType = function (ammoType) {
             this.ammoType = ammoType;
         };
+
         LazerShooter.prototype.update = function () {
+            var collidables = Bosem.Collidable.getCollidables();
+            var breakForLoop = false;
             for (var i = 0; i < this.bullets.length; i++) {
-                //Check Ammo-Player collision
-                if (this.game.physics.arcade.intersects(this.bullets[i].body, this.holder.enemy.spriteBody)) {
-                    this.bullets[i].hit();
-                    this.bullets.splice(i, 1);
-                }
-
-                for (var j = 0; j < this.holder.enemy.lazerShooter.bullets.length; j++) {
-                    if (this.game.physics.arcade.collide(this.bullets[i], this.holder.enemy.lazerShooter.bullets[j])) {
-                        var collisionAnimation = this.game.add.sprite(((this.bullets[i].position.x + this.holder.enemy.lazerShooter.bullets[j].position.x) / 2), this.bullets[i].y, Bosem.ResKeys.collisionSpriteSheet);
-                        collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
-                        collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
-
-                        this.bullets[i].destroy();
-                        this.holder.enemy.lazerShooter.bullets[j].destroy();
-                        setTimeout(function () {
-                            if (collisionAnimation)
-                                collisionAnimation.destroy();
-                        }, 300);
+                for (var j = 0; j < collidables.length; j++) {
+                    if (this.game.physics.arcade.collide(collidables.getAt(j), this.bullets[i])) {
+                        var collidedWith = collidables.getAt(j);
+                        var bullet = this.bullets[i];
+                        collidedWith.hitByBullet(bullet);
+                        this.bullets.splice(i, 1);
+                        Bosem.Collidable.removeCollidable(bullet);
+                        breakForLoop = true;
                     }
+                    if (breakForLoop)
+                        break;
                 }
             }
         };
+
         LazerShooter.prototype.resetShoot = function () {
             this.canShoot = true;
         };

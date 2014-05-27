@@ -3,14 +3,15 @@
         map: Phaser.Tilemap;
         layer: Phaser.TilemapLayer;
         itemsInGame: Phaser.Group;
-
-        kig: KillableInGame;
+        
         players: Player[];
         healthBar1: Phaser.Sprite;
         healthBar2: Phaser.Sprite;
         create() {
             this.game.stage.backgroundColor = '#00BFFF'
-            this.kig = new KillableInGame(this.game, 2);
+           
+            Collidable.init(this.game);
+            KillableInGame.init(this.game, 2);
 
             this.map = this.game.add.tilemap(ResKeys.map1);
             this.map.addTilesetImage('tiles1','tiles1');
@@ -21,7 +22,7 @@
 
             this.itemsInGame = this.game.add.group();
 
-            this.players = this.kig.getPlayers();
+            this.players = KillableInGame.getPlayers();
 
             var timer: Phaser.Timer = this.game.time.create(false);
             timer.loop(5000, this.additem, this);
@@ -44,7 +45,7 @@
                     }
                 }
             }
-            this.kig.update();
+            KillableInGame.update();
            
             this.game.physics.arcade.collide(this.itemsInGame, this.layer);
             this.itemsInGame.forEach(this.itemCheck, this);

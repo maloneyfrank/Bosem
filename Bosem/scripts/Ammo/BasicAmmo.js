@@ -19,6 +19,22 @@ var Bosem;
             this.lazerShooter.holder.enemy.recieveDamage(10 * this.lazerShooter.holder.dmg);
             this.destroy();
         };
+        BasicAmmo.prototype.getDamage = function () {
+            this.dmg = 10 * this.lazerShooter.holder.dmg;
+            return this.dmg;
+        };
+        BasicAmmo.prototype.hitByBullet = function (bullet) {
+            var x = ((this.position.x + bullet.x) / 2);
+            var collisionAnimation = this.game.add.sprite(x, this.y, Bosem.ResKeys.collisionSpriteSheet);
+            collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
+            collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
+
+            setTimeout(function () {
+                if (collisionAnimation)
+                    collisionAnimation.destroy();
+            }, 300);
+            Bosem.Collidable.removeCollidable(this);
+        };
         return BasicAmmo;
     })(Bosem.Ammo);
     Bosem.BasicAmmo = BasicAmmo;

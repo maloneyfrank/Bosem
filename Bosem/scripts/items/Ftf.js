@@ -26,7 +26,7 @@ var Bosem;
             timer.loop(2000, this.setMovement, this);
             timer.start();
 
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO, this.onTeam);
             this.enemy = this.holder.enemy;
         };
         FlamethrowingFish.prototype.itemUpdate = function () {

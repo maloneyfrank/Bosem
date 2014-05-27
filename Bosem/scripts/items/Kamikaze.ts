@@ -9,9 +9,11 @@
             holder.livesEditable = true;
             holder.enemy.livesEditable = true;
             holder.heldItems.push(this);
-            holder.enemy.die();
-            holder.die();
 
+            var players:Player[] = KillableInGame.getPlayers();
+            for (var i = 0; i < players.length; i++) {
+                KillableInGame.killPlayer(players[i]);
+            }
         }
     }
 } 

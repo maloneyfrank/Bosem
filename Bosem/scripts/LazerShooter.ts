@@ -17,18 +17,21 @@
         timer: Phaser.Timer;
         canShoot: boolean;
         ammoType: number;
-        constructor(game: Phaser.Game, holder: any, ammoType:number) {
+        onTeam: number;
+        constructor(game: Phaser.Game, holder: any, ammoType:number,teamNum:number) {
             this.game = game;
             this.holder = holder;
             this.canShoot = true;
             this.ammoType = ammoType;
-
+            this.onTeam = teamNum;
         }
 
         attack() {
 
             if (this.canShoot) {
-                this.bullets.push(Ammo.returnAmmoType(this.ammoType, this));
+                var bullet = Ammo.returnAmmoType(this.ammoType, this)
+                this.bullets.push(bullet);
+                Collidable.addCollidable(bullet);
                this.bullets[this.bullets.length - 1].checkWorldBounds = true
                 this.bullets[this.bullets.length - 1].outOfBoundsKill = true
                 this.canShoot = false;
@@ -45,36 +48,27 @@
         changeAmmoType(ammoType: number) {
             this.ammoType = ammoType;
         }
+      
         update() {
 
+            var collidables: Phaser.Group = Collidable.getCollidables();
+            var breakForLoop: boolean = false; //things being removed from arrays, so this is to stop any errors
             for (var i = 0; i < this.bullets.length; i++) {
-                //Check Ammo-Player collision
-                    if (this.game.physics.arcade.intersects(this.bullets[i].body, this.holder.enemy.spriteBody)) {
-                        this.bullets[i].hit();
+                for (var j = 0; j < collidables.length; j++) {
+                    if (this.game.physics.arcade.collide(collidables.getAt(j), this.bullets[i])) {
+                        var collidedWith = collidables.getAt(j);
+                        var bullet = this.bullets[i];
+                        collidedWith.hitByBullet(bullet);
                         this.bullets.splice(i, 1);
-
+                        Collidable.removeCollidable(bullet);
+                        breakForLoop = true;
                     }
-
-                    //Check Ammo-Ammo Collision
-
-                    for (var j = 0; j < this.holder.enemy.lazerShooter.bullets.length; j++) {
-                        if (this.game.physics.arcade.collide(this.bullets[i], this.holder.enemy.lazerShooter.bullets[j])) {
-                            var collisionAnimation = this.game.add.sprite(((this.bullets[i].position.x + this.holder.enemy.lazerShooter.bullets[j].position.x) / 2), this.bullets[i].y, ResKeys.collisionSpriteSheet);
-                            collisionAnimation.animations.add(ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
-                            collisionAnimation.play(ResKeys.collisionSpriteSheet);
-
-                            this.bullets[i].destroy();
-                            this.holder.enemy.lazerShooter.bullets[j].destroy();
-                            setTimeout(function () { if (collisionAnimation) collisionAnimation.destroy(); }, 300);
-
-                        }
-
-                    }
-
-               
+                    if (breakForLoop) break;
+                }
             }
 
         }
+       
         resetShoot() {
             this.canShoot = true;
         }
