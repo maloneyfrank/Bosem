@@ -41,6 +41,7 @@
         static  killPlayer(player: Player) {
             if (player.canDie) {
                 player.canDie = false;
+                this.locationStuff(player);
                 player.lives--;
                 var killed = player;
                 player.kill();
@@ -55,6 +56,12 @@
                     this);
                 
             }
+        }
+        static locationStuff(player: Player){
+            var x = player.x;
+            var y = player.y;
+            player.position.set(-500, -500);
+            ItemManager.spawnItem(x, y);
         }
 
         //checks to be made

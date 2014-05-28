@@ -24,13 +24,9 @@ var Bosem;
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
             Bosem.Collidable.addCollidable(this.layer);
-            this.itemsInGame = this.game.add.group();
 
             this.players = Bosem.KillableInGame.getPlayers();
-
-            var timer = this.game.time.create(false);
-            timer.loop(5000, this.additem, this);
-            timer.start();
+            Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
 
             this.healthBar1 = this.game.add.sprite(0, 0, Bosem.ResKeys.player1Health);
             this.healthBar1.scale.y = 2;
@@ -49,25 +45,12 @@ var Bosem;
                 }
             }
             Bosem.KillableInGame.update();
-
-            this.game.physics.arcade.collide(this.itemsInGame, this.layer);
-            this.itemsInGame.forEach(this.itemCheck, this);
+            Bosem.ItemManager.update();
+            this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, this.layer);
 
             //should be put in for loop...deal with later in hud
             this.healthBar1.scale.x = this.players[0].hp / 1000;
             this.healthBar2.scale.x = this.players[1].hp / 1000;
-        };
-        Battle.prototype.additem = function () {
-            var x = Math.floor(Math.random() * this.game.world.width);
-            this.itemsInGame.add(Bosem.Item.randomItem(this.game, x, 10));
-        };
-        Battle.prototype.itemCheck = function (item) {
-            for (var i = 0; i < this.players.length; i++) {
-                if (this.game.physics.arcade.collide(item, this.players[i])) {
-                    item.init(this.players[i]);
-                    this.itemsInGame.remove(item);
-                }
-            }
         };
         return Battle;
     })(Phaser.State);
