@@ -2,7 +2,7 @@
     export class FlameAmmo extends Ammo{
 
         constructor(lazerShooter: LazerShooter) {
-            super(ResKeys.flameAmmo, lazerShooter);
+            super(ResKeys.flameAmmo, lazerShooter, this.lazerShooter.holder.y);
             this.animations.add(ResKeys.flameAnim, [0, 1, 2, 3, 4, 5, 6, 7], 10, false);
             var tween: Phaser.Tween;
           

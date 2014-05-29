@@ -9,11 +9,11 @@
         onTeam: number;
         oldX: number;
 
-        constructor(key: string, lazerShooter: LazerShooter) {
+        constructor(key: string, lazerShooter: LazerShooter, y:number) {
             if (lazerShooter.holder.facingLeft)
-                super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y, key);
+                super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, y, key);
             else
-                super(lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, lazerShooter.holder.y, key);
+                super(lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, y, key);
             this.lazerShooter = lazerShooter;
             this.lazerShooter.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.lazerShooter.game.add.existing(this);

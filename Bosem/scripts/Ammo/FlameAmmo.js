@@ -9,7 +9,7 @@ var Bosem;
     var FlameAmmo = (function (_super) {
         __extends(FlameAmmo, _super);
         function FlameAmmo(lazerShooter) {
-            _super.call(this, Bosem.ResKeys.flameAmmo, lazerShooter);
+            _super.call(this, Bosem.ResKeys.flameAmmo, lazerShooter, this.lazerShooter.holder.y);
             this.animations.add(Bosem.ResKeys.flameAnim, [0, 1, 2, 3, 4, 5, 6, 7], 10, false);
             var tween;
 
