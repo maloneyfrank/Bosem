@@ -12,12 +12,6 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.kamikaze);
         }
         Kamikaze.prototype.init = function (holder) {
-            holder.canDie = false;
-            holder.enemy.canDie = false;
-            holder.livesEditable = true;
-            holder.enemy.livesEditable = true;
-            holder.heldItems.push(this);
-
             var players = Bosem.KillableInGame.getPlayers();
             for (var i = 0; i < players.length; i++) {
                 Bosem.KillableInGame.killPlayer(players[i]);

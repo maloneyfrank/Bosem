@@ -21,12 +21,12 @@
             this.spriteBody.acceleration.y = 0;
 
             this.setMovement();
-            var timer = this.game.time.create(false);
-            timer.loop(2000, this.setMovement, this);
-            timer.start();
+            var fishTimer = this.game.time.create(false);
+            fishTimer.loop(2000, this.setMovement, this);
+            fishTimer.start();
 
             this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO,this.onTeam);
-            this.enemy = this.holder.enemy;
+         
 
         }
         itemUpdate() {            

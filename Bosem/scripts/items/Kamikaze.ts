@@ -4,12 +4,6 @@
             super(game, x, y, ResKeys.kamikaze);
         }
         init(holder: Player) {
-            holder.canDie = false;
-            holder.enemy.canDie = false;
-            holder.livesEditable = true;
-            holder.enemy.livesEditable = true;
-            holder.heldItems.push(this);
-
             var players:Player[] = KillableInGame.getPlayers();
             for (var i = 0; i < players.length; i++) {
                 KillableInGame.killPlayer(players[i]);

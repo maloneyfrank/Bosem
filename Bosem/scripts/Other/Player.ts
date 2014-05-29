@@ -25,8 +25,6 @@
         heldItems: Item[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
 
-        //enemy
-        enemy: Player;
         //lazerShooter
         lazerShooter: LazerShooter;
         constructor(game: Phaser.Game, x: number, y: number, playerOptions: number) {
@@ -104,7 +102,7 @@
             }
             if (this.lives == 0) {
                 var style = { font: '100px Impact', fill: 'Pink' };
-                this.game.add.text(300, 300, "PLAYER " + this.enemy.onTeam + " WINS!", style);
+                this.game.add.text(300, 300, "PLAYER " + this.onTeam + " LOSES!", style);
                 var timer = this.game.time.create(true);
                 timer.loop(5000, this.resetErrything, this);
                 timer.start();
@@ -162,9 +160,7 @@
 
 
         }
-        setEnemy(enemy: Player) {
-            this.enemy = enemy;
-        }
+     
         respawn() {
             this.lives--;
         }
