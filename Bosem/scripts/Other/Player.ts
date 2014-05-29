@@ -1,5 +1,5 @@
 ﻿module Bosem {
-    export class Player extends Phaser.Sprite {
+    export class Player extends Phaser.Sprite  implements CanShoot{
         game: Phaser.Game;
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;

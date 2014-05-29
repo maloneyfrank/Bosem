@@ -6,8 +6,7 @@
         Properties holder needs to have:
             facingLeft: boolean - whether the holder is facing left 
             needs to extend sprite
-            damage:number - amount of damage
-            enemy: Player - enemy to hit...needds to be depricated
+            dmg:number - amount of damage
         
         */
 
@@ -18,7 +17,7 @@
         canShoot: boolean;
         ammoType: number;
         onTeam: number;
-        constructor(game: Phaser.Game, holder: any, ammoType:number,teamNum:number) {
+        constructor(game: Phaser.Game, holder: CanShoot, ammoType:number,teamNum:number) {
             this.game = game;
             this.holder = holder;
             this.canShoot = true;

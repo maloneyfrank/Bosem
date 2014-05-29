@@ -51,6 +51,7 @@
     <TypeScriptCompile Include="scripts\Other\KillableInGame.ts" />
     <TypeScriptCompile Include="scripts\Other\Collidable.ts" />
     <TypeScriptCompile Include="scripts\Other\ItemManager.ts" />
+    <TypeScriptCompile Include="scripts\Other\CanShoot.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

@@ -1,13 +1,14 @@
 ﻿module Bosem {
-    export class FlamethrowingFish extends Item {
+    export class FlamethrowingFish extends Item implements CanShoot{
         lazerShooter: LazerShooter;
         toX: number;
         toY: number;
         facingLeft: boolean;
-        enemy: Player;
+        dmg: number;
         hp: number;
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, ResKeys.fishSprite);
+            this.dmg = 5;
             this.animations.add(ResKeys.fishRight, [0, 1, 2, 3, 4, 5, 6, 7,6,5,4,3,2,1], 20, true);
             this.animations.add(ResKeys.fishLeft, [8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9], 20, true);
 
