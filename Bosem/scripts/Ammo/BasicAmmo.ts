@@ -28,5 +28,8 @@
         getAttackSpeed() {
             return this.lazerShooter.holder.attackSpeed;
         }
+        getRange() {
+            return this.lazerShooter.holder.range;
+        }
     }
 } 

@@ -32,5 +32,8 @@
         getAttackSpeed() {
             return 5000;
         }
+        getRange() {
+            return 1000;
+        }
     }
 }

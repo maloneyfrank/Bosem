@@ -3,5 +3,6 @@
         dmg: number;
         facingLeft: boolean;
         attackSpeed: number;
+        range: number;
     }
 }

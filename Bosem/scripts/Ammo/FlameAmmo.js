@@ -34,6 +34,9 @@ var Bosem;
         FlameAmmo.prototype.getAttackSpeed = function () {
             return 5000;
         };
+        FlameAmmo.prototype.getRange = function () {
+            return 1000;
+        };
         return FlameAmmo;
     })(Bosem.Ammo);
     Bosem.FlameAmmo = FlameAmmo;

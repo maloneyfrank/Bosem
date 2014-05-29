@@ -4,6 +4,7 @@
         spriteBody: Phaser.Physics.Arcade.Body;
         static BASIC_AMMO: number = 0;
         static FLAME_AMMO: number = 1;
+        distanceMoved:number;
         dmg: number;
         onTeam: number;
         constructor(key: string, lazerShooter: LazerShooter) {
@@ -16,6 +17,7 @@
             this.lazerShooter.game.add.existing(this);
             this.spriteBody = this.body;
             this.onTeam = lazerShooter.onTeam;
+            this.distanceMoved = 0;
         }
 
         getDamage() {
@@ -36,6 +38,15 @@
         }
         hitByBullet(bullet: Ammo) {
 
+        }
+        getRange() {
+            return 500;
+        }
+        getDistanceMoved() {
+            return this.distanceMoved;
+        }
+        updateDistanceMoved() {
+            this.distanceMoved += this.deltaX;
         }
 
     }

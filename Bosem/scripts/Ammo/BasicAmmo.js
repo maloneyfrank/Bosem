@@ -38,6 +38,9 @@ var Bosem;
         BasicAmmo.prototype.getAttackSpeed = function () {
             return this.lazerShooter.holder.attackSpeed;
         };
+        BasicAmmo.prototype.getRange = function () {
+            return this.lazerShooter.holder.range;
+        };
         return BasicAmmo;
     })(Bosem.Ammo);
     Bosem.BasicAmmo = BasicAmmo;

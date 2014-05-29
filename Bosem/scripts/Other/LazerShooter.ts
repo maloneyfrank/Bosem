@@ -55,10 +55,17 @@
             var collidables: Phaser.Group = Collidable.getCollidables();
             var breakForLoop: boolean = false; //things being removed from arrays, so this is to stop any errors
             for (var i = 0; i < this.bullets.length; i++) {
+                var bullet: Ammo = this.bullets[i];
+                bullet.updateDistanceMoved();
+                if (bullet.getRange() <= bullet.getDistanceMoved()) {
+                    this.bullets.splice(i, 1);
+                    Collidable.removeCollidable(bullet);
+                    breakForLoop = true;
+                }
+                if (breakForLoop) break;
                 for (var j = 0; j < collidables.length; j++) {
-                    if (this.game.physics.arcade.collide(collidables.getAt(j), this.bullets[i])) {
+                    if (this.game.physics.arcade.collide(collidables.getAt(j), bullet)) {
                         var collidedWith = collidables.getAt(j);
-                        var bullet = this.bullets[i];
                         try {
                             collidedWith.hitByBullet(bullet);
                         } catch (err) { }
@@ -67,9 +74,9 @@
                         breakForLoop = true;
                     }
                     if (breakForLoop) break;
-                }
+                }   
             }
-
+           
         }
        
         resetShoot() {

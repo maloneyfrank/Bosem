@@ -6,10 +6,12 @@
         facingLeft: boolean;
         dmg: number;
         hp: number;
+        range: number;
         attackSpeed: number;
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, ResKeys.fishSprite);
             this.dmg = 5;
+            this.range = 1;
             this.attackSpeed = 3500;
             this.animations.add(ResKeys.fishRight, [0, 1, 2, 3, 4, 5, 6, 7,6,5,4,3,2,1], 20, true);
             this.animations.add(ResKeys.fishLeft, [8, 9, 10, 11, 12, 13, 14, 15, 14, 13, 12, 11, 10, 9], 20, true);

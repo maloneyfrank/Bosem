@@ -36,10 +36,18 @@
             var collidables = Bosem.Collidable.getCollidables();
             var breakForLoop = false;
             for (var i = 0; i < this.bullets.length; i++) {
+                var bullet = this.bullets[i];
+                bullet.updateDistanceMoved();
+                if (bullet.getRange() <= bullet.getDistanceMoved()) {
+                    this.bullets.splice(i, 1);
+                    Bosem.Collidable.removeCollidable(bullet);
+                    breakForLoop = true;
+                }
+                if (breakForLoop)
+                    break;
                 for (var j = 0; j < collidables.length; j++) {
-                    if (this.game.physics.arcade.collide(collidables.getAt(j), this.bullets[i])) {
+                    if (this.game.physics.arcade.collide(collidables.getAt(j), bullet)) {
                         var collidedWith = collidables.getAt(j);
-                        var bullet = this.bullets[i];
                         try  {
                             collidedWith.hitByBullet(bullet);
                         } catch (err) {
