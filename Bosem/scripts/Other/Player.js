@@ -45,7 +45,7 @@ var Bosem;
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO, this.onTeam);
 
             //defaults
             this.moveSpeed = 300;
@@ -133,9 +133,7 @@ var Bosem;
                 this.spriteBody.velocity.y = -this.jumpSpeed;
             }
         };
-        Player.prototype.setEnemy = function (enemy) {
-            this.enemy = enemy;
-        };
+
         Player.prototype.respawn = function () {
             this.lives--;
         };

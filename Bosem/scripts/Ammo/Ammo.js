@@ -10,9 +10,9 @@ var Bosem;
         __extends(Ammo, _super);
         function Ammo(key, lazerShooter) {
             if (lazerShooter.holder.facingLeft)
-                _super.call(this, lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y + lazerShooter.holder.height / 2, key);
+                _super.call(this, lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y, key);
             else
-                _super.call(this, lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, lazerShooter.holder.y + lazerShooter.holder.height / 2, key);
+                _super.call(this, lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, lazerShooter.holder.y, key);
             this.lazerShooter = lazerShooter;
             this.lazerShooter.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.lazerShooter.game.add.existing(this);

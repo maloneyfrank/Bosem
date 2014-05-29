@@ -64,7 +64,7 @@
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
-            this.lazerShooter = new LazerShooter(this.game, this,Ammo.BASIC_AMMO,this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this,Ammo.FLAME_AMMO,this.onTeam);
             //defaults
             this.moveSpeed = 300;
             this.jumpSpeed = 500;

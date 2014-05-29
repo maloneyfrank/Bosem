@@ -12,10 +12,6 @@
                 this.teams[i].push(this.players[i]);
                 Bosem.Collidable.addCollidable(this.players[i]);
             }
-
-            //need to get rid of this eventually, make it an array of enemies (or no enemies at all...just deal with allies) but for now, dont want to deal
-            this.players[0].setEnemy(this.players[1]);
-            this.players[1].setEnemy(this.players[0]);
         };
         KillableInGame.addKillable = function (killable, teamNum) {
             this.teams[teamNum].push(killable);

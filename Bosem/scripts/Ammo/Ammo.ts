@@ -7,9 +7,9 @@
         dmg: number;
         constructor(key: string, lazerShooter: LazerShooter) {
             if (lazerShooter.holder.facingLeft)
-                super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y + lazerShooter.holder.height / 2, key);
+                super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y, key);
             else
-                super(lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, lazerShooter.holder.y + lazerShooter.holder.height / 2, key);
+                super(lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, lazerShooter.holder.y, key);
             this.lazerShooter = lazerShooter;
             this.lazerShooter.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.lazerShooter.game.add.existing(this);
