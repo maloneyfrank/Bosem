@@ -1,4 +1,0 @@
-both: first 16
-legs: 16
-arms 16
-jump 12
