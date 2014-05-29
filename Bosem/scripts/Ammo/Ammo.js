@@ -32,6 +32,9 @@ var Bosem;
                 case Ammo.FLAME_AMMO:
                     return new Bosem.FlameAmmo(lazerShooter);
                     break;
+                case Ammo.SNIPER_AMMO:
+                    return new Bosem.SniperAmmo(lazerShooter);
+                    break;
             }
         };
         Ammo.prototype.getAttackSpeed = function () {
@@ -54,8 +57,8 @@ var Bosem;
         };
         Ammo.BASIC_AMMO = 0;
         Ammo.FLAME_AMMO = 1;
+        Ammo.SNIPER_AMMO = 2;
         return Ammo;
     })(Phaser.Sprite);
     Bosem.Ammo = Ammo;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Ammo.js.map

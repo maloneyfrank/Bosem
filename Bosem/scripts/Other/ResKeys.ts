@@ -27,6 +27,7 @@
         static player2Health: string = 'p2Health';
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
+        static sniperAmmo: string = 'sniperAmmo';
 
         //items
         static fishSprite: string='fishSprite';
@@ -37,6 +38,11 @@
         static kamikaze: string = 'kamikazeSprite';
         static tabasco: string = 'tabascoSprite';
         static lazerGun: string = 'lazerGunSprite';
+        static sniperGun: string = 'sniperGun';
+
+        //Menu
+        static menuImage1: string = 'menuImage1';
+        static menuImage2: string = 'menuImage2';
         
     }
 } 

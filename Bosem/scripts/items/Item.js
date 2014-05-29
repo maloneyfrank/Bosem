@@ -19,19 +19,16 @@ var Bosem;
         Item.prototype.init = function (holder) {
             this.holder = holder;
             this.onTeam = holder.onTeam;
-            //code to be run only once, when the item is picked up by the player
         };
         Item.prototype.effect = function () {
-            //to be called whenever this item is activated
         };
 
         Item.prototype.itemUpdate = function () {
-            //called every fram for any continuous effect
         };
         Item.prototype.hitByBullet = function (bullet) {
         };
         Item.randomItem = function (game, x, y) {
-            var num = Math.floor(Math.random() * 6);
+            var num = Math.floor(Math.random() * 7);
             switch (num) {
                 case 0:
                     return new Bosem.Coffee(game, x, y);
@@ -51,6 +48,9 @@ var Bosem;
                 case 5:
                     return new Bosem.LazerGun(game, x, y);
                     break;
+                case 6:
+                    return new Bosem.SniperGun(game, x, y);
+                    break;
             }
             return new Bosem.FlamethrowingFish(game, x, y);
         };
@@ -58,4 +58,3 @@ var Bosem;
     })(Phaser.Sprite);
     Bosem.Item = Item;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Item.js.map

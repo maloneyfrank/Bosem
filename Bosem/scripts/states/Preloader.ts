@@ -25,6 +25,10 @@
             this.game.load.image(Bosem.ResKeys.kamikaze, 'assets/kamikaze.png');
             this.game.load.image(Bosem.ResKeys.tabasco, 'assets/tabasco.png');
             this.game.load.image(ResKeys.lazerGun, 'assets/lasergun.png');
+            this.game.load.image(ResKeys.sniperGun, 'assets/sniperGun.jpg');
+            this.game.load.image(ResKeys.sniperAmmo, 'assets/sniperAmmo.png');
+            this.game.load.image(ResKeys.menuImage1, 'assets/menuImage1.png');
+            this.game.load.image(ResKeys.menuImage2, 'assets/menuImage2.png');
         }
 
         create() {

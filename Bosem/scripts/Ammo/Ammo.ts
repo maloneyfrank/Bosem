@@ -4,6 +4,7 @@
         spriteBody: Phaser.Physics.Arcade.Body;
         static BASIC_AMMO: number = 0;
         static FLAME_AMMO: number = 1;
+        static SNIPER_AMMO: number = 2;
         distanceMoved:number;
         dmg: number;
         onTeam: number;
@@ -34,6 +35,9 @@
                     break;
                 case Ammo.FLAME_AMMO:
                     return new FlameAmmo(lazerShooter);
+                    break;
+                case Ammo.SNIPER_AMMO:
+                    return new SniperAmmo(lazerShooter);
                     break;
             }
         }

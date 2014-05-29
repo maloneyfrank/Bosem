@@ -22,4 +22,3 @@
     })();
     Bosem.Collidable = Collidable;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Collidable.js.map

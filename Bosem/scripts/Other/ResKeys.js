@@ -30,6 +30,7 @@
         ResKeys.player2Health = 'p2Health';
 
         ResKeys.lazerAmmo = 'lazerAmmo';
+        ResKeys.sniperAmmo = 'sniperAmmo';
 
         ResKeys.fishSprite = 'fishSprite';
         ResKeys.cofee = 'coffeeSprite';
@@ -39,8 +40,11 @@
         ResKeys.kamikaze = 'kamikazeSprite';
         ResKeys.tabasco = 'tabascoSprite';
         ResKeys.lazerGun = 'lazerGunSprite';
+        ResKeys.sniperGun = 'sniperGun';
+
+        ResKeys.menuImage1 = 'menuImage1';
+        ResKeys.menuImage2 = 'menuImage2';
         return ResKeys;
     })();
     Bosem.ResKeys = ResKeys;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=ResKeys.js.map

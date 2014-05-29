@@ -8,6 +8,7 @@
                 this.spriteBody.velocity.x = 600;
         }
 
+
         hit() {
             this.lazerShooter.holder.enemy.recieveDamage(10 * this.lazerShooter.holder.dmg);
             this.destroy();

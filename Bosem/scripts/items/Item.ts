@@ -28,7 +28,7 @@
 
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
-              var num = Math.floor(Math.random() * 6);
+              var num = Math.floor(Math.random() * 7);
             switch (num) {
                 case 0:
                     return new Coffee(game, x, y);
@@ -47,6 +47,9 @@
                     break;
                 case 5:
                     return new LazerGun(game, x, y);
+                    break;
+                case 6:
+                    return new SniperGun(game, x, y);
                     break;
             }
             return new FlamethrowingFish(game, x, y);

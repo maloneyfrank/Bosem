@@ -21,4 +21,3 @@ var Bosem;
     })(Bosem.Item);
     Bosem.Coffee = Coffee;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Coffee.js.map

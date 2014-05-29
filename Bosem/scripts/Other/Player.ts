@@ -71,7 +71,7 @@
             this.lives = 5;
             this.hp = 1000;
             this.dmg = 10;
-            this.attackSpeed = 3500;
+            this.attackSpeed = 4500;
             this.shields = 0;
             //player controls
             if (playerOptions == 0) {

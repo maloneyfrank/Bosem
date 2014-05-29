@@ -2,6 +2,7 @@
     export class ItemManager{
         static game: Phaser.Game;
         static type: number; //Keeps track of the type of system that should be running
+        static maxItems: number = 10;
 
         static ON_SPAWN = 1; //will drop item on death of player
         static ON_TIME_INTERVAL: number = 0; //will drop item on interval
@@ -57,7 +58,7 @@
            this.itemsInGame.add(Item.randomItem(this.game, x, 10));
        }
         static spawnItem(x:number, y:number) {
-            if (this.type ==this.ON_SPAWN||this.type == this.ON_TIME_INTERVAL_AND_SPAWN) {
+            if (this.maxItems > this.itemsInGame.length && this.type ==this.ON_SPAWN||this.type == this.ON_TIME_INTERVAL_AND_SPAWN) {
                 this.itemsInGame.add(Item.randomItem(this.game, x, y));
             }
         }

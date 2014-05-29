@@ -22,4 +22,3 @@ var Bosem;
     })(Phaser.State);
     Bosem.Boot = Boot;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Boot.js.map

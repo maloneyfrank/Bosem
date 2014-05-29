@@ -12,11 +12,9 @@ var Bosem;
             _super.apply(this, arguments);
         }
         Preloader.prototype.preload = function () {
-            //  Set-up our preloader sprite
             this.preloadBar = this.add.sprite(this.world.centerX - 200, this.world.centerY - 20, 'preloadBar');
             this.load.setPreloadSprite(this.preloadBar);
 
-            //  Load our actual games assets
             this.load.spritesheet(Bosem.ResKeys.player1Sprite, 'assets/player1.png', 50, 65);
             this.load.spritesheet(Bosem.ResKeys.player2Sprite, 'assets/player2.png', 50, 65);
             this.load.image(Bosem.ResKeys.startButtonSprite, 'assets/startButton.png');
@@ -33,6 +31,10 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.kamikaze, 'assets/kamikaze.png');
             this.game.load.image(Bosem.ResKeys.tabasco, 'assets/tabasco.png');
             this.game.load.image(Bosem.ResKeys.lazerGun, 'assets/lasergun.png');
+            this.game.load.image(Bosem.ResKeys.sniperGun, 'assets/sniperGun.jpg');
+            this.game.load.image(Bosem.ResKeys.sniperAmmo, 'assets/sniperAmmo.png');
+            this.game.load.image(Bosem.ResKeys.menuImage1, 'assets/menuImage1.png');
+            this.game.load.image(Bosem.ResKeys.menuImage2, 'assets/menuImage2.png');
         };
 
         Preloader.prototype.create = function () {
@@ -47,4 +49,3 @@ var Bosem;
     })(Phaser.State);
     Bosem.Preloader = Preloader;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Preloader.js.map
