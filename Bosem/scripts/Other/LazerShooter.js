@@ -8,10 +8,12 @@
             this.canShoot = true;
             this.ammoType = ammoType;
             this.onTeam = teamNum;
+            this.attackSpeed = this.holder.attackSpeed;
         }
         LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
                 var bullet = Bosem.Ammo.returnAmmoType(this.ammoType, this);
+                this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Bosem.Collidable.addCollidable(bullet);
                 this.bullets[this.bullets.length - 1].checkWorldBounds = true;
@@ -21,9 +23,9 @@
             }
         };
         LazerShooter.prototype.timerStuff = function () {
-            if (this.holder.attackSpeed > 5000)
+            if (this.attackSpeed > 5000)
                 this.holder.attackSpeed = 5000;
-            var delay = 5000 - this.holder.attackSpeed;
+            var delay = 5000 - this.attackSpeed;
             this.game.time.events.add(delay, this.resetShoot, this);
         };
         LazerShooter.prototype.changeAmmoType = function (ammoType) {

@@ -172,7 +172,8 @@
         }
 
         hitByBullet(bullet: Ammo) {
-            this.recieveDamage(bullet.getDamage());
+            if(this.onTeam != bullet.onTeam)
+                this.recieveDamage(bullet.getDamage());
         }
 
     }

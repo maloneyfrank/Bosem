@@ -17,29 +17,32 @@
         canShoot: boolean;
         ammoType: number;
         onTeam: number;
+        attackSpeed: number;
         constructor(game: Phaser.Game, holder: CanShoot, ammoType:number,teamNum:number) {
             this.game = game;
             this.holder = holder;
             this.canShoot = true;
             this.ammoType = ammoType;
             this.onTeam = teamNum;
+            this.attackSpeed = this.holder.attackSpeed;
         }
 
         attack() {
 
             if (this.canShoot) {
                 var bullet = Ammo.returnAmmoType(this.ammoType, this)
+                this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Collidable.addCollidable(bullet);
-               this.bullets[this.bullets.length - 1].checkWorldBounds = true
-                this.bullets[this.bullets.length - 1].outOfBoundsKill = true
+                this.bullets[this.bullets.length - 1].checkWorldBounds = true;
+                this.bullets[this.bullets.length - 1].outOfBoundsKill = true;
                 this.canShoot = false;
                 this.timerStuff();
             }
         }
         timerStuff() {
-            if (this.holder.attackSpeed > 5000) this.holder.attackSpeed = 5000;
-            var delay:number = 5000 - this.holder.attackSpeed;
+            if (this.attackSpeed > 5000) this.holder.attackSpeed = 5000;
+            var delay:number = 5000 - this.attackSpeed;
             this.game.time.events.add(delay, this.resetShoot,this);
             
         }

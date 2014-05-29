@@ -23,11 +23,14 @@
        
        
         getDamage() {
-            this.dmg = this.lazerShooter.holder.dmg * 5;
+            this.dmg = this.lazerShooter.holder.dmg * 0.5;
             return this.dmg;
         }
         imOut() {
             this.destroy();
+        }
+        getAttackSpeed() {
+            return 5000;
         }
     }
 }

@@ -145,7 +145,8 @@ var Bosem;
         };
 
         Player.prototype.hitByBullet = function (bullet) {
-            this.recieveDamage(bullet.getDamage());
+            if (this.onTeam != bullet.onTeam)
+                this.recieveDamage(bullet.getDamage());
         };
         return Player;
     })(Phaser.Sprite);

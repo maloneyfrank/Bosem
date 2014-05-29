@@ -17,6 +17,7 @@ var Bosem;
             this.lazerShooter.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.lazerShooter.game.add.existing(this);
             this.spriteBody = this.body;
+            this.onTeam = lazerShooter.onTeam;
         }
         Ammo.prototype.getDamage = function () {
             return this.dmg;
@@ -30,6 +31,9 @@ var Bosem;
                     return new Bosem.FlameAmmo(lazerShooter);
                     break;
             }
+        };
+        Ammo.prototype.getAttackSpeed = function () {
+            return 3500;
         };
         Ammo.prototype.hitByBullet = function (bullet) {
         };

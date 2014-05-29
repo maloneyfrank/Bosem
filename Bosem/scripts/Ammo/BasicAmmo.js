@@ -35,6 +35,9 @@ var Bosem;
             }, 300);
             Bosem.Collidable.removeCollidable(this);
         };
+        BasicAmmo.prototype.getAttackSpeed = function () {
+            return this.lazerShooter.holder.attackSpeed;
+        };
         return BasicAmmo;
     })(Bosem.Ammo);
     Bosem.BasicAmmo = BasicAmmo;
