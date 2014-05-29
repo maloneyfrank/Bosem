@@ -19,6 +19,7 @@ var Bosem;
             this.spriteBody = this.body;
             this.onTeam = lazerShooter.onTeam;
             this.distanceMoved = 0;
+            this.oldX = this.x;
         }
         Ammo.prototype.getDamage = function () {
             return this.dmg;
@@ -45,7 +46,11 @@ var Bosem;
             return this.distanceMoved;
         };
         Ammo.prototype.updateDistanceMoved = function () {
-            this.distanceMoved += this.deltaX;
+            if (this.x > this.oldX)
+                this.distanceMoved += this.x - this.oldX;
+            else
+                this.distanceMoved += this.oldX - this.x;
+            this.oldX = this.x;
         };
         Ammo.BASIC_AMMO = 0;
         Ammo.FLAME_AMMO = 1;

@@ -9,9 +9,9 @@
         static init(game:Phaser.Game, numPlayers :number) {
             this.game = game;
             this.players = [];
-            this.teams = [[numPlayers], [1]];
+            this.teams = [[numPlayers], []];
             for (var i = 0; i < numPlayers; i++) {
-                this.players.push(new Player(this.game, this.game.width - this.game.width / (i + 1), 30, i));
+                this.players.push(new Player(this.game, this.game.width - this.game.width / (i + 1) +1, 30, i));
                 this.teams[i].push(this.players[i]);
                 Collidable.addCollidable(this.players[i]);
             }
@@ -58,7 +58,8 @@
         static locationStuff(player: Player){
             var x = player.x;
             var y = player.y;
-            player.position.set(-500, -500);
+            player.x = -500;
+            player.y = -500;
             ItemManager.spawnItem(x, y);
         }
 

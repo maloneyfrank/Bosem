@@ -34,11 +34,11 @@
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Collidable.addCollidable(bullet);
-                this.bullets[this.bullets.length - 1].checkWorldBounds = true;
-                this.bullets[this.bullets.length - 1].outOfBoundsKill = true;
+                bullet.deltaX = 0;
                 this.canShoot = false;
                 this.timerStuff();
             }
+
         }
         timerStuff() {
             if (this.attackSpeed > 5000) this.holder.attackSpeed = 5000;

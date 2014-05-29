@@ -16,8 +16,7 @@
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Bosem.Collidable.addCollidable(bullet);
-                this.bullets[this.bullets.length - 1].checkWorldBounds = true;
-                this.bullets[this.bullets.length - 1].outOfBoundsKill = true;
+                bullet.deltaX = 0;
                 this.canShoot = false;
                 this.timerStuff();
             }

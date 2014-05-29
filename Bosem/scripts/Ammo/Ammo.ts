@@ -7,6 +7,8 @@
         distanceMoved:number;
         dmg: number;
         onTeam: number;
+        oldX: number;
+
         constructor(key: string, lazerShooter: LazerShooter) {
             if (lazerShooter.holder.facingLeft)
                 super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, lazerShooter.holder.y, key);
@@ -18,6 +20,8 @@
             this.spriteBody = this.body;
             this.onTeam = lazerShooter.onTeam;
             this.distanceMoved = 0;
+            this.oldX = this.x;
+
         }
 
         getDamage() {
@@ -46,7 +50,12 @@
             return this.distanceMoved;
         }
         updateDistanceMoved() {
-            this.distanceMoved += this.deltaX;
+            if (this.x > this.oldX)
+                this.distanceMoved += this.x - this.oldX;
+            else
+                this.distanceMoved += this.oldX - this.x;
+            this.oldX = this.x;
+
         }
 
     }

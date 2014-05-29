@@ -6,9 +6,9 @@
         KillableInGame.init = function (game, numPlayers) {
             this.game = game;
             this.players = [];
-            this.teams = [[numPlayers], [1]];
+            this.teams = [[numPlayers], []];
             for (var i = 0; i < numPlayers; i++) {
-                this.players.push(new Bosem.Player(this.game, this.game.width - this.game.width / (i + 1), 30, i));
+                this.players.push(new Bosem.Player(this.game, this.game.width - this.game.width / (i + 1) + 1, 30, i));
                 this.teams[i].push(this.players[i]);
                 Bosem.Collidable.addCollidable(this.players[i]);
             }
@@ -50,7 +50,8 @@
         KillableInGame.locationStuff = function (player) {
             var x = player.x;
             var y = player.y;
-            player.position.set(-500, -500);
+            player.x = -500;
+            player.y = -500;
             Bosem.ItemManager.spawnItem(x, y);
         };
 
