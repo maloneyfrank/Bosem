@@ -20,9 +20,12 @@ var Bosem;
 
             this.sprite2 = this.game.add.image(this.game.world.centerX, -50, Bosem.ResKeys.menuImage2);
 
+            // Set origin to the center to make the rotation look better.
             this.sprite2.anchor.setTo(0.5, 0.5);
 
+            // Add a simple bounce tween to each character's position.
             tween = this.game.add.tween(this.sprite2).to({ y: 500 }, 2400, Phaser.Easing.Bounce.Out, true);
+            // this.game.state.start(ResKeys.battleState);
         };
 
         Menu.prototype.update = function () {
@@ -34,3 +37,4 @@ var Bosem;
     })(Phaser.State);
     Bosem.Menu = Menu;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Menu.js.map

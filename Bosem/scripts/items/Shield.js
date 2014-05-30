@@ -22,3 +22,4 @@ var Bosem;
     })(Bosem.Item);
     Bosem.Shield = Shield;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Shield.js.map

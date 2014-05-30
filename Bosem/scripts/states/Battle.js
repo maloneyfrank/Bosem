@@ -28,15 +28,14 @@ var Bosem;
             this.players = Bosem.KillableInGame.getPlayers();
             Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
 
-            this.healthBar1 = this.game.add.sprite(0, 0, Bosem.ResKeys.player1Health);
-            this.healthBar1.scale.y = 2;
-            this.healthBar2 = this.game.add.sprite(512, 0, Bosem.ResKeys.player2Health);
-            this.healthBar2.scale.y = 2;
+            Bosem.HUD.init(this.game);
         };
         Battle.prototype.update = function () {
             for (var i = 0; i < this.players.length; i++) {
+                //check for collision with map
                 this.game.physics.arcade.collide(this.players[i], this.layer);
                 for (var j = 0; j < this.players.length; j++) {
+                    //check for cillsion with other players
                     if (j != i) {
                         this.game.physics.arcade.collide(this.players[i], this.players[j]);
                     }
@@ -45,11 +44,10 @@ var Bosem;
             Bosem.KillableInGame.update();
             Bosem.ItemManager.update();
             this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, this.layer);
-
-            this.healthBar1.scale.x = this.players[0].hp / 1000;
-            this.healthBar2.scale.x = this.players[1].hp / 1000;
+            Bosem.HUD.dispayHealth();
         };
         return Battle;
     })(Phaser.State);
     Bosem.Battle = Battle;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Battle.js.map

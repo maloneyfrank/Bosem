@@ -61,3 +61,4 @@ var Bosem;
     })(Bosem.Item);
     Bosem.FlamethrowingFish = FlamethrowingFish;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Ftf.js.map

@@ -41,3 +41,4 @@ var Bosem;
     })(Bosem.Ammo);
     Bosem.FlameAmmo = FlameAmmo;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=FlameAmmo.js.map

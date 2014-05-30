@@ -45,3 +45,4 @@ var Bosem;
     })(Bosem.Ammo);
     Bosem.BasicAmmo = BasicAmmo;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=BasicAmmo.js.map

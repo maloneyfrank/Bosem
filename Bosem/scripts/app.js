@@ -4,6 +4,7 @@
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+///<reference path="res/phaser.d.ts" />
 var Bosem;
 (function (Bosem) {
     var Game = (function (_super) {
@@ -23,3 +24,4 @@ var Bosem;
         var game = new Game();
     };
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=app.js.map

@@ -22,12 +22,9 @@
 
             this.players = KillableInGame.getPlayers();
             ItemManager.init(this.game, ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
-            
 
-            this.healthBar1 = this.game.add.sprite(0, 0, ResKeys.player1Health);
-            this.healthBar1.scale.y = 2;
-            this.healthBar2 = this.game.add.sprite(512, 0, ResKeys.player2Health);
-            this.healthBar2.scale.y = 2;
+            HUD.init(this.game);
+    
             
         }
         update() {
@@ -44,11 +41,7 @@
             KillableInGame.update();
             ItemManager.update();
             this.game.physics.arcade.collide(ItemManager.itemsInGame, this.layer);
-            
-
-            //should be put in for loop...deal with later in hud
-            this.healthBar1.scale.x = this.players[0].hp / 1000;
-            this.healthBar2.scale.x = this.players[1].hp / 1000;
+            HUD.dispayHealth();
 
         }
         

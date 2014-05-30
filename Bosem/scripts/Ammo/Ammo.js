@@ -62,3 +62,4 @@ var Bosem;
     })(Phaser.Sprite);
     Bosem.Ammo = Ammo;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Ammo.js.map

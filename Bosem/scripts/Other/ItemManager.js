@@ -45,14 +45,17 @@
 
         ItemManager.onTimeInterval = function () {
             var x = Math.floor(Math.random() * this.game.world.width);
-            this.itemsInGame.add(Bosem.Item.randomItem(this.game, x, 10));
+            if (this.itemsInGame.length < ItemManager.maxItems) {
+                this.itemsInGame.add(Bosem.Item.randomItem(this.game, x, 10));
+            }
         };
+
         ItemManager.spawnItem = function (x, y) {
-            if (this.maxItems > this.itemsInGame.length && this.type == this.ON_SPAWN || this.type == this.ON_TIME_INTERVAL_AND_SPAWN) {
+            if (this.itemsInGame.length < ItemManager.maxItems && (this.type == this.ON_SPAWN || this.type == this.ON_TIME_INTERVAL_AND_SPAWN)) {
                 this.itemsInGame.add(Bosem.Item.randomItem(this.game, x, y));
             }
         };
-        ItemManager.maxItems = 10;
+        ItemManager.maxItems = 5;
 
         ItemManager.ON_SPAWN = 1;
         ItemManager.ON_TIME_INTERVAL = 0;
@@ -63,3 +66,4 @@
     })();
     Bosem.ItemManager = ItemManager;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=ItemManager.js.map

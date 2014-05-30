@@ -19,3 +19,4 @@ var Bosem;
     })(Bosem.Item);
     Bosem.Tabasco = Tabasco;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Tabasco.js.map

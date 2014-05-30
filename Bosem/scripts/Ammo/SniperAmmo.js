@@ -45,3 +45,4 @@ var Bosem;
     })(Bosem.Ammo);
     Bosem.SniperAmmo = SniperAmmo;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=SniperAmmo.js.map

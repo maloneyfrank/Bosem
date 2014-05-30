@@ -68,3 +68,4 @@
     })();
     Bosem.LazerShooter = LazerShooter;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=LazerShooter.js.map
