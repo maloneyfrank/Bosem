@@ -21,8 +21,8 @@
             Collidable.addCollidable(this.layer);
 
             this.players = KillableInGame.getPlayers();
+             
             ItemManager.init(this.game, ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
-
             HUD.init(this.game);
     
             
@@ -41,7 +41,7 @@
             KillableInGame.update();
             ItemManager.update();
             this.game.physics.arcade.collide(ItemManager.itemsInGame, this.layer);
-            HUD.dispayHealth();
+            HUD.displayHud();
 
         }
         

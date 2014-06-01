@@ -26,8 +26,8 @@ var Bosem;
             Bosem.Collidable.addCollidable(this.layer);
 
             this.players = Bosem.KillableInGame.getPlayers();
-            Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
 
+            Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
             Bosem.HUD.init(this.game);
         };
         Battle.prototype.update = function () {
@@ -44,7 +44,7 @@ var Bosem;
             Bosem.KillableInGame.update();
             Bosem.ItemManager.update();
             this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, this.layer);
-            Bosem.HUD.dispayHealth();
+            Bosem.HUD.displayHud();
         };
         return Battle;
     })(Phaser.State);

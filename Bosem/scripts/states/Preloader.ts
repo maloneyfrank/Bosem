@@ -29,6 +29,8 @@
             this.game.load.image(ResKeys.sniperAmmo, 'assets/sniperAmmo.png');
             this.game.load.image(ResKeys.menuImage1, 'assets/menuImage1.png');
             this.game.load.image(ResKeys.menuImage2, 'assets/menuImage2.png');
+            this.game.load.image(ResKeys.heartPic, 'assets/heart.png');
+            this.game.load.image(ResKeys.heartFill, 'assets/heartfill.png');
         }
 
         create() {

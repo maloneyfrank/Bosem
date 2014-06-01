@@ -5,15 +5,43 @@
         }
         HUD.init = function (game) {
             this.game = game;
-            this.healthBar1 = this.game.add.sprite(0, 0, Bosem.ResKeys.player1Health);
-            this.healthBar1.scale.y = 2;
-            this.healthBar2 = this.game.add.sprite(512, 0, Bosem.ResKeys.player2Health);
-            this.healthBar2.scale.y = 2;
+
+            this.healthHearts = [];
+            this.heartFills = [];
+
+            for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                this.healthHearts.push(new Array());
+                this.heartFills.push(new Array());
+                for (var j = 0; j < Bosem.KillableInGame.players[i].lives; j++) {
+                    if (i == 0) {
+                        this.heartFills[i].push(new Phaser.Sprite(this.game, j * 60, 0, Bosem.ResKeys.heartFill));
+                        this.healthHearts[i].push(new Phaser.Sprite(this.game, j * 60, 0, Bosem.ResKeys.heartPic));
+                    }
+                    if (i == 1) {
+                        this.heartFills[i].push(new Phaser.Sprite(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartFill));
+                        this.healthHearts[i].push(new Phaser.Sprite(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartPic));
+                    }
+                    this.game.add.existing(this.healthHearts[i][j]);
+                    this.game.add.existing(this.heartFills[i][j]);
+                }
+            }
         };
 
+        HUD.displayHud = function () {
+            this.dispayHealth();
+        };
         HUD.dispayHealth = function () {
-            this.healthBar1.scale.x = Bosem.KillableInGame.players[0].hp / 1000;
-            this.healthBar2.scale.x = Bosem.KillableInGame.players[1].hp / 1000;
+            for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                if (this.healthHearts[i].length > Bosem.KillableInGame.players[i].lives) {
+                    this.healthHearts[i][this.healthHearts[i].length - 1].destroy();
+                    this.heartFills[i][this.heartFills[i].length - 1].destroy();
+
+                    this.healthHearts[i].splice(this.healthHearts.length[i] - 1, 1);
+                    this.heartFills[i].splice(this.heartFills.length[i] - 1, 1);
+                }
+                this.heartFills[i][this.heartFills[i].length - 1].height = 56 * Bosem.KillableInGame.players[i].hp / 1000;
+                this.heartFills[i][this.heartFills[i].length - 1].position.y = 56 - this.heartFills[i][this.heartFills[i].length - 1].height;
+            }
         };
         return HUD;
     })();

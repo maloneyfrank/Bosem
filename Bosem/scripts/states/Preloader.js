@@ -37,6 +37,8 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.sniperAmmo, 'assets/sniperAmmo.png');
             this.game.load.image(Bosem.ResKeys.menuImage1, 'assets/menuImage1.png');
             this.game.load.image(Bosem.ResKeys.menuImage2, 'assets/menuImage2.png');
+            this.game.load.image(Bosem.ResKeys.heartPic, 'assets/heart.png');
+            this.game.load.image(Bosem.ResKeys.heartFill, 'assets/heartfill.png');
         };
 
         Preloader.prototype.create = function () {

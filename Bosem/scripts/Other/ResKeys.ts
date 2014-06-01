@@ -25,6 +25,8 @@
         static flameAnim: string = 'flameAnim';
         static player1Health: string = 'p1Health';
         static player2Health: string = 'p2Health';
+        static heartPic: string = 'heartPic';
+        static heartFill: string = 'heartFill';
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';

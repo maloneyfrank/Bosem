@@ -28,6 +28,8 @@
         ResKeys.flameAnim = 'flameAnim';
         ResKeys.player1Health = 'p1Health';
         ResKeys.player2Health = 'p2Health';
+        ResKeys.heartPic = 'heartPic';
+        ResKeys.heartFill = 'heartFill';
 
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';

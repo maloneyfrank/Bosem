@@ -20,6 +20,8 @@
     <Content Include="app.css" />
     <Content Include="assets\blueHealth.png" />
     <Content Include="assets\flame.png" />
+    <Content Include="assets\heart.png" />
+    <Content Include="assets\heartfill.png" />
     <Content Include="assets\kamikaze.png" />
     <Content Include="assets\lasergun.png" />
     <Content Include="assets\menuImage1.png" />
@@ -67,7 +69,6 @@
     <TypeScriptCompile Include="scripts\Other\LazerShooter.ts" />
     <TypeScriptCompile Include="scripts\states\Menu.ts" />
     <TypeScriptCompile Include="scripts\states\Preloader.ts" />
-    <TypeScriptCompile Include="scripts\states\file1.ts" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
