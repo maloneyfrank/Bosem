@@ -12,6 +12,7 @@
             Collidable.init(this.game);
             KillableInGame.init(this.game, 2);
 
+            HUD.init(this.game);
             this.map = this.game.add.tilemap(ResKeys.map1);
             this.map.addTilesetImage('tiles1','tiles1');
             this.map.setCollisionByExclusion([]);
@@ -23,7 +24,6 @@
             this.players = KillableInGame.getPlayers();
              
             ItemManager.init(this.game, ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
-            HUD.init(this.game);
     
             
         }

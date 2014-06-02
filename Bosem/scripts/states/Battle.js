@@ -17,6 +17,7 @@ var Bosem;
             Bosem.Collidable.init(this.game);
             Bosem.KillableInGame.init(this.game, 2);
 
+            Bosem.HUD.init(this.game);
             this.map = this.game.add.tilemap(Bosem.ResKeys.map1);
             this.map.addTilesetImage('tiles1', 'tiles1');
             this.map.setCollisionByExclusion([]);
@@ -28,7 +29,6 @@ var Bosem;
             this.players = Bosem.KillableInGame.getPlayers();
 
             Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
-            Bosem.HUD.init(this.game);
         };
         Battle.prototype.update = function () {
             for (var i = 0; i < this.players.length; i++) {

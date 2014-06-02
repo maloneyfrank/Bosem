@@ -14,14 +14,28 @@
                 this.healthHearts.push(new Array());
                 this.heartFills.push(new Array());
                 this.cropRects.push(new Phaser.Rectangle(0, 0, 0, 0));
+
                 for (var j = 0; j < Bosem.KillableInGame.players[i].lives; j++) {
-                    if (i == 0) {
-                        this.heartFills[i].push(new Phaser.Image(this.game, j * 60, 0, Bosem.ResKeys.heartFill, 0));
-                        this.healthHearts[i].push(new Phaser.Image(this.game, j * 60, 0, Bosem.ResKeys.heartPic, 0));
-                    }
-                    if (i == 1) {
-                        this.heartFills[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartFill, 0));
-                        this.healthHearts[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartPic, 0));
+                    if (j == Bosem.KillableInGame.players[i].lives - 1) {
+                        //loads the different heart image that can be cropped for the last one
+                        if (i == 0) {
+                            this.heartFills[i].push(new Phaser.Image(this.game, j * 60, 0, 'heartFill' + i, 0));
+                            this.healthHearts[i].push(new Phaser.Image(this.game, j * 60, 0, Bosem.ResKeys.heartPic, 0));
+                        }
+                        if (i == 1) {
+                            this.heartFills[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, 'heartFill' + i, 0));
+                            this.healthHearts[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartPic, 0));
+                        }
+                    } else {
+                        //loads uncroppable image
+                        if (i == 0) {
+                            this.heartFills[i].push(new Phaser.Image(this.game, j * 60, 0, Bosem.ResKeys.heartFill, 0));
+                            this.healthHearts[i].push(new Phaser.Image(this.game, j * 60, 0, Bosem.ResKeys.heartPic, 0));
+                        }
+                        if (i == 1) {
+                            this.heartFills[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartFill, 0));
+                            this.healthHearts[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartPic, 0));
+                        }
                     }
                     this.game.add.existing(this.healthHearts[i][j]);
                     this.game.add.existing(this.heartFills[i][j]);
@@ -40,11 +54,18 @@
 
                     this.healthHearts[i].pop();
                     this.heartFills[i].pop();
+                    var position = this.heartFills[i][this.heartFills[i].length - 1].position;
+                    this.heartFills[i][this.heartFills[i].length - 1].destroy();
+                    this.heartFills[i][this.heartFills[i].length - 1] = this.game.add.image(position.x, position.y, 'heartFill' + i);
+                    this.heartFills[i][this.heartFills[i].length - 1].crop(null);
                 }
                 var currentHeart = this.heartFills[i][this.heartFills[i].length - 1];
-                this.cropRects[i] = new Phaser.Rectangle(currentHeart.x, currentHeart.y, currentHeart.width - 10, currentHeart.height - 10);
+                var height = 55 * Bosem.KillableInGame.players[i].hp / 1000;
+
+                //56 is height of picture
+                this.cropRects[i] = new Phaser.Rectangle(0, 56 - height, currentHeart.width, height);
+                currentHeart.crop(null);
                 currentHeart.crop(this.cropRects[i]);
-                currentHeart.position.y = 56 - currentHeart.height;
             }
         };
         return HUD;
