@@ -42,12 +42,13 @@
                     this.healthHearts[i][this.healthHearts[i].length - 1].destroy();
                     this.heartFills[i][this.heartFills[i].length - 1].destroy();
 
-                    this.healthHearts[i].splice(this.healthHearts.length[i] - 1, 1);
-                    this.heartFills[i].splice(this.heartFills.length[i] - 1, 1);
+                    this.healthHearts[i].pop();
+                    this.heartFills[i].pop();
                 }
-                this.heartFills[i][this.heartFills[i].length - 1].height = 56 * KillableInGame.players[i].hp / 1000;
-                this.heartFills[i][this.heartFills[i].length - 1].position.y = 56 - this.heartFills[i][this.heartFills[i].length - 1].height;
-                
+                var currentHeart: Phaser.Sprite = this.heartFills[i][this.heartFills[i].length - 1];
+                currentHeart.height = 56 * KillableInGame.players[i].hp / 1000;
+                currentHeart.position.y = 56 - currentHeart.height;
+             
             }
 
         }
