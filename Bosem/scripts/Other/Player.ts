@@ -88,7 +88,6 @@
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-
             this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
         }
         
@@ -99,9 +98,7 @@
                 this.effectItems[i].itemUpdate();
             }
            
-            if (!this.inWorld) {
-                this.hp = 0;
-            }
+
             if (this.lives == 0) {
                 var style = { font: '100px Impact', fill: 'Pink' };
                 this.game.add.text(300, 300, "PLAYER " + this.onTeam + " LOSES!", style);
@@ -120,31 +117,40 @@
             this.spriteBody.velocity.x = 0;
 
             if (this.moveRight.isDown && this.attackKey.isDown) {
-
+                if(this.x + this.width < this.game.camera.x + this.game.camera.width)
+                     this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
-                this.spriteBody.velocity.x = this.moveSpeed;
                 this.animations.play(ResKeys.movingRightAttackAnimation);
                 this.lazerShooter.attack();
-            } else if (this.moveRight.isDown) {
+            }
+            else if (this.moveRight.isDown) {
+                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                     this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
-                this.spriteBody.velocity.x = this.moveSpeed;
                 this.animations.play(ResKeys.movingRight);
-            } else if (this.moveLeft.isDown && this.attackKey.isDown) {
+            }
+            else if (this.moveLeft.isDown && this.attackKey.isDown) {
+                if(this.x > this.game.camera.x)
+                     this.spriteBody.velocity.x = -this.moveSpeed;
                 this.facingLeft = true;
                 this.animations.play(ResKeys.movingLeftAttackAnimation);
-                this.spriteBody.velocity.x = -this.moveSpeed;
                 this.lazerShooter.attack();
-            } else if (this.moveLeft.isDown) {
+            }
+            else if (this.moveLeft.isDown) {
+                if (this.x > this.game.camera.x)
+                    this.spriteBody.velocity.x = -this.moveSpeed;
                 this.facingLeft = true;
                 this.animations.play(ResKeys.movingLeft);
-                this.spriteBody.velocity.x = -this.moveSpeed;
-            } else if (this.attackKey.isDown && this.facingLeft == false) {
+            }
+            else if (this.attackKey.isDown && this.facingLeft == false) {
                 this.animations.play(ResKeys.stillAttackRight);
                 this.lazerShooter.attack();
-            } else if (this.attackKey.isDown && this.facingLeft) {
+            }
+            else if (this.attackKey.isDown && this.facingLeft) {
                 this.lazerShooter.attack();
                 this.animations.play(ResKeys.stillAttackLeft);
-            } else {
+            }
+            else {
                 if (this.facingLeft) {
                     this.animations.play(ResKeys.stillLeftAnimation);
                 } else {

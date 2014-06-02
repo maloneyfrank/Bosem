@@ -2,14 +2,7 @@
     export class LazerShooter {
         game: Phaser.Game;
 
-        /*
-        Properties holder needs to have:
-            facingLeft: boolean - whether the holder is facing left 
-            needs to extend sprite
-            dmg:number - amount of damage
-        
-        */
-
+    
 
         holder: any; // copy of holder 
         bullets = [];

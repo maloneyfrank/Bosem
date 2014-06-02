@@ -70,7 +70,6 @@ var Bosem;
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-
             this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
         }
         Player.prototype.update = function () {
@@ -80,9 +79,6 @@ var Bosem;
                 this.effectItems[i].itemUpdate();
             }
 
-            if (!this.inWorld) {
-                this.hp = 0;
-            }
             if (this.lives == 0) {
                 var style = { font: '100px Impact', fill: 'Pink' };
                 this.game.add.text(300, 300, "PLAYER " + this.onTeam + " LOSES!", style);
@@ -99,23 +95,27 @@ var Bosem;
             this.spriteBody.velocity.x = 0;
 
             if (this.moveRight.isDown && this.attackKey.isDown) {
+                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                    this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
-                this.spriteBody.velocity.x = this.moveSpeed;
                 this.animations.play(Bosem.ResKeys.movingRightAttackAnimation);
                 this.lazerShooter.attack();
             } else if (this.moveRight.isDown) {
+                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                    this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
-                this.spriteBody.velocity.x = this.moveSpeed;
                 this.animations.play(Bosem.ResKeys.movingRight);
             } else if (this.moveLeft.isDown && this.attackKey.isDown) {
+                if (this.x > this.game.camera.x)
+                    this.spriteBody.velocity.x = -this.moveSpeed;
                 this.facingLeft = true;
                 this.animations.play(Bosem.ResKeys.movingLeftAttackAnimation);
-                this.spriteBody.velocity.x = -this.moveSpeed;
                 this.lazerShooter.attack();
             } else if (this.moveLeft.isDown) {
+                if (this.x > this.game.camera.x)
+                    this.spriteBody.velocity.x = -this.moveSpeed;
                 this.facingLeft = true;
                 this.animations.play(Bosem.ResKeys.movingLeft);
-                this.spriteBody.velocity.x = -this.moveSpeed;
             } else if (this.attackKey.isDown && this.facingLeft == false) {
                 this.animations.play(Bosem.ResKeys.stillAttackRight);
                 this.lazerShooter.attack();

@@ -13,10 +13,8 @@ var Bosem;
         }
         Battle.prototype.create = function () {
             this.game.stage.backgroundColor = '#00BFFF';
-
             Bosem.Collidable.init(this.game);
             Bosem.KillableInGame.init(this.game, 2);
-
             Bosem.HUD.init(this.game);
             this.map = this.game.add.tilemap(Bosem.ResKeys.map1);
             this.map.addTilesetImage('tiles1', 'tiles1');
@@ -27,9 +25,10 @@ var Bosem;
             Bosem.Collidable.addCollidable(this.layer);
 
             this.players = Bosem.KillableInGame.getPlayers();
-
+            Bosem.Camera.init(this.game);
             Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
         };
+
         Battle.prototype.update = function () {
             for (var i = 0; i < this.players.length; i++) {
                 //check for collision with map
@@ -45,6 +44,7 @@ var Bosem;
             Bosem.ItemManager.update();
             this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, this.layer);
             Bosem.HUD.displayHud();
+            Bosem.Camera.update();
         };
         return Battle;
     })(Phaser.State);

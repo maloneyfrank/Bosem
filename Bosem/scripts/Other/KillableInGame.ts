@@ -11,7 +11,8 @@
             this.players = [];
             this.teams = [[numPlayers], []];
             for (var i = 0; i < numPlayers; i++) {
-                this.players.push(new Player(this.game, this.game.width - this.game.width / (i + 1) +1, 30, i));
+                var xLoc: number = 300 + 60 * i;
+                this.players.push(new Player(this.game,xLoc, 30, i));
                 this.teams[i].push(this.players[i]);
                 Collidable.addCollidable(this.players[i]);
             }

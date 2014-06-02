@@ -9,12 +9,8 @@
 
         }
 
-        hit() {
-            this.lazerShooter.holder.enemy.recieveDamage(30 * this.lazerShooter.holder.dmg);
-            this.destroy();
-        }
         getDamage() {
-            this.dmg = 30 * this.lazerShooter.holder.dmg;
+            this.dmg = 50 * this.lazerShooter.holder.dmg;
             return this.dmg;
         }
         hitByBullet(bullet: Ammo) {

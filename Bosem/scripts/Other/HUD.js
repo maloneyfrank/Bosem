@@ -14,7 +14,6 @@
                 this.healthHearts.push(new Array());
                 this.heartFills.push(new Array());
                 this.cropRects.push(new Phaser.Rectangle(0, 0, 0, 0));
-
                 for (var j = 0; j < Bosem.KillableInGame.players[i].lives; j++) {
                     if (j == Bosem.KillableInGame.players[i].lives - 1) {
                         //loads the different heart image that can be cropped for the last one
@@ -37,6 +36,8 @@
                             this.healthHearts[i].push(new Phaser.Image(this.game, this.game.width - ((j + 1) * 60), 0, Bosem.ResKeys.heartPic, 0));
                         }
                     }
+                    this.healthHearts[i][j].fixedToCamera = true;
+                    this.heartFills[i][j].fixedToCamera = true;
                     this.game.add.existing(this.healthHearts[i][j]);
                     this.game.add.existing(this.heartFills[i][j]);
                 }
@@ -63,7 +64,7 @@
                 var height = 55 * Bosem.KillableInGame.players[i].hp / 1000;
 
                 //56 is height of picture
-                this.cropRects[i] = new Phaser.Rectangle(0, 56 - height, currentHeart.width, height);
+                this.cropRects[i] = new Phaser.Rectangle(0, 0, currentHeart.width, height);
                 currentHeart.crop(null);
                 currentHeart.crop(this.cropRects[i]);
             }

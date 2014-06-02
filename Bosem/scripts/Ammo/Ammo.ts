@@ -14,7 +14,7 @@
             if (lazerShooter.holder.facingLeft)
                 super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, y, key);
             else
-                super(lazerShooter.game, lazerShooter.holder.x + 3 + lazerShooter.holder.width, y, key);
+                super(lazerShooter.game, lazerShooter.holder.x+ lazerShooter.holder.width, y, key);
             this.lazerShooter = lazerShooter;
             this.lazerShooter.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.lazerShooter.game.add.existing(this);

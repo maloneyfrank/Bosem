@@ -9,10 +9,7 @@
         }
 
 
-        hit() {
-            this.lazerShooter.holder.enemy.recieveDamage(10 * this.lazerShooter.holder.dmg);
-            this.destroy();
-        }
+        
         getDamage() {
             this.dmg = 10 * this.lazerShooter.holder.dmg;
             return this.dmg;

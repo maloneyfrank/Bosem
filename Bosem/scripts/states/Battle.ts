@@ -7,11 +7,9 @@
         healthBar1: Phaser.Sprite;
         healthBar2: Phaser.Sprite;
         create() {
-            this.game.stage.backgroundColor = '#00BFFF'
-           
+            this.game.stage.backgroundColor = '#00BFFF';
             Collidable.init(this.game);
             KillableInGame.init(this.game, 2);
-
             HUD.init(this.game);
             this.map = this.game.add.tilemap(ResKeys.map1);
             this.map.addTilesetImage('tiles1','tiles1');
@@ -20,14 +18,16 @@
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
             Collidable.addCollidable(this.layer);
-
+            
             this.players = KillableInGame.getPlayers();
-             
+            Camera.init(this.game);
             ItemManager.init(this.game, ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
     
             
         }
+
         update() {
+            
             for (var i = 0; i < this.players.length; i++) {
                 //check for collision with map
                 this.game.physics.arcade.collide(this.players[i], this.layer);
@@ -42,7 +42,7 @@
             ItemManager.update();
             this.game.physics.arcade.collide(ItemManager.itemsInGame, this.layer);
             HUD.displayHud();
-
+            Camera.update();
         }
         
         

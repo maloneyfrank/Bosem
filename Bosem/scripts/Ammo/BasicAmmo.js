@@ -15,10 +15,6 @@ var Bosem;
             else
                 this.spriteBody.velocity.x = 600;
         }
-        BasicAmmo.prototype.hit = function () {
-            this.lazerShooter.holder.enemy.recieveDamage(10 * this.lazerShooter.holder.dmg);
-            this.destroy();
-        };
         BasicAmmo.prototype.getDamage = function () {
             this.dmg = 10 * this.lazerShooter.holder.dmg;
             return this.dmg;

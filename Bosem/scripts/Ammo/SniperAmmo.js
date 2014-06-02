@@ -15,12 +15,8 @@ var Bosem;
             else
                 this.spriteBody.velocity.x = 1500;
         }
-        SniperAmmo.prototype.hit = function () {
-            this.lazerShooter.holder.enemy.recieveDamage(30 * this.lazerShooter.holder.dmg);
-            this.destroy();
-        };
         SniperAmmo.prototype.getDamage = function () {
-            this.dmg = 30 * this.lazerShooter.holder.dmg;
+            this.dmg = 50 * this.lazerShooter.holder.dmg;
             return this.dmg;
         };
         SniperAmmo.prototype.hitByBullet = function (bullet) {
