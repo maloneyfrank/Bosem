@@ -67,6 +67,7 @@
                     this.heartFills[i][this.heartFills[i].length - 1].destroy();
                     this.heartFills[i][this.heartFills[i].length - 1] = this.game.add.image(position.x, position.y, 'heartFill' + i);
                     this.heartFills[i][this.heartFills[i].length - 1].crop(null);
+                    this.heartFills[i][this.heartFills[i].length - 1].fixedToCamera = true;
                 }
                 var currentHeart: Phaser.Image = this.heartFills[i][this.heartFills[i].length - 1];
                 var height: number = 55 * KillableInGame.players[i].hp / 1000;
