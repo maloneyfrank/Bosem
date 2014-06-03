@@ -1,5 +1,6 @@
 ﻿module Bosem {
     export class Collidable {
+        //maybe we should add a noBodyColidables so we could intersects?
       static  collidables: Phaser.Group;
         static  game: Phaser.Game;
        
