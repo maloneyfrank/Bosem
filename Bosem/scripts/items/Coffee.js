@@ -17,6 +17,7 @@ var Bosem;
             holder.jumpSpeed += 100;
             holder.spriteBody.gravity.y += 50;
         };
+        Coffee.dropRate = 100;
         return Coffee;
     })(Bosem.Item);
     Bosem.Coffee = Coffee;

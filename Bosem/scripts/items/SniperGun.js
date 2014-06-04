@@ -15,6 +15,7 @@ var Bosem;
             holder.heldItems.push(this);
             holder.lazerShooter.ammoType = Bosem.Ammo.SNIPER_AMMO;
         };
+        SniperGun.dropRate = 50;
         return SniperGun;
     })(Bosem.Item);
     Bosem.SniperGun = SniperGun;

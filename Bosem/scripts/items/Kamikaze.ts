@@ -1,5 +1,6 @@
 ﻿module Bosem {
     export class Kamikaze extends Item {
+        static dropRate: number = 80;
         constructor(game: Phaser.Game, x: number, y: number) {
             super(game, x, y, ResKeys.kamikaze);
         }

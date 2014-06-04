@@ -18,6 +18,7 @@ var Bosem;
         Shield.newInstance = function (game, x, y) {
             return new Shield(game, x, y);
         };
+        Shield.dropRate = 60;
         return Shield;
     })(Bosem.Item);
     Bosem.Shield = Shield;

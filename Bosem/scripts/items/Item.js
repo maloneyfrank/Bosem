@@ -40,7 +40,12 @@ var Bosem;
         };
 
         Item.randomItem = function (game, x, y) {
-            return new this.allItems[Math.floor(Math.random() * this.allItems.length)](game, x, y);
+            while (true) {
+                var randItem = Math.floor(Math.random() * this.allItems.length);
+                var dropped = Math.random() * 100;
+                if (this.allItems[randItem].dropRate > dropped)
+                    return new this.allItems[randItem](game, x, y);
+            }
         };
         Item.allItems = [];
         return Item;

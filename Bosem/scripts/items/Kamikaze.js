@@ -17,6 +17,7 @@ var Bosem;
                 Bosem.KillableInGame.killPlayer(players[i]);
             }
         };
+        Kamikaze.dropRate = 80;
         return Kamikaze;
     })(Bosem.Item);
     Bosem.Kamikaze = Kamikaze;

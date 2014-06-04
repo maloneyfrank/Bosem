@@ -3,6 +3,7 @@
         constructor(game:Phaser.Game,x:number,y:number) {
             super(game, x, y, ResKeys.cofee);
         }
+        static dropRate: number = 100;
         init(holder: Player) {
             holder.heldItems.push(this);
             holder.moveSpeed += 100;
