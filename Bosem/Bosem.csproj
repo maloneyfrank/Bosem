@@ -19,7 +19,6 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="assets\blueHealth.png" />
-    <Content Include="assets\flame.png" />
     <Content Include="assets\heart.png" />
     <Content Include="assets\heartfill.png" />
     <Content Include="assets\kamikaze.png" />
@@ -27,6 +26,7 @@
     <Content Include="assets\menuImage1.png" />
     <Content Include="assets\menuImage2.png" />
     <Content Include="assets\missle.png" />
+    <Content Include="assets\radar.png" />
     <Content Include="assets\redHealth.png" />
     <Content Include="assets\sniperAmmo.png" />
     <Content Include="assets\sniperGun.jpg" />
@@ -63,6 +63,7 @@
     <TypeScriptCompile Include="scripts\Other\HUD.ts" />
     <TypeScriptCompile Include="scripts\Other\Camera.ts" />
     <TypeScriptCompile Include="scripts\Ammo\HomingMissle.ts" />
+    <TypeScriptCompile Include="scripts\items\Radar.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

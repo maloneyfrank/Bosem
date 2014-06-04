@@ -44,6 +44,7 @@
         ResKeys.tabasco = 'tabascoSprite';
         ResKeys.lazerGun = 'lazerGunSprite';
         ResKeys.sniperGun = 'sniperGun';
+        ResKeys.radar = 'radar';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';

@@ -19,7 +19,6 @@
             this.game.load.spritesheet(ResKeys.collisionSpriteSheet, 'assets/collisionspritesheet.png', 42.3, 37.8);
             this.game.load.image(ResKeys.shield, 'assets/shield.jpg');
             this.game.load.spritesheet(ResKeys.fishSprite, 'assets/fishsprite.png', 113, 60);
-            this.game.load.spritesheet(ResKeys.flameAmmo, 'assets/flame.png', 252, 60);
             this.game.load.image(ResKeys.player1Health, 'assets/redHealth.png');
             this.game.load.image(ResKeys.player2Health, 'assets/blueHealth.png');
             this.game.load.image(Bosem.ResKeys.kamikaze, 'assets/kamikaze.png');
@@ -32,6 +31,7 @@
             this.game.load.image(ResKeys.heartPic, 'assets/heart.png');
             this.game.load.image(ResKeys.heartFill, 'assets/heartfill.png');
             this.game.load.image(ResKeys.homingMissle, 'assets/missle.png');
+            this.game.load.image(ResKeys.radar,'assets/radar.png');
             //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');

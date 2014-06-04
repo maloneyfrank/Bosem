@@ -42,7 +42,7 @@
         static tabasco: string = 'tabascoSprite';
         static lazerGun: string = 'lazerGunSprite';
         static sniperGun: string = 'sniperGun';
-
+        static radar: string = 'radar';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';
