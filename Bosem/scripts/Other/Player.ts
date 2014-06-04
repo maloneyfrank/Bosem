@@ -21,6 +21,7 @@
         hp: number;
         dmg: number;
         shields: number;
+        static MAX_HP: number = 1000;
         //items
         heldItems: Item[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
@@ -70,7 +71,7 @@
             this.range = 500;
             this.jumpSpeed = 500;
             this.lives = 5;
-            this.hp = 1000;
+            this.hp = Player.MAX_HP;
             this.dmg = 10;
             this.attackSpeed = 4500;
             this.shields = 0;

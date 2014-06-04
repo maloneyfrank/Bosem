@@ -52,7 +52,7 @@ var Bosem;
             this.range = 500;
             this.jumpSpeed = 500;
             this.lives = 5;
-            this.hp = 1000;
+            this.hp = Player.MAX_HP;
             this.dmg = 10;
             this.attackSpeed = 4500;
             this.shields = 0;
@@ -151,6 +151,7 @@ var Bosem;
             if (this.onTeam != bullet.onTeam)
                 this.recieveDamage(bullet.getDamage());
         };
+        Player.MAX_HP = 1000;
         return Player;
     })(Phaser.Sprite);
     Bosem.Player = Player;

@@ -38,13 +38,13 @@ var Bosem;
             this.allItems.push(Bosem.Shield);
             this.allItems.push(Bosem.SniperGun);
             this.allItems.push(Bosem.Radar);
+            this.allItems.push(Bosem.Heart);
         };
 
         Item.randomItem = function (game, x, y) {
             while (true) {
-                return new Bosem.Radar(game, x, y);
-                /*
-                var randItem: number = Math.floor(Math.random() * this.allItems.length);
+                return new Bosem.Heart(game, x, y);
+                /*  var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
                 if (this.allItems[randItem].dropRate > dropped)
                 return new this.allItems[randItem](game, x, y);*/

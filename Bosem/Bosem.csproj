@@ -64,6 +64,7 @@
     <TypeScriptCompile Include="scripts\Other\Camera.ts" />
     <TypeScriptCompile Include="scripts\Ammo\HomingMissle.ts" />
     <TypeScriptCompile Include="scripts\items\Radar.ts" />
+    <TypeScriptCompile Include="scripts\items\Heart.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

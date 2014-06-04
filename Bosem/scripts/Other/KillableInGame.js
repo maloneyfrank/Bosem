@@ -38,7 +38,7 @@
                 player.lives--;
                 var killed = player;
                 player.kill();
-                player.hp = 1000;
+                player.hp = Bosem.Player.MAX_HP;
                 this.game.time.events.add(1000, function () {
                     killed.revive();
                     killed.canDie = true;
