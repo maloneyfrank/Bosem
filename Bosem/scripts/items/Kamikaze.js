@@ -21,3 +21,4 @@ var Bosem;
     })(Bosem.Item);
     Bosem.Kamikaze = Kamikaze;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Kamikaze.js.map

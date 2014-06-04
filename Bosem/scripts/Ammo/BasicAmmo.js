@@ -39,21 +39,24 @@ var Bosem;
             return this.lazerShooter.holder.range;
         };
         BasicAmmo.prototype.hitSomething = function (something) {
-            try  {
-                this.killBullet = true;
-                var x = ((this.position.x + something.x) / 2);
-                var collisionAnimation = this.game.add.sprite(x, this.y, Bosem.ResKeys.collisionSpriteSheet);
-                collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
-                collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
+            if (something != this.lazerShooter.holder) {
+                try  {
+                    this.killBullet = true;
+                    var x = ((this.position.x + something.x) / 2);
+                    var collisionAnimation = this.game.add.sprite(x, this.y, Bosem.ResKeys.collisionSpriteSheet);
+                    collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
+                    collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
 
-                setTimeout(function () {
-                    if (collisionAnimation)
-                        collisionAnimation.destroy();
-                }, 300);
-            } catch (err) {
+                    setTimeout(function () {
+                        if (collisionAnimation)
+                            collisionAnimation.destroy();
+                    }, 300);
+                } catch (err) {
+                }
             }
         };
         return BasicAmmo;
     })(Bosem.Ammo);
     Bosem.BasicAmmo = BasicAmmo;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=BasicAmmo.js.map

@@ -32,10 +32,11 @@
             return this.lazerShooter.holder.range;
         }
         hitSomething(something: any) {
-     
+
+            if (something != this.lazerShooter.holder) {
                 try {
-                this.killBullet = true;
-                var x = ((this.position.x + something.x) / 2)
+                    this.killBullet = true;
+                    var x = ((this.position.x + something.x) / 2)
                      var collisionAnimation = this.game.add.sprite(x, this.y, ResKeys.collisionSpriteSheet);
                     collisionAnimation.animations.add(ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
                     collisionAnimation.play(ResKeys.collisionSpriteSheet);
@@ -44,5 +45,6 @@
                 }
                 catch (err) { }
             }
+        }
         }
     }

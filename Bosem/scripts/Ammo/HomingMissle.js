@@ -21,25 +21,32 @@ var Bosem;
             if (this.target) {
                 var targetAngle = this.game.physics.arcade.angleBetween(this, this.target);
 
+                // Gradually (this.TURN_RATE) aim the missile towards the target angle
                 if (this.rotation !== targetAngle) {
+                    // Calculate difference between the current angle and targetAngle
                     var delta = targetAngle - this.rotation;
 
+                    // Keep it in range from -180 to 180 to make the most efficient turns.
                     if (delta > Math.PI)
                         delta -= Math.PI * 2;
                     if (delta < -Math.PI)
                         delta += Math.PI * 2;
 
                     if (delta > 0) {
+                        // Turn clockwise
                         this.angle += this.TURN_RATE;
                     } else {
+                        // Turn counter-clockwise
                         this.angle -= this.TURN_RATE;
                     }
 
+                    // Just set angle to target angle if they are close
                     if (Math.abs(delta) < Phaser.Math.degToRad(this.TURN_RATE)) {
                         this.rotation = targetAngle;
                     }
                 }
 
+                // Calculate velocity vector based on this.rotation and this.SPEED
                 this.spriteBody.velocity.x = Math.cos(this.rotation) * this.SPEED;
                 this.spriteBody.velocity.y = Math.sin(this.rotation) * this.SPEED;
             } else {
@@ -51,6 +58,7 @@ var Bosem;
             var players = Bosem.KillableInGame.getPlayers();
             var player = players[Math.floor(Math.random() * (players.length))];
             if (player.onTeam == this.lazerShooter.holder.onTeam) {
+                //It will run aagin
             } else {
                 this.target = player;
             }
@@ -79,21 +87,24 @@ var Bosem;
             return this.lazerShooter.holder.range;
         };
         HomingMissle.prototype.hitSomething = function (something) {
-            try  {
-                this.killBullet = true;
-                var x = ((this.position.x + something.x) / 2);
-                var collisionAnimation = this.game.add.sprite(x, this.y, Bosem.ResKeys.collisionSpriteSheet);
-                collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
-                collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
+            if (something != this.lazerShooter.holder) {
+                try  {
+                    this.killBullet = true;
+                    var x = ((this.position.x + something.x) / 2);
+                    var collisionAnimation = this.game.add.sprite(x, this.y, Bosem.ResKeys.collisionSpriteSheet);
+                    collisionAnimation.animations.add(Bosem.ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
+                    collisionAnimation.play(Bosem.ResKeys.collisionSpriteSheet);
 
-                setTimeout(function () {
-                    if (collisionAnimation)
-                        collisionAnimation.destroy();
-                }, 300);
-            } catch (err) {
+                    setTimeout(function () {
+                        if (collisionAnimation)
+                            collisionAnimation.destroy();
+                    }, 300);
+                } catch (err) {
+                }
             }
         };
         return HomingMissle;
     })(Bosem.Ammo);
     Bosem.HomingMissle = HomingMissle;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=HomingMissle.js.map

@@ -57,7 +57,6 @@
                 if (breakForLoop) break;
                 for (var j = 0; j < collidables.length; j++) {
                     if (this.game.physics.arcade.intersects(collidables.getAt(j).body, bullet.body)) {
-
                         var collidedWith = collidables.getAt(j);
                         if (collidedWith != bullet) {
                             collidedWith.hitByBullet(bullet);

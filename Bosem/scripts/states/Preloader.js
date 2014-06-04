@@ -12,9 +12,11 @@ var Bosem;
             _super.apply(this, arguments);
         }
         Preloader.prototype.preload = function () {
+            //  Set-up our preloader sprite
             this.preloadBar = this.add.sprite(this.world.centerX - 200, this.world.centerY - 20, 'preloadBar');
             this.load.setPreloadSprite(this.preloadBar);
 
+            //  Load our actual games assets
             this.load.spritesheet(Bosem.ResKeys.player1Sprite, 'assets/player1.png', 50, 65);
             this.load.spritesheet(Bosem.ResKeys.player2Sprite, 'assets/player2.png', 50, 65);
             this.load.image(Bosem.ResKeys.startButtonSprite, 'assets/startButton.png');
@@ -39,6 +41,7 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.heartFill, 'assets/heartfill.png');
             this.game.load.image(Bosem.ResKeys.homingMissle, 'assets/missle.png');
 
+            //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');
         };
@@ -55,3 +58,4 @@ var Bosem;
     })(Phaser.State);
     Bosem.Preloader = Preloader;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Preloader.js.map

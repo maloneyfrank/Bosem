@@ -13,8 +13,10 @@ var Bosem;
         }
         Tabasco.prototype.init = function (holder) {
             holder.heldItems.push(this);
+            //  holder.lazerShooter.ammoType = Ammo.FLAME_AMMO;
         };
         return Tabasco;
     })(Bosem.Item);
     Bosem.Tabasco = Tabasco;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Tabasco.js.map

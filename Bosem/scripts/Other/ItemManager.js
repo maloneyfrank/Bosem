@@ -66,3 +66,4 @@
     })();
     Bosem.ItemManager = ItemManager;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=ItemManager.js.map

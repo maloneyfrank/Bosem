@@ -19,11 +19,14 @@ var Bosem;
         Item.prototype.init = function (holder) {
             this.holder = holder;
             this.onTeam = holder.onTeam;
+            //code to be run only once, when the item is picked up by the player
         };
         Item.prototype.effect = function () {
+            //to be called whenever this item is activated
         };
 
         Item.prototype.itemUpdate = function () {
+            //called every fram for any continuous effect
         };
         Item.prototype.hitByBullet = function (bullet) {
         };
@@ -51,3 +54,4 @@ var Bosem;
     })(Phaser.Sprite);
     Bosem.Item = Item;
 })(Bosem || (Bosem = {}));
+//# sourceMappingURL=Item.js.map

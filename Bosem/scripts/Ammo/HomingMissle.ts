@@ -11,7 +11,7 @@
             } else {
                 this.SPEED = 300;
             }
-               
+
         }
 
 
@@ -56,7 +56,7 @@
             var players = KillableInGame.getPlayers();
             var player = players[Math.floor(Math.random() * (players.length))];
             if (player.onTeam == this.lazerShooter.holder.onTeam) {
-               //It will run aagin
+                //It will run aagin
             } else {
                 this.target = player;
             }
@@ -65,7 +65,7 @@
             this.dmg = 10 * this.lazerShooter.holder.dmg;
             return this.dmg;
         }
-            hitByBullet(bullet: Ammo) {
+        hitByBullet(bullet: Ammo) {
 
             var x = ((this.position.x + bullet.x) / 2)
             var collisionAnimation = this.game.add.sprite(x, this.y, ResKeys.collisionSpriteSheet);
@@ -76,14 +76,15 @@
             this.killBullet = true;
         }
 
-            getAttackSpeed() {
+        getAttackSpeed() {
             return this.lazerShooter.holder.attackSpeed;
         }
-            getRange() {
+        getRange() {
             return this.lazerShooter.holder.range;
         }
         hitSomething(something: any) {
-        
+
+            if (something != this.lazerShooter.holder) {
                 try {
                     this.killBullet = true;
                     var x = ((this.position.x + something.x) / 2)
@@ -96,7 +97,8 @@
                 catch (err) { }
             }
         }
-        
-
     }
-    
+
+
+}
+
