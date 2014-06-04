@@ -41,12 +41,11 @@
 
         static dropRate: number = 50;
         static randomItem(game: Phaser.Game, x: number, y: number) {
-            while (true) {                   
-                return new Heart(game, x, y);
-              /*  var randItem: number = Math.floor(Math.random() * this.allItems.length);
+            while (true) {                   \
+               var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
                 if (this.allItems[randItem].dropRate > dropped)
-                    return new this.allItems[randItem](game, x, y);*/
+                    return new this.allItems[randItem](game, x, y);
             }
         }
     }
