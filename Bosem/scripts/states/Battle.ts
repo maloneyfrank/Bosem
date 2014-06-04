@@ -14,7 +14,7 @@
             this.map = this.game.add.tilemap(ResKeys.map1);
             this.map.addTilesetImage('tiles1','tiles1');
             this.map.setCollisionByExclusion([]);
-
+            Item.init();
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
             Collidable.setLayer(this.layer);

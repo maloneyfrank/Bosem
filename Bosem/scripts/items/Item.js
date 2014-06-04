@@ -30,26 +30,19 @@ var Bosem;
         };
         Item.prototype.hitByBullet = function (bullet) {
         };
-        Item.randomItem = function (game, x, y) {
-            var num = Math.floor(Math.random() * 5);
-            switch (num) {
-                case 0:
-                    return new Bosem.Coffee(game, x, y);
-                    break;
-                case 1:
-                    return new Bosem.SniperGun(game, x, y);
-                    break;
-                case 2:
-                    return new Bosem.Shield(game, x, y);
-                    break;
-                case 3:
-                    return new Bosem.Kamikaze(game, x, y);
-                    break;
-                case 4:
-                    return new Bosem.LazerGun(game, x, y);
-                    break;
-            }
+
+        Item.init = function () {
+            this.allItems.push(Bosem.Coffee);
+            this.allItems.push(Bosem.Kamikaze);
+            this.allItems.push(Bosem.LazerGun);
+            this.allItems.push(Bosem.Shield);
+            this.allItems.push(Bosem.SniperGun);
         };
+
+        Item.randomItem = function (game, x, y) {
+            return new this.allItems[Math.floor(Math.random() * this.allItems.length)](game, x, y);
+        };
+        Item.allItems = [];
         return Item;
     })(Phaser.Sprite);
     Bosem.Item = Item;

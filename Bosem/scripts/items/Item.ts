@@ -4,6 +4,7 @@
         holder: Player; //copy of player that is holding this item
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;
+        static allItems:any[] = [];
         constructor(game: Phaser.Game, x: number, y: number, key: string) {
             super(game, x, y, key);
             this.game = game;
@@ -27,28 +28,17 @@
         hitByBullet(bullet: Ammo) {
 
         }
-        static randomItem(game: Phaser.Game, x: number, y: number) {
-              var num = Math.floor(Math.random() * 5);
-            switch (num) {
-                case 0:
-                    return new Coffee(game, x, y);
-                    break;
-                case 1:
-                    return new SniperGun(game, x, y);
-                    break;
-                case 2:
-                    return new Shield(game, x, y);
-                    break;
-                case 3:
-                    return new Kamikaze(game, x, y);
-                    break;
-                case 4:
-                    return new LazerGun(game, x, y);
-                    break;
 
-            }
-           
-            
+        static init() {
+            this.allItems.push(Coffee);
+            this.allItems.push(Kamikaze);
+            this.allItems.push(LazerGun);
+            this.allItems.push(Shield);
+            this.allItems.push(SniperGun);
+        }
+        
+        static randomItem(game: Phaser.Game, x: number, y: number) {
+            return new this.allItems[Math.floor(Math.random() * this.allItems.length)](game, x, y);
         }
     }
 } 
