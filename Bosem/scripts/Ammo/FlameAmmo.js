@@ -25,14 +25,15 @@ var Bosem;
             tween.onComplete.add(this.imOut, this);
         }
         FlameAmmo.prototype.getDamage = function () {
-            this.dmg = this.lazerShooter.holder.dmg * 0.1;
+            this.dmg = this.lazerShooter.holder.dmg * 0.5;
             return this.dmg;
         };
         FlameAmmo.prototype.imOut = function () {
+            this.killBullet = true;
             this.destroy();
         };
         FlameAmmo.prototype.getAttackSpeed = function () {
-            return 5000;
+            return 4900;
         };
         FlameAmmo.prototype.getRange = function () {
             return 1000;

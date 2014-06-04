@@ -22,6 +22,7 @@
             setTimeout(function () { if (collisionAnimation) collisionAnimation.destroy(); }, 300);
             Collidable.removeCollidable(this);
         }
+        
         getAttackSpeed() {
             return this.lazerShooter.holder.attackSpeed / 3;
         }

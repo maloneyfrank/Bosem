@@ -49,7 +49,10 @@
 
         }
         hitSomething(something: any) {
-           
+            if (!(something instanceof FlameAmmo)) {
+                this.destroy();
+                this.killBullet = true;
+            }
         }
         getRange() {
             return 500;

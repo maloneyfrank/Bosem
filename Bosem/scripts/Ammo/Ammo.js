@@ -44,6 +44,10 @@ var Bosem;
         Ammo.prototype.hitByBullet = function (bullet) {
         };
         Ammo.prototype.hitSomething = function (something) {
+            if (!(something instanceof Bosem.FlameAmmo)) {
+                this.destroy();
+                this.killBullet = true;
+            }
         };
         Ammo.prototype.getRange = function () {
             return 500;

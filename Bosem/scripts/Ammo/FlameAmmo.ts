@@ -21,16 +21,17 @@
             
         }
        
-       
+      
         getDamage() {
-            this.dmg = this.lazerShooter.holder.dmg * 0.1;
+            this.dmg = this.lazerShooter.holder.dmg * 0.5;
             return this.dmg;
         }
         imOut() {
+            this.killBullet = true;
             this.destroy();
         }
         getAttackSpeed() {
-            return 5000;
+            return 4900;
         }
         getRange() {
             return 1000;

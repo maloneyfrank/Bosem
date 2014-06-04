@@ -31,7 +31,6 @@ var Bosem;
                     if (collisionAnimation)
                         collisionAnimation.destroy();
                 }, 300);
-                Bosem.Collidable.removeCollidable(this);
                 this.killBullet = true;
             }
         };
@@ -56,7 +55,6 @@ var Bosem;
                         if (collisionAnimation)
                             collisionAnimation.destroy();
                     }, 300);
-                    Bosem.Collidable.removeCollidable(this);
                 } catch (err) {
                 }
             }

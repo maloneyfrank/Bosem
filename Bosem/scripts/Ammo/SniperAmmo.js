@@ -31,6 +31,7 @@ var Bosem;
             }, 300);
             Bosem.Collidable.removeCollidable(this);
         };
+
         SniperAmmo.prototype.getAttackSpeed = function () {
             return this.lazerShooter.holder.attackSpeed / 3;
         };

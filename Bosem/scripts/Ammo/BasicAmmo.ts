@@ -23,7 +23,6 @@
                 collisionAnimation.play(ResKeys.collisionSpriteSheet);
 
                 setTimeout(function () { if (collisionAnimation) collisionAnimation.destroy(); }, 300);
-                Collidable.removeCollidable(this);
                 this.killBullet = true;
             }
         }
@@ -44,7 +43,6 @@
                     collisionAnimation.play(ResKeys.collisionSpriteSheet);
 
                     setTimeout(function () { if (collisionAnimation) collisionAnimation.destroy(); }, 300);
-                     Collidable.removeCollidable(this);
                 }
                 catch (err) { }
             }
