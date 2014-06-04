@@ -3,6 +3,7 @@
         TURN_RATE: number;
         SPEED: number;
         target: Player;
+        facingLeftAtStart: boolean;
         constructor(lazerShooter: LazerShooter) {
             super(ResKeys.homingMissle, lazerShooter, lazerShooter.holder.y + lazerShooter.holder.width / 2);
             this.TURN_RATE = 5;
@@ -11,16 +12,19 @@
             } else {
                 this.SPEED = 300;
             }
-
+            this.getTarget();
+            this.facingLeftAtStart = this.lazerShooter.holder.facingLeft;
         }
 
 
 
         update() {
-            if (this.target) {
+            if (this.facingLeftAtStart)
+                var targetAngle = this.game.physics.arcade.angleToXY(this.target, this.x, this.y + this.height / 2);
+            else
                 var targetAngle = this.game.physics.arcade.angleBetween(this, this.target);
 
-                // Gradually (this.TURN_RATE) aim the missile towards the target angle
+            // Gradually (this.TURN_RATE) aim the missile towards the target angl
                 if (this.rotation !== targetAngle) {
                     // Calculate difference between the current angle and targetAngle
                     var delta = targetAngle - this.rotation;
@@ -42,13 +46,11 @@
                         this.rotation = targetAngle;
                     }
                 }
-
                 // Calculate velocity vector based on this.rotation and this.SPEED
                 this.spriteBody.velocity.x = Math.cos(this.rotation) * this.SPEED;
                 this.spriteBody.velocity.y = Math.sin(this.rotation) * this.SPEED;
-            } else {
-                this.getTarget();
-            }
+            
+            
         }
 
 
@@ -56,7 +58,7 @@
             var players = KillableInGame.getPlayers();
             var player = players[Math.floor(Math.random() * (players.length))];
             if (player.onTeam == this.lazerShooter.holder.onTeam) {
-                //It will run aagin
+                this.getTarget();
             } else {
                 this.target = player;
             }

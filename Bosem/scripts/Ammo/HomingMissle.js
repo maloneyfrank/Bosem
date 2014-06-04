@@ -16,49 +16,50 @@ var Bosem;
             } else {
                 this.SPEED = 300;
             }
+            this.getTarget();
+            this.facingLeftAtStart = this.lazerShooter.holder.facingLeft;
         }
         HomingMissle.prototype.update = function () {
-            if (this.target) {
+            if (this.facingLeftAtStart)
+                var targetAngle = this.game.physics.arcade.angleToXY(this.target, this.x, this.y + this.height / 2);
+            else
                 var targetAngle = this.game.physics.arcade.angleBetween(this, this.target);
 
-                // Gradually (this.TURN_RATE) aim the missile towards the target angle
-                if (this.rotation !== targetAngle) {
-                    // Calculate difference between the current angle and targetAngle
-                    var delta = targetAngle - this.rotation;
+            // Gradually (this.TURN_RATE) aim the missile towards the target angl
+            if (this.rotation !== targetAngle) {
+                // Calculate difference between the current angle and targetAngle
+                var delta = targetAngle - this.rotation;
 
-                    // Keep it in range from -180 to 180 to make the most efficient turns.
-                    if (delta > Math.PI)
-                        delta -= Math.PI * 2;
-                    if (delta < -Math.PI)
-                        delta += Math.PI * 2;
+                // Keep it in range from -180 to 180 to make the most efficient turns.
+                if (delta > Math.PI)
+                    delta -= Math.PI * 2;
+                if (delta < -Math.PI)
+                    delta += Math.PI * 2;
 
-                    if (delta > 0) {
-                        // Turn clockwise
-                        this.angle += this.TURN_RATE;
-                    } else {
-                        // Turn counter-clockwise
-                        this.angle -= this.TURN_RATE;
-                    }
-
-                    // Just set angle to target angle if they are close
-                    if (Math.abs(delta) < Phaser.Math.degToRad(this.TURN_RATE)) {
-                        this.rotation = targetAngle;
-                    }
+                if (delta > 0) {
+                    // Turn clockwise
+                    this.angle += this.TURN_RATE;
+                } else {
+                    // Turn counter-clockwise
+                    this.angle -= this.TURN_RATE;
                 }
 
-                // Calculate velocity vector based on this.rotation and this.SPEED
-                this.spriteBody.velocity.x = Math.cos(this.rotation) * this.SPEED;
-                this.spriteBody.velocity.y = Math.sin(this.rotation) * this.SPEED;
-            } else {
-                this.getTarget();
+                // Just set angle to target angle if they are close
+                if (Math.abs(delta) < Phaser.Math.degToRad(this.TURN_RATE)) {
+                    this.rotation = targetAngle;
+                }
             }
+
+            // Calculate velocity vector based on this.rotation and this.SPEED
+            this.spriteBody.velocity.x = Math.cos(this.rotation) * this.SPEED;
+            this.spriteBody.velocity.y = Math.sin(this.rotation) * this.SPEED;
         };
 
         HomingMissle.prototype.getTarget = function () {
             var players = Bosem.KillableInGame.getPlayers();
             var player = players[Math.floor(Math.random() * (players.length))];
             if (player.onTeam == this.lazerShooter.holder.onTeam) {
-                //It will run aagin
+                this.getTarget();
             } else {
                 this.target = player;
             }
