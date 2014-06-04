@@ -56,24 +56,21 @@
             Bosem.ItemManager.spawnItem(x, y);
         };
 
-        //checks to be made
         KillableInGame.update = function () {
             for (var i = 0; i < this.teams.length; i++) {
                 for (var j = 0; j < this.teams[i].length; j++) {
                     if (this.teams[i][j] instanceof Bosem.Player && this.teams[i][j].hp <= 0) {
                         this.killPlayer(this.teams[i][j]);
                     } else if (this.teams[i][j].hp <= 0) {
-                        this.killKillable(this.teams[i][j]); //needs to be implemented
+                        this.killKillable(this.teams[i][j]);
                     }
                 }
             }
         };
 
         KillableInGame.killKillable = function (killable) {
-            //implement
         };
         return KillableInGame;
     })();
     Bosem.KillableInGame = KillableInGame;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=KillableInGame.js.map

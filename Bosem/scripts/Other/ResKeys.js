@@ -33,6 +33,7 @@
 
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';
+        ResKeys.homingMissle = 'homingMissle';
 
         ResKeys.fishSprite = 'fishSprite';
         ResKeys.cofee = 'coffeeSprite';
@@ -50,4 +51,3 @@
     })();
     Bosem.ResKeys = ResKeys;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=ResKeys.js.map

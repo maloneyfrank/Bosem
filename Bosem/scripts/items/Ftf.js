@@ -28,8 +28,6 @@ var Bosem;
             var fishTimer = this.game.time.create(false);
             fishTimer.loop(2000, this.setMovement, this);
             fishTimer.start();
-
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO, this.onTeam);
         };
         FlamethrowingFish.prototype.itemUpdate = function () {
             this.checkAttack();
@@ -61,4 +59,3 @@ var Bosem;
     })(Bosem.Item);
     Bosem.FlamethrowingFish = FlamethrowingFish;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Ftf.js.map

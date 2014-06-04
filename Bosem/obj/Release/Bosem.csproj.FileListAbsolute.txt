@@ -3,3 +3,8 @@ C:\xampp\htdocs\17\Bosem-master\Bosem\bin\Bosem.pdb
 C:\xampp\htdocs\17\Bosem-master\Bosem\obj\Release\Bosem.csprojResolveAssemblyReference.cache
 C:\xampp\htdocs\17\Bosem-master\Bosem\obj\Release\Bosem.dll
 C:\xampp\htdocs\17\Bosem-master\Bosem\obj\Release\Bosem.pdb
+C:\Users\Frank\Documents\GitHub\Bosem\Bosem\bin\Bosem.dll
+C:\Users\Frank\Documents\GitHub\Bosem\Bosem\bin\Bosem.pdb
+C:\Users\Frank\Documents\GitHub\Bosem\Bosem\obj\Release\Bosem.csprojResolveAssemblyReference.cache
+C:\Users\Frank\Documents\GitHub\Bosem\Bosem\obj\Release\Bosem.dll
+C:\Users\Frank\Documents\GitHub\Bosem\Bosem\obj\Release\Bosem.pdb

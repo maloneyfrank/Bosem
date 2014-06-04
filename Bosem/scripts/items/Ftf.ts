@@ -30,7 +30,7 @@
             fishTimer.loop(2000, this.setMovement, this);
             fishTimer.start();
 
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO,this.onTeam);
+            //this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO,this.onTeam);
          
 
         }

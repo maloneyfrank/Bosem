@@ -30,8 +30,8 @@ var Bosem;
                 case Ammo.BASIC_AMMO:
                     return new Bosem.BasicAmmo(lazerShooter);
                     break;
-                case Ammo.FLAME_AMMO:
-                    return new Bosem.FlameAmmo(lazerShooter);
+                case Ammo.HOMING_MISSLE:
+                    return new Bosem.HomingMissle(lazerShooter);
                     break;
                 case Ammo.SNIPER_AMMO:
                     return new Bosem.SniperAmmo(lazerShooter);
@@ -44,10 +44,8 @@ var Bosem;
         Ammo.prototype.hitByBullet = function (bullet) {
         };
         Ammo.prototype.hitSomething = function (something) {
-            if (!(something instanceof Bosem.FlameAmmo)) {
-                this.destroy();
-                this.killBullet = true;
-            }
+            this.destroy();
+            this.killBullet = true;
         };
         Ammo.prototype.getRange = function () {
             return 500;
@@ -63,10 +61,9 @@ var Bosem;
             this.oldX = this.x;
         };
         Ammo.BASIC_AMMO = 0;
-        Ammo.FLAME_AMMO = 1;
+        Ammo.HOMING_MISSLE = 1;
         Ammo.SNIPER_AMMO = 2;
         return Ammo;
     })(Phaser.Sprite);
     Bosem.Ammo = Ammo;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Ammo.js.map

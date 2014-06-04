@@ -19,4 +19,3 @@ var Bosem;
     })(Bosem.Item);
     Bosem.LazerGun = LazerGun;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=LazerGun.js.map

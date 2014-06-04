@@ -3,7 +3,7 @@
         lazerShooter: LazerShooter;
         spriteBody: Phaser.Physics.Arcade.Body;
         static BASIC_AMMO: number = 0;
-        static FLAME_AMMO: number = 1;
+        static HOMING_MISSLE: number = 1;
         static SNIPER_AMMO: number = 2;
         distanceMoved:number;
         dmg: number;
@@ -34,8 +34,8 @@
                 case Ammo.BASIC_AMMO:
                     return new BasicAmmo(lazerShooter);
                     break;
-                case Ammo.FLAME_AMMO:
-                    return new FlameAmmo(lazerShooter);
+                case Ammo.HOMING_MISSLE:
+                    return new HomingMissle(lazerShooter);
                     break;
                 case Ammo.SNIPER_AMMO:
                     return new SniperAmmo(lazerShooter);
@@ -49,10 +49,8 @@
 
         }
         hitSomething(something: any) {
-            if (!(something instanceof FlameAmmo)) {
                 this.destroy();
                 this.killBullet = true;
-            }
         }
         getRange() {
             return 500;

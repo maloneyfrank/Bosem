@@ -39,9 +39,9 @@
                 this.game = game;
                 this.game.add.existing(this);
             }
-            else if (playerOptions == 3) {
-                super(game, x, y, ResKeys.player2Sprite);
-            }
+         //   else if (playerOptions == 3) {
+            //    super(game, x, y, ResKeys.player2Sprite);
+           // }
             this.onTeam = playerOptions;
             this.heldItems = [];
             this.effectItems = [];
@@ -63,6 +63,7 @@
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
+            
 
             //defaults
             this.moveSpeed = 300;
@@ -88,7 +89,7 @@
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.FLAME_AMMO, this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.HOMING_MISSLE, this.onTeam);
         }
         
         update() {

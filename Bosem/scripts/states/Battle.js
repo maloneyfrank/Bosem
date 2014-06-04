@@ -31,10 +31,8 @@ var Bosem;
 
         Battle.prototype.update = function () {
             for (var i = 0; i < this.players.length; i++) {
-                //check for collision with map
                 this.game.physics.arcade.collide(this.players[i], this.layer);
                 for (var j = 0; j < this.players.length; j++) {
-                    //check for cillsion with other players
                     if (j != i) {
                         this.game.physics.arcade.collide(this.players[i], this.players[j]);
                     }
@@ -50,4 +48,3 @@ var Bosem;
     })(Phaser.State);
     Bosem.Battle = Battle;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Battle.js.map

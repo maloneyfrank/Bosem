@@ -30,6 +30,7 @@
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';
+        static homingMissle: string = 'homingMissle';
 
         //items
         static fishSprite: string='fishSprite';

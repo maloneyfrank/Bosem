@@ -15,8 +15,7 @@
             return this.dmg;
         }
         hitByBullet(bullet: Ammo) {
-            if (bullet instanceof FlameAmmo) { }
-            else {
+  
                 var x = ((this.position.x + bullet.x) / 2)
             var collisionAnimation = this.game.add.sprite(x, this.y, ResKeys.collisionSpriteSheet);
                 collisionAnimation.animations.add(ResKeys.collisionSpriteSheet, [1, 2, 3, 4], 10);
@@ -25,7 +24,7 @@
                 setTimeout(function () { if (collisionAnimation) collisionAnimation.destroy(); }, 300);
                 this.killBullet = true;
             }
-        }
+        
         getAttackSpeed() {
             return this.lazerShooter.holder.attackSpeed;
         }
@@ -33,8 +32,7 @@
             return this.lazerShooter.holder.range;
         }
         hitSomething(something: any) {
-            if (something == this.lazerShooter.holder || something instanceof FlameAmmo) return;
-            else {
+     
                 try {
                 this.killBullet = true;
                 var x = ((this.position.x + something.x) / 2)
@@ -48,4 +46,3 @@
             }
         }
     }
-} 

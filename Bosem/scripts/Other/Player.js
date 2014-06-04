@@ -9,7 +9,6 @@ var Bosem;
     var Player = (function (_super) {
         __extends(Player, _super);
         function Player(game, x, y, playerOptions) {
-            //initilize...the playeroptions needs to be changed to support more than two if we want too
             if (playerOptions == 0) {
                 _super.call(this, game, x, y, Bosem.ResKeys.player1Sprite);
                 this.game = game;
@@ -18,9 +17,8 @@ var Bosem;
                 _super.call(this, game, x, y, Bosem.ResKeys.player2Sprite);
                 this.game = game;
                 this.game.add.existing(this);
-            } else if (playerOptions == 3) {
-                _super.call(this, game, x, y, Bosem.ResKeys.player2Sprite);
             }
+
             this.onTeam = playerOptions;
             this.heldItems = [];
             this.effectItems = [];
@@ -28,7 +26,6 @@ var Bosem;
             this.livesEditable = false;
             this.canDie = true;
 
-            //animations
             this.animations.add(Bosem.ResKeys.movingRightAttackAnimation, [0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1], 20);
             this.animations.add(Bosem.ResKeys.movingLeftAttackAnimation, [8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9], 20);
             this.animations.add(Bosem.ResKeys.stillLeftAnimation, [8]);
@@ -40,12 +37,10 @@ var Bosem;
             this.animations.add(Bosem.ResKeys.jumpRight, [46, 47, 48, 49, 50, 49, 48, 47, 46], 20);
             this.animations.add(Bosem.ResKeys.jumpLeft, [51, 52, 53, 54, 55, 56, 55, 54, 53, 52, 51], 20);
 
-            //physics
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
-            //defaults
             this.moveSpeed = 300;
             this.range = 500;
             this.jumpSpeed = 500;
@@ -55,7 +50,6 @@ var Bosem;
             this.attackSpeed = 4500;
             this.shields = 0;
 
-            //player controls
             if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -70,7 +64,7 @@ var Bosem;
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.FLAME_AMMO, this.onTeam);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.HOMING_MISSLE, this.onTeam);
         }
         Player.prototype.update = function () {
             this.keyControls();
@@ -153,4 +147,3 @@ var Bosem;
     })(Phaser.Sprite);
     Bosem.Player = Player;
 })(Bosem || (Bosem = {}));
-//# sourceMappingURL=Player.js.map
