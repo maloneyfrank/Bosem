@@ -48,6 +48,8 @@ var Bosem;
             }
         };
         Item.allItems = [];
+
+        Item.dropRate = 50;
         return Item;
     })(Phaser.Sprite);
     Bosem.Item = Item;

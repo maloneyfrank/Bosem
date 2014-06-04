@@ -36,9 +36,11 @@
             this.allItems.push(Shield);
             this.allItems.push(SniperGun);
         }
-        
+
+        static dropRate: number = 50;
         static randomItem(game: Phaser.Game, x: number, y: number) {
             while (true) {
+                
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
                 if (this.allItems[randItem].dropRate > dropped)
