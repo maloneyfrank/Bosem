@@ -16,7 +16,6 @@
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Bosem.Collidable.addCollidable(bullet);
-                bullet.deltaX = 0;
                 this.canShoot = false;
                 this.timerStuff();
             }

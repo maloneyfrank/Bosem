@@ -27,7 +27,6 @@
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Collidable.addCollidable(bullet);
-                bullet.deltaX = 0;
                 this.canShoot = false;
                 this.timerStuff();
             }
