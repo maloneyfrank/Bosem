@@ -9,7 +9,7 @@
         dmg: number;
         onTeam: number;
         oldX: number;
-
+        killBullet: boolean;
         constructor(key: string, lazerShooter: LazerShooter, y:number) {
             if (lazerShooter.holder.facingLeft)
                 super(lazerShooter.game, lazerShooter.holder.x - lazerShooter.holder.width, y, key);
@@ -22,6 +22,7 @@
             this.onTeam = lazerShooter.onTeam;
             this.distanceMoved = 0;
             this.oldX = this.x;
+            this.killBullet = false;
 
         }
 
@@ -46,6 +47,9 @@
         }
         hitByBullet(bullet: Ammo) {
 
+        }
+        hitSomething(something: any) {
+           
         }
         getRange() {
             return 500;

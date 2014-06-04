@@ -20,6 +20,7 @@ var Bosem;
             this.onTeam = lazerShooter.onTeam;
             this.distanceMoved = 0;
             this.oldX = this.x;
+            this.killBullet = false;
         }
         Ammo.prototype.getDamage = function () {
             return this.dmg;
@@ -41,6 +42,8 @@ var Bosem;
             return 3500;
         };
         Ammo.prototype.hitByBullet = function (bullet) {
+        };
+        Ammo.prototype.hitSomething = function (something) {
         };
         Ammo.prototype.getRange = function () {
             return 500;

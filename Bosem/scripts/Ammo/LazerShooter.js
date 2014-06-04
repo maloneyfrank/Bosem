@@ -15,7 +15,8 @@
                 var bullet = Bosem.Ammo.returnAmmoType(this.ammoType, this);
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
-                Bosem.Collidable.addCollidable(bullet);
+
+                //    Collidable.addCollidable(bullet);
                 bullet.deltaX = 0;
                 this.canShoot = false;
                 this.timerStuff();
@@ -45,15 +46,16 @@
                 if (breakForLoop)
                     break;
                 for (var j = 0; j < collidables.length; j++) {
-                    if (this.game.physics.arcade.collide(collidables.getAt(j), bullet)) {
+                    if (this.game.physics.arcade.intersects(collidables.getAt(j).body, bullet.body)) {
                         var collidedWith = collidables.getAt(j);
-                        try  {
-                            collidedWith.hitByBullet(bullet);
-                        } catch (err) {
+                        collidedWith.hitByBullet(bullet);
+                        bullet.hitSomething(collidedWith);
+
+                        if (bullet.killBullet) {
+                            this.bullets.splice(i, 1);
+                            Bosem.Collidable.removeCollidable(bullet);
+                            breakForLoop = true;
                         }
-                        this.bullets.splice(i, 1);
-                        Bosem.Collidable.removeCollidable(bullet);
-                        breakForLoop = true;
                     }
                     if (breakForLoop)
                         break;

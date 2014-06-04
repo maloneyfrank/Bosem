@@ -18,6 +18,9 @@
         Collidable.getCollidables = function () {
             return this.collidables;
         };
+        Collidable.setLayer = function (layer) {
+            this.layer = layer;
+        };
         return Collidable;
     })();
     Bosem.Collidable = Collidable;

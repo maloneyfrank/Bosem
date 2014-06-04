@@ -17,7 +17,7 @@
 
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
-            Collidable.addCollidable(this.layer);
+            Collidable.setLayer(this.layer);
             
             this.players = KillableInGame.getPlayers();
             Camera.init(this.game);

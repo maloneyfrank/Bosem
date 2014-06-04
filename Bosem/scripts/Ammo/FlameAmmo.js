@@ -25,7 +25,7 @@ var Bosem;
             tween.onComplete.add(this.imOut, this);
         }
         FlameAmmo.prototype.getDamage = function () {
-            this.dmg = this.lazerShooter.holder.dmg * 0.5;
+            this.dmg = this.lazerShooter.holder.dmg * 0.1;
             return this.dmg;
         };
         FlameAmmo.prototype.imOut = function () {

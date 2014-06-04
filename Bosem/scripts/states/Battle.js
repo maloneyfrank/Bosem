@@ -22,7 +22,7 @@ var Bosem;
 
             this.layer = this.map.createLayer('Tile Layer 1');
             this.layer.resizeWorld();
-            Bosem.Collidable.addCollidable(this.layer);
+            Bosem.Collidable.setLayer(this.layer);
 
             this.players = Bosem.KillableInGame.getPlayers();
             Bosem.Camera.init(this.game);

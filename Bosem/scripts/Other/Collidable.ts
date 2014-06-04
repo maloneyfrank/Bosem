@@ -3,7 +3,7 @@
         //maybe we should add a noBodyColidables so we could intersects?
       static  collidables: Phaser.Group;
         static  game: Phaser.Game;
-       
+        static layer: Phaser.TilemapLayer;
         static init(game: Phaser.Game) {
             this.game = game;
             this.collidables = this.game.add.group();
@@ -18,6 +18,9 @@
         }
         static getCollidables() {
             return this.collidables;
+        }
+        static setLayer(layer: Phaser.TilemapLayer) {
+            this.layer = layer;
         }
     }
 } 

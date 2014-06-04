@@ -23,7 +23,7 @@
        
        
         getDamage() {
-            this.dmg = this.lazerShooter.holder.dmg * 0.5;
+            this.dmg = this.lazerShooter.holder.dmg * 0.1;
             return this.dmg;
         }
         imOut() {
