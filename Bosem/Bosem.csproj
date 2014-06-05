@@ -65,6 +65,9 @@
     <TypeScriptCompile Include="scripts\Ammo\HomingMissle.ts" />
     <TypeScriptCompile Include="scripts\items\Radar.ts" />
     <TypeScriptCompile Include="scripts\items\Heart.ts" />
+    <TypeScriptCompile Include="scripts\Ammo\ChargingLazer.ts" />
+    <Content Include="assets\ChargedShot.png" />
+    <Content Include="assets\ChargingShot.png" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

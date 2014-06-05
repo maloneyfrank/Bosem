@@ -4,7 +4,7 @@
         holder: Player; //copy of player that is holding this item
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;
-        static allItems:any[] = [];
+        static allItems: any[] = [];
         constructor(game: Phaser.Game, x: number, y: number, key: string) {
             super(game, x, y, key);
             this.game = game;
@@ -41,8 +41,8 @@
 
         static dropRate: number = 50;
         static randomItem(game: Phaser.Game, x: number, y: number) {
-            while (true) {                   \
-               var randItem: number = Math.floor(Math.random() * this.allItems.length);
+            while (true) {
+                var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
                 if (this.allItems[randItem].dropRate > dropped)
                     return new this.allItems[randItem](game, x, y);

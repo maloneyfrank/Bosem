@@ -43,11 +43,10 @@ var Bosem;
 
         Item.randomItem = function (game, x, y) {
             while (true) {
-                return new Bosem.Heart(game, x, y);
-                /*  var randItem: number = Math.floor(Math.random() * this.allItems.length);
-                var dropped: number = Math.random() * 100;
+                var randItem = Math.floor(Math.random() * this.allItems.length);
+                var dropped = Math.random() * 100;
                 if (this.allItems[randItem].dropRate > dropped)
-                return new this.allItems[randItem](game, x, y);*/
+                    return new this.allItems[randItem](game, x, y);
             }
         };
         Item.allItems = [];

@@ -33,7 +33,7 @@ var Bosem;
         };
 
         SniperAmmo.prototype.getAttackSpeed = function () {
-            return this.lazerShooter.holder.attackSpeed / 3;
+            return this.lazerShooter.holder.attackSpeed / 2;
         };
         SniperAmmo.prototype.getRange = function () {
             return this.lazerShooter.holder.range + 650;

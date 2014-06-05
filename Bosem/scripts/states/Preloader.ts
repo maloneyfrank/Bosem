@@ -31,7 +31,9 @@
             this.game.load.image(ResKeys.heartPic, 'assets/heart.png');
             this.game.load.image(ResKeys.heartFill, 'assets/heartfill.png');
             this.game.load.image(ResKeys.homingMissle, 'assets/missle.png');
-            this.game.load.image(ResKeys.radar,'assets/radar.png');
+            this.game.load.image(ResKeys.radar, 'assets/radar.png');
+            this.game.load.image(ResKeys.chargedLazer, 'assets/ChargedShot.png');
+            this.game.load.image(ResKeys.chargingBall, 'assets/ChargingShot.png');
             //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');

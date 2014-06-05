@@ -5,6 +5,7 @@
         static BASIC_AMMO: number = 0;
         static HOMING_MISSLE: number = 1;
         static SNIPER_AMMO: number = 2;
+        static CHARGING_LAZER: number = 3;
         distanceMoved:number;
         dmg: number;
         onTeam: number;
@@ -39,6 +40,9 @@
                     break;
                 case Ammo.SNIPER_AMMO:
                     return new SniperAmmo(lazerShooter);
+                    break;
+                case Ammo.CHARGING_LAZER:
+                    return new ChargingLazer(lazerShooter);
                     break;
             }
         }

@@ -1,7 +1,7 @@
 ﻿module Bosem {
     export class BasicAmmo extends Ammo {
         constructor(lazerShooter: LazerShooter) {
-            super(ResKeys.lazerAmmo, lazerShooter,lazerShooter.holder.y + lazerShooter.holder.width/2);
+            super(ResKeys.lazerAmmo, lazerShooter,lazerShooter.holder.y + lazerShooter.holder.height/2);
             if (this.lazerShooter.holder.facingLeft)
                 this.spriteBody.velocity.x = -600;
             else

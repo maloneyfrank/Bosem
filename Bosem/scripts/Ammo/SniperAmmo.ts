@@ -24,7 +24,7 @@
         }
         
         getAttackSpeed() {
-            return this.lazerShooter.holder.attackSpeed / 3;
+            return this.lazerShooter.holder.attackSpeed / 2;
         }
         getRange() {
             return this.lazerShooter.holder.range + 650;

@@ -34,6 +34,8 @@
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';
         ResKeys.homingMissle = 'homingMissle';
+        ResKeys.chargingBall = 'chargingBall';
+        ResKeys.chargedLazer = 'chargedLazer';
 
         ResKeys.fishSprite = 'fishSprite';
         ResKeys.cofee = 'coffeeSprite';

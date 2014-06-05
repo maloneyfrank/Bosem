@@ -31,7 +31,8 @@
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';
         static homingMissle: string = 'homingMissle';
-
+        static chargingBall: string = 'chargingBall';
+        static chargedLazer: string = 'chargedLazer';
         //items
         static fishSprite: string='fishSprite';
         static cofee: string = 'coffeeSprite';

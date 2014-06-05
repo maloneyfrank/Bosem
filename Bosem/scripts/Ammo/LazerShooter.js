@@ -21,10 +21,12 @@
             }
         };
         LazerShooter.prototype.timerStuff = function () {
-            if (this.attackSpeed > 5000)
-                this.holder.attackSpeed = 5000;
-            var delay = 5000 - this.attackSpeed;
-            this.game.time.events.add(delay, this.resetShoot, this);
+            if (this.attackSpeed > 0) {
+                if (this.attackSpeed > 10000)
+                    this.holder.attackSpeed = 10000;
+                var delay = 10000 - this.attackSpeed;
+                this.game.time.events.add(delay, this.resetShoot, this);
+            }
         };
         LazerShooter.prototype.changeAmmoType = function (ammoType) {
             this.ammoType = ammoType;
