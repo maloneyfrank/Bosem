@@ -11,12 +11,16 @@
         }
         static update() {
             this.cameraX = 0;
+            var divideBy: number =0;
             for (var i = 0; i < this.players.length; i++) {
                 //get the point in the middle of all the players by averaging all x and y coordinates
-                this.cameraX += this.players[i].x;
+                if (this.players[i].canDie) {
+                    this.cameraX += this.players[i].x;
+                    divideBy++;
+                }
                 
             }
-            this.cameraX = this.cameraX / this.players.length;
+            this.cameraX = this.cameraX / divideBy;
 
             var moveCamera: boolean = true;
             for (var i = 0; i < this.players.length; i++) {

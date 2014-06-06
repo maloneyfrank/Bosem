@@ -40,7 +40,6 @@ var Bosem;
             this.allItems.push(Bosem.Radar);
             this.allItems.push(Bosem.Heart);
         };
-
         Item.randomItem = function (game, x, y) {
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
@@ -52,7 +51,7 @@ var Bosem;
             }
         };
         Item.allItems = [];
-        Item.maxDropped = 5;
+        Item.maxDropped = 10;
         Item.timesDropped = 0;
 
         Item.dropRate = 50;

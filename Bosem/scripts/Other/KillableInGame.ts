@@ -48,7 +48,8 @@
                 this.game.time.events.add(1000, function () {
                     killed.revive();
                     killed.canDie = true;
-                    killed.position.set(Math.floor(Math.random() * killed.game.world.width), 100);
+                    var position: number = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
+                    killed.position.set(position,0);
                     killed.checkWorldBounds = true;
                     killed.canDie = true;
                 },

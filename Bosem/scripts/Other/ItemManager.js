@@ -44,7 +44,7 @@
         };
 
         ItemManager.onTimeInterval = function () {
-            var x = Math.floor(Math.random() * this.game.world.width);
+            var x = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
             if (this.itemsInGame.length < ItemManager.maxItems) {
                 this.itemsInGame.add(Bosem.Item.randomItem(this.game, x, 10));
             }

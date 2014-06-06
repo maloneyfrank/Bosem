@@ -54,7 +54,7 @@
         }
 
        static onTimeInterval() {
-           var x: number = Math.floor(Math.random() * this.game.world.width);
+           var x: number = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
            if (this.itemsInGame.length < ItemManager.maxItems) {
                this.itemsInGame.add(Item.randomItem(this.game, x, 10));
            }

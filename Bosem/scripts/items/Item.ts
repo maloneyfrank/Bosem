@@ -5,8 +5,10 @@
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;
         static allItems: any[] = [];
-        static maxDropped = 5;
+        static maxDropped = 10;
         static timesDropped = 0;
+
+        static dropRate: number = 50;
         constructor(game: Phaser.Game, x: number, y: number, key: string) {
             super(game, x, y, key);
             this.game = game;
@@ -40,8 +42,6 @@
             this.allItems.push(Radar);
             this.allItems.push(Heart)
         }
-
-        static dropRate: number = 50;
         static randomItem(game: Phaser.Game, x: number, y: number) {
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
