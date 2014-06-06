@@ -14,6 +14,7 @@ var Bosem;
             this.size = 0;
             this.initialHeight = this.height;
             this.initialWidth = this.width;
+            this.game.time.events.add(10000, this.lazerShooter.resetShoot, this);
         }
         ChargingLazer.prototype.update = function () {
             if (this.notReleased) {
@@ -45,16 +46,20 @@ var Bosem;
 
                 this.height = this.initialHeight * this.size / 500;
                 this.y = this.lazerShooter.holder.y + this.lazerShooter.holder.height / 2 - this.height / 2;
-                this.game.time.events.add(150, this.killSelf, this);
+                //    this.game.time.events.add(150, this.killSelf, this);
             }
         };
         ChargingLazer.prototype.getAttackSpeed = function () {
-            return -1;
+            return -10;
         };
         ChargingLazer.prototype.hitSomething = function (something) {
             if (something != this.lazerShooter.holder) {
                 this.killSelf();
             }
+        };
+
+        ChargingLazer.prototype.hitByBullet = function (bullet) {
+            this.killSelf();
         };
 
         ChargingLazer.prototype.getDamage = function () {
@@ -64,6 +69,9 @@ var Bosem;
                 this.dmg = this.lazerShooter.holder.dmg * this.size / 5;
 
             return this.dmg;
+        };
+        ChargingLazer.prototype.getRange = function () {
+            return -1;
         };
         ChargingLazer.prototype.killSelf = function () {
             this.killBullet = true;

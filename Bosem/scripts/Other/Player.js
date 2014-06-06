@@ -72,7 +72,7 @@ var Bosem;
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.CHARGING_LAZER, this.onTeam);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
         }
         Player.prototype.update = function () {
             this.keyControls();

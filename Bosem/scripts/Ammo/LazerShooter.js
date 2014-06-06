@@ -12,11 +12,11 @@
         }
         LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
+                this.canShoot = false;
                 var bullet = Bosem.Ammo.returnAmmoType(this.ammoType, this);
                 this.attackSpeed = bullet.getAttackSpeed();
                 this.bullets.push(bullet);
                 Bosem.Collidable.addCollidable(bullet);
-                this.canShoot = false;
                 this.timerStuff();
             }
         };
@@ -38,7 +38,7 @@
             for (var i = 0; i < this.bullets.length; i++) {
                 var bullet = this.bullets[i];
                 bullet.updateDistanceMoved();
-                if (bullet.getRange() <= bullet.getDistanceMoved()) {
+                if (bullet.getRange() <= bullet.getDistanceMoved() && bullet.getRange() > 0) {
                     this.bullets.splice(i, 1);
                     Bosem.Collidable.removeCollidable(bullet);
                     breakForLoop = true;

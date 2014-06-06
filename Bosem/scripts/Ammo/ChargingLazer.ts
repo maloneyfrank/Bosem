@@ -10,6 +10,7 @@
             this.size = 0;
             this.initialHeight = this.height;
             this.initialWidth = this.width;
+            this.game.time.events.add(10000, this.lazerShooter.resetShoot, this);
         }
         update() {
             if (this.notReleased) {
@@ -40,19 +41,23 @@
                     this.width = 768 * this.size / 450;
                     this.x = this.lazerShooter.holder.x + this.lazerShooter.holder.width
                 }
-
+                
                 this.height = this.initialHeight * this.size / 500;
                 this.y = this.lazerShooter.holder.y + this.lazerShooter.holder.height / 2 - this.height / 2;
-                this.game.time.events.add(150, this.killSelf, this);
+            //    this.game.time.events.add(150, this.killSelf, this);
             }
         }
         getAttackSpeed() {
-            return -1;
+            return -10;
         }
         hitSomething(something: any) {
             if (something != this.lazerShooter.holder) {
                 this.killSelf();
             }
+        }
+
+       hitByBullet(bullet: Ammo) {
+            this.killSelf();
         }
 
         getDamage() {
@@ -62,6 +67,9 @@
                 this.dmg = this.lazerShooter.holder.dmg * this.size / 5;
 
             return this.dmg;
+        }
+        getRange() {
+            return -1;
         }
         killSelf() {
             this.killBullet = true;
