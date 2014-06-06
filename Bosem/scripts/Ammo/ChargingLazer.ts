@@ -44,7 +44,7 @@
                 
                 this.height = this.initialHeight * this.size / 500;
                 this.y = this.lazerShooter.holder.y + this.lazerShooter.holder.height / 2 - this.height / 2;
-            //    this.game.time.events.add(150, this.killSelf, this);
+                this.game.time.events.add(150, this.killSelf, this);
             }
         }
         getAttackSpeed() {

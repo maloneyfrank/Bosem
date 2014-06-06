@@ -45,11 +45,15 @@ var Bosem;
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
                 var dropped = Math.random() * 100;
-                if (this.allItems[randItem].dropRate > dropped)
+                if (this.allItems[randItem].dropRate > dropped && this.allItems[randItem].timesDropped < this.allItems[randItem].maxDropped) {
+                    this.allItems[randItem].timesDropped++;
                     return new this.allItems[randItem](game, x, y);
+                }
             }
         };
         Item.allItems = [];
+        Item.maxDropped = 5;
+        Item.timesDropped = 0;
 
         Item.dropRate = 50;
         return Item;

@@ -5,6 +5,8 @@
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;
         static allItems: any[] = [];
+        static maxDropped = 5;
+        static timesDropped = 0;
         constructor(game: Phaser.Game, x: number, y: number, key: string) {
             super(game, x, y, key);
             this.game = game;
@@ -44,8 +46,11 @@
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
-                if (this.allItems[randItem].dropRate > dropped)
+                if (this.allItems[randItem].dropRate > dropped && this.allItems[randItem].timesDropped < this.allItems[randItem].maxDropped) {
+                    this.allItems[randItem].timesDropped++;
                     return new this.allItems[randItem](game, x, y);
+
+                }
             }
         }
     }
