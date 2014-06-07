@@ -44,6 +44,7 @@
         static lazerGun: string = 'lazerGunSprite';
         static sniperGun: string = 'sniperGun';
         static radar: string = 'radar';
+        static chargingLazerGun: string = 'chargingLazerGun';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';
