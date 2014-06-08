@@ -64,6 +64,8 @@
             }
         };
         HUD.dispayHealth = function (i) {
+            var players = Bosem.KillableInGame.players;
+
             //checks to see if there are enough hearts for the player on the screen
             if (this.healthHearts[i].length < Bosem.KillableInGame.players[i].lives) {
                 //if not it adds a heart
