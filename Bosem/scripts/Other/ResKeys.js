@@ -48,6 +48,7 @@
         ResKeys.sniperGun = 'sniperGun';
         ResKeys.radar = 'radar';
         ResKeys.chargingLazerGun = 'chargingLazerGun';
+        ResKeys.boomerangGun = 'boomerangGun';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';

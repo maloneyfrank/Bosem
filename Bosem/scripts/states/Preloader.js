@@ -43,6 +43,7 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.chargedLazer, 'assets/ChargedShot.png');
             this.game.load.image(Bosem.ResKeys.chargingBall, 'assets/ChargingShot.png');
             this.game.load.image(Bosem.ResKeys.chargingLazerGun, 'assets/charginglazergun.png');
+            this.game.load.image(Bosem.ResKeys.boomerangGun, 'assets/boomerangGun.jpg');
 
             //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');

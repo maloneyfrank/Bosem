@@ -19,6 +19,7 @@
   <ItemGroup>
     <Content Include="app.css" />
     <Content Include="assets\blueHealth.png" />
+    <Content Include="assets\boomerangGun.jpg" />
     <Content Include="assets\charginglazergun.png" />
     <Content Include="assets\heart.png" />
     <Content Include="assets\heartfill.png" />
@@ -70,6 +71,8 @@
     <Content Include="assets\ChargedShot.png" />
     <Content Include="assets\ChargingShot.png" />
     <TypeScriptCompile Include="scripts\items\ChargingLazerGun.ts" />
+    <TypeScriptCompile Include="scripts\Ammo\BoomerangAmmo.ts" />
+    <TypeScriptCompile Include="scripts\items\BoomerangGun.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

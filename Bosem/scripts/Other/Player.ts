@@ -11,6 +11,7 @@
         livesEditable: boolean;
         canDie: boolean;
         facingLeft: boolean;
+        canWallJump: boolean;
 
         //stats
         moveSpeed: number;
@@ -22,6 +23,7 @@
         dmg: number;
         shields: number;
         static MAX_HP: number = 1000;
+        
         //items
         heldItems: Item[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
@@ -64,6 +66,8 @@
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
+
+            this.canWallJump = true;
             
 
             //defaults
@@ -90,7 +94,7 @@
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BOOMERANG_AMMO, this.onTeam);
         }
         
         update() {
@@ -166,6 +170,7 @@
             if (this.jump.isDown && (this.spriteBody.onFloor() || this.spriteBody.onWall())) {
                 this.spriteBody.velocity.y = -this.jumpSpeed;
             }
+
 
 
 

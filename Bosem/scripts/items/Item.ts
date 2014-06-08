@@ -40,7 +40,9 @@
             this.allItems.push(Shield);
             this.allItems.push(SniperGun);
             this.allItems.push(Radar);
-            this.allItems.push(Heart)
+            this.allItems.push(Heart);
+            this.allItems.push(BoomerangGun);
+            this.allItems.push(ChargingLazerGun);
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
             while (true) {
