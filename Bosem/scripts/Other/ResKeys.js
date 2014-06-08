@@ -12,6 +12,7 @@
         ResKeys.preloaderState = 'Preloader';
         ResKeys.map1 = 'map1';
         ResKeys.bricks = 'tiles1';
+        ResKeys.itemAreaPic = 'itemAreaPic';
 
         ResKeys.movingRightAttackAnimation = 'movingRightAttack';
         ResKeys.movingLeftAttackAnimation = 'movingLeftAttack';

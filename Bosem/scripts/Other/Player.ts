@@ -8,6 +8,9 @@
         moveLeft: Phaser.Key;
         jump: Phaser.Key;
         attackKey: Phaser.Key;
+        useItemKey: Phaser.Key;
+
+        //bools
         livesEditable: boolean;
         canDie: boolean;
         facingLeft: boolean;
@@ -27,6 +30,7 @@
         //items
         heldItems: Item[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
+        useItem: Item;
 
         //lazerShooter
         lazerShooter: LazerShooter;
@@ -42,12 +46,12 @@
                 this.game = game;
                 this.game.add.existing(this);
             }
-         //   else if (playerOptions == 3) {
-            //    super(game, x, y, ResKeys.player2Sprite);
-           // }
+
+
             this.onTeam = playerOptions;
             this.heldItems = [];
             this.effectItems = [];
+            this.useItem = null;
             this.facingLeft = false;
             this.livesEditable = false
             this.canDie = true;
@@ -83,18 +87,20 @@
             if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.CAPS_LOCK);
-                this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.T);
+                this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
             }
             if (playerOptions == 1) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BOOMERANG_AMMO, this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
         }
         
         update() {
@@ -121,6 +127,9 @@
 
         keyControls() {
             this.spriteBody.velocity.x = 0;
+            if (this.useItemKey.isDown && this.useItem != null) {
+                this.useItem.effect();
+            }
 
             if (this.moveRight.isDown && this.attackKey.isDown) {
                 if(this.x + this.width < this.game.camera.x + this.game.camera.width)

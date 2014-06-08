@@ -20,12 +20,10 @@ var Bosem;
                 this.game.add.existing(this);
             }
 
-            //   else if (playerOptions == 3) {
-            //    super(game, x, y, ResKeys.player2Sprite);
-            // }
             this.onTeam = playerOptions;
             this.heldItems = [];
             this.effectItems = [];
+            this.useItem = null;
             this.facingLeft = false;
             this.livesEditable = false;
             this.canDie = true;
@@ -63,18 +61,20 @@ var Bosem;
             if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.CAPS_LOCK);
-                this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.T);
+                this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
             }
             if (playerOptions == 1) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BOOMERANG_AMMO, this.onTeam);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
         }
         Player.prototype.update = function () {
             this.keyControls();
@@ -97,6 +97,9 @@ var Bosem;
 
         Player.prototype.keyControls = function () {
             this.spriteBody.velocity.x = 0;
+            if (this.useItemKey.isDown && this.useItem != null) {
+                this.useItem.effect();
+            }
 
             if (this.moveRight.isDown && this.attackKey.isDown) {
                 if (this.x + this.width < this.game.camera.x + this.game.camera.width)

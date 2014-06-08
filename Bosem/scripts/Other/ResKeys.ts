@@ -9,6 +9,7 @@
         static preloaderState: string = 'Preloader';
         static map1: string = 'map1';
         static bricks: string = 'tiles1';
+        static itemAreaPic: string = 'itemAreaPic';
         //animations
         static movingRightAttackAnimation: string = 'movingRightAttack';
         static movingLeftAttackAnimation: string = 'movingLeftAttack';

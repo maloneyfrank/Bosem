@@ -5,10 +5,14 @@
             super(game, x, y, ResKeys.kamikaze);
         }
         init(holder: Player) {
-            var players:Player[] = KillableInGame.getPlayers();
-            for (var i = 0; i < players.length; i++) {
-                KillableInGame.killPlayer(players[i]);
+            this.holder.useItem = this;
+        }
+        effect() {
+            for (var i = 0; i < KillableInGame.players.length; i++) {
+                KillableInGame.killPlayer(KillableInGame.players[i]);
             }
+            this.holder.useItem =null;
+            this.destroy();
         }
     }
 } 

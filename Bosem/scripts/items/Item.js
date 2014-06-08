@@ -43,6 +43,7 @@ var Bosem;
             this.allItems.push(Bosem.ChargingLazerGun);
         };
         Item.randomItem = function (game, x, y) {
+            return new Bosem.Kamikaze(game, x, y);
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
                 var dropped = Math.random() * 100;

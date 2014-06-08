@@ -12,10 +12,14 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.kamikaze);
         }
         Kamikaze.prototype.init = function (holder) {
-            var players = Bosem.KillableInGame.getPlayers();
-            for (var i = 0; i < players.length; i++) {
-                Bosem.KillableInGame.killPlayer(players[i]);
+            this.holder.useItem = this;
+        };
+        Kamikaze.prototype.effect = function () {
+            for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                Bosem.KillableInGame.killPlayer(Bosem.KillableInGame.players[i]);
             }
+            this.holder.useItem = null;
+            this.destroy();
         };
         Kamikaze.dropRate = 80;
         return Kamikaze;
