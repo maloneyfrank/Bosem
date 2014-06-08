@@ -64,8 +64,6 @@
             }
         };
         HUD.dispayHealth = function (i) {
-            var players = Bosem.KillableInGame.players;
-
             //checks to see if there are enough hearts for the player on the screen
             if (this.healthHearts[i].length < Bosem.KillableInGame.players[i].lives) {
                 //if not it adds a heart
@@ -117,7 +115,6 @@
             currentHeart.crop(this.cropRects[i]);
         };
         HUD.displayUseItem = function (i) {
-            var players = Bosem.KillableInGame.players;
             if (Bosem.KillableInGame.players[i].useItem != null) {
                 if (this.itemsInHolders[i] == null) {
                     var x = this.itemHolderRects[i].cameraOffset.x + this.ITEM_IN_HOLDER_DISPLACEMENT;

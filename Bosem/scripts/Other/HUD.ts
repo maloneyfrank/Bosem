@@ -77,7 +77,6 @@
             }
         }
         static dispayHealth(i: number) {
-            var players = KillableInGame.players;
             //checks to see if there are enough hearts for the player on the screen
             if (this.healthHearts[i].length < KillableInGame.players[i].lives) {
                 //if not it adds a heart
@@ -133,7 +132,6 @@
 
         }
         static displayUseItem(i: number) {
-            var players = KillableInGame.players;
             if (KillableInGame.players[i].useItem != null) {
                 if (this.itemsInHolders[i] == null) {
                     var x = this.itemHolderRects[i].cameraOffset.x+ this.ITEM_IN_HOLDER_DISPLACEMENT;
