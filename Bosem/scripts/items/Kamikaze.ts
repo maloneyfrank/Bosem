@@ -5,6 +5,7 @@
             super(game, x, y, ResKeys.kamikaze);
         }
         init(holder: Player) {
+            super.init(holder);
             this.holder.useItem = this;
         }
         effect() {

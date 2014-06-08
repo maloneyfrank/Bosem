@@ -12,6 +12,7 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.kamikaze);
         }
         Kamikaze.prototype.init = function (holder) {
+            _super.prototype.init.call(this, holder);
             this.holder.useItem = this;
         };
         Kamikaze.prototype.effect = function () {

@@ -45,7 +45,6 @@
             this.allItems.push(ChargingLazerGun);
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
-            return new Kamikaze(game, x, y);
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;
