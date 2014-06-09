@@ -39,9 +39,11 @@
             this.game.load.image(ResKeys.itemAreaPic, 'assets/ItemArea.png');
             this.game.load.image(ResKeys.blink, 'assets/blink.jpg');
             this.game.load.image(ResKeys.jetpack, 'assets/jetpack.png');
+            this.game.load.image(ResKeys.controlsPic, 'assets/Controls.png');
             //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');
+
         }
 
         create() {

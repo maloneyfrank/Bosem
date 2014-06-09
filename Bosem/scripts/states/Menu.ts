@@ -2,6 +2,7 @@
     export class Menu extends Phaser.State {
         sprite2: Phaser.Image;
         enter: Phaser.Key;
+
         preload() {
             this.game.add.image(0, 0, ResKeys.menuImage1);
             this.enter = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
@@ -17,7 +18,8 @@
 
             // Add a simple bounce tween to each character's position.
             tween = this.game.add.tween(this.sprite2).to({ y: 500 }, 2400, Phaser.Easing.Bounce.Out, true);
-           // this.game.state.start(ResKeys.battleState);
+            // this.game.state.start(ResKeys.battleState);
+            this.game.add.image(0, 0, ResKeys.controlsPic);
 
         }
 

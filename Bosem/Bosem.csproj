@@ -22,6 +22,7 @@
     <Content Include="assets\blueHealth.png" />
     <Content Include="assets\boomerangGun.jpg" />
     <Content Include="assets\charginglazergun.png" />
+    <Content Include="assets\Controls.png" />
     <Content Include="assets\heart.png" />
     <Content Include="assets\heartfill.png" />
     <Content Include="assets\ItemArea.png" />
