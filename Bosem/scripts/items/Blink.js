@@ -16,10 +16,18 @@ var Bosem;
             this.holder.useItem = this;
         };
         Blink.prototype.effect = function () {
-            if (this.holder.facingLeft) {
-                this.holder.spriteBody.position.x -= 500;
+            if (this.holder.jump.isDown)
+                this.holder.y -= 500;
+            else if (this.holder.facingLeft) {
+                if (this.holder.x - 500 > this.game.camera.x)
+                    this.holder.spriteBody.position.x -= 500;
+                else
+                    this.holder.spriteBody.position.x = this.game.camera.x + 1;
             } else {
-                this.holder.spriteBody.position.x += 500;
+                if (this.holder.x + 500 < this.game.camera.x + this.game.camera.width)
+                    this.holder.spriteBody.position.x += 500;
+                else
+                    this.holder.spriteBody.position.x = this.game.camera.x + this.game.camera.width - this.holder.width - 1;
             }
 
             this.holder.useItem = null;
