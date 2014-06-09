@@ -37,6 +37,8 @@
             this.game.load.image(ResKeys.chargingLazerGun, 'assets/charginglazergun.png');
             this.game.load.image(ResKeys.boomerangGun, 'assets/boomerangGun.jpg');
             this.game.load.image(ResKeys.itemAreaPic, 'assets/ItemArea.png');
+            this.game.load.image(ResKeys.blink, 'assets/blink.jpg');
+            this.game.load.image(ResKeys.jetpack, 'assets/jetpack.jpg');
             //croppable hearts for players (add more for more players) - heartFill + i
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');

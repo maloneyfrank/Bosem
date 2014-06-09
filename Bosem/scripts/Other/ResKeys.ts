@@ -47,6 +47,8 @@
         static radar: string = 'radar';
         static chargingLazerGun: string = 'chargingLazerGun';
         static boomerangGun: string = 'boomerangGun';
+        static blink: string = 'blink';
+        static jetpack: string = 'jetpack';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';

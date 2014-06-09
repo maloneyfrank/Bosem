@@ -41,6 +41,8 @@ var Bosem;
             this.allItems.push(Bosem.Heart);
             this.allItems.push(Bosem.BoomerangGun);
             this.allItems.push(Bosem.ChargingLazerGun);
+            this.allItems.push(Bosem.Blink);
+            this.allItems.push(Bosem.Jetpack);
         };
         Item.randomItem = function (game, x, y) {
             while (true) {

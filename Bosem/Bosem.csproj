@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="assets\blink.jpg" />
     <Content Include="assets\blueHealth.png" />
     <Content Include="assets\boomerangGun.jpg" />
     <Content Include="assets\charginglazergun.png" />
@@ -74,6 +75,8 @@
     <TypeScriptCompile Include="scripts\items\ChargingLazerGun.ts" />
     <TypeScriptCompile Include="scripts\Ammo\BoomerangAmmo.ts" />
     <TypeScriptCompile Include="scripts\items\BoomerangGun.ts" />
+    <TypeScriptCompile Include="scripts\items\Blink.ts" />
+    <TypeScriptCompile Include="scripts\items\Jetpack.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

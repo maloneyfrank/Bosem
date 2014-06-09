@@ -50,6 +50,8 @@
         ResKeys.radar = 'radar';
         ResKeys.chargingLazerGun = 'chargingLazerGun';
         ResKeys.boomerangGun = 'boomerangGun';
+        ResKeys.blink = 'blink';
+        ResKeys.jetpack = 'jetpack';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';
