@@ -133,7 +133,7 @@
         }
         static displayUseItem(i: number) {
             if (KillableInGame.players[i].useItem != null) {
-                if (this.itemsInHolders[i] == null) {
+                if (this.itemsInHolders[i] == null ) {
                     var x = this.itemHolderRects[i].cameraOffset.x+ this.ITEM_IN_HOLDER_DISPLACEMENT;
                     var y = this.itemHolderRects[i].cameraOffset.y + this.ITEM_IN_HOLDER_DISPLACEMENT;
                     this.itemsInHolders[i] = this.game.add.image(0,0, KillableInGame.players[i].useItem.key);
@@ -142,7 +142,12 @@
                     this.itemsInHolders[i].height = this.ITEM_IN_HOLDER_SIDE;
                     this.itemsInHolders[i].width = this.ITEM_IN_HOLDER_SIDE;
                 }
-            } else if (this.itemsInHolders[i] != null) {
+                if (this.itemsInHolders[i].key != KillableInGame.players[i].useItem.key) {
+                    this.itemsInHolders[i].texture = null;
+                    this.itemsInHolders[i].destroy();
+                    this.itemsInHolders[i] = null;
+                }
+            } else if (this.itemsInHolders[i] != null ){
                 this.itemsInHolders[i].texture = null;
                 this.itemsInHolders[i].destroy();
                 this.itemsInHolders[i] = null;

@@ -125,6 +125,11 @@
                     this.itemsInHolders[i].height = this.ITEM_IN_HOLDER_SIDE;
                     this.itemsInHolders[i].width = this.ITEM_IN_HOLDER_SIDE;
                 }
+                if (this.itemsInHolders[i].key != Bosem.KillableInGame.players[i].useItem.key) {
+                    this.itemsInHolders[i].texture = null;
+                    this.itemsInHolders[i].destroy();
+                    this.itemsInHolders[i] = null;
+                }
             } else if (this.itemsInHolders[i] != null) {
                 this.itemsInHolders[i].texture = null;
                 this.itemsInHolders[i].destroy();
