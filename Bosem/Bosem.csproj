@@ -25,6 +25,7 @@
     <Content Include="assets\heart.png" />
     <Content Include="assets\heartfill.png" />
     <Content Include="assets\ItemArea.png" />
+    <Content Include="assets\jetpack.png" />
     <Content Include="assets\kamikaze.png" />
     <Content Include="assets\lasergun.png" />
     <Content Include="assets\menuImage1.png" />
