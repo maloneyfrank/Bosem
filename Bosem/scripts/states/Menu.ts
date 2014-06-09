@@ -18,7 +18,7 @@
 
             // Add a simple bounce tween to each character's position.
             tween = this.game.add.tween(this.sprite2).to({ y: 500 }, 2400, Phaser.Easing.Bounce.Out, true);
-            // this.game.state.start(ResKeys.battleState);
+
             this.game.add.image(0, 0, ResKeys.controlsPic);
 
         }
