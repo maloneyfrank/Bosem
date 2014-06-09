@@ -19,7 +19,7 @@ var Bosem;
         Jetpack.prototype.effect = function () {
             this.holder.spriteBody.velocity.y -= 30;
 
-            setTimeout(this.killJetPack, 6000);
+            this.game.time.events.add(6000, this.killJetPack, this);
         };
 
         Jetpack.prototype.killJetPack = function () {

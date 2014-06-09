@@ -45,6 +45,7 @@ var Bosem;
             this.allItems.push(Bosem.Jetpack);
         };
         Item.randomItem = function (game, x, y) {
+            return new Bosem.Jetpack(game, x, y);
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
                 var dropped = Math.random() * 100;
