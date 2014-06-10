@@ -28,7 +28,7 @@ var Bosem;
             var num = Math.floor(Math.random() * 4);
             holder.jump = this.game.input.keyboard.addKey(this.keys[num]);
 
-            this.game.time.events.add(8000, this.resetKeys, this);
+            this.game.time.events.add(5000, this.resetKeys, this);
 
             holder.incrementMoveSpeed(100);
             holder.shields += 3;

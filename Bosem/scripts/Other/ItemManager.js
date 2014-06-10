@@ -61,7 +61,7 @@
         ItemManager.ON_TIME_INTERVAL = 0;
         ItemManager.ON_TIME_INTERVAL_AND_SPAWN = 2;
 
-        ItemManager.timeInterval = 5000;
+        ItemManager.timeInterval = 7500;
         return ItemManager;
     })();
     Bosem.ItemManager = ItemManager;

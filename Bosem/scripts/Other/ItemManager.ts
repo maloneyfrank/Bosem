@@ -8,7 +8,7 @@
         static ON_TIME_INTERVAL: number = 0; //will drop item on interval
         static ON_TIME_INTERVAL_AND_SPAWN = 2; //interval+spawn
 
-        static timeInterval: number =5000; //interval for item drop if this is th type
+        static timeInterval: number =7500; //interval for item drop if this is th type
         static timer: Phaser.Timer;
 
         static itemsInGame: Phaser.Group; //items in the game

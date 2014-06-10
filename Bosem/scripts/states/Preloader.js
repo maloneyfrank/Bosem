@@ -48,12 +48,11 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.jetpack, 'assets/jetpack.png');
             this.game.load.image(Bosem.ResKeys.controlsPic, 'assets/Controls.png');
             this.game.load.image(Bosem.ResKeys.bottleOfJack, 'assets/bottleOfJack.png');
+            this.game.load.image(Bosem.ResKeys.reloadBar, 'assets/ReloadBar.png');
 
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');
-            this.game.load.image(Bosem.ResKeys.reloadBar + '0', 'assets/ReloadBar.png');
-            this.game.load.image(Bosem.ResKeys.reloadBar + '1', 'assets/ReloadBar.png');
         };
 
         Preloader.prototype.create = function () {

@@ -21,12 +21,12 @@
             this.onTeam = teamNum;
             this.attackSpeed = this.holder.attackSpeed;
             if (this.onTeam == 0) {
-                this.reloadBar = this.game.add.image(120, 60, ResKeys.reloadBar + '0');
+                this.reloadBar = this.game.add.image(120, 60, ResKeys.reloadBar);
                 this.reloadBar.cameraOffset.setTo(120, 60);
                 this.reloadBar.fixedToCamera = true;
             }
             else {
-                this.reloadBar = this.game.add.image(904, 60, ResKeys.reloadBar + '1');
+                this.reloadBar = this.game.add.image(904, 60, ResKeys.reloadBar);
                 this.reloadBar.cameraOffset.setTo(904, 60);
                 this.reloadBar.fixedToCamera = true;
             }
@@ -50,10 +50,10 @@
                 if (this.attackSpeed > 10000) this.holder.attackSpeed = 10000;
                 var delay: number = 10000 - this.attackSpeed;
                 this.game.time.events.add(delay, this.resetShoot, this);
-                var rect = new Phaser.Rectangle(0, 0, 10, 60);
-                this.game.add.tween(rect).from({ y: 59, height: 1 }, delay, Phaser.Easing.Linear.None, true);
-                this.reloadBar.visible = true;
-                this.reloadBar.crop(rect);
+               // var rect = new Phaser.Rectangle(0, 0, 10, 60);
+                this.game.add.tween(this.reloadBar).from({ height:1 }, delay, Phaser.Easing.Linear.None, true);
+                //this.reloadBar.visible = true;
+                //this.reloadBar.crop(rect);
             }
             
         }
