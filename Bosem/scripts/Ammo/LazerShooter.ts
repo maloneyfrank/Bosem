@@ -11,6 +11,8 @@
         ammoType: number;
         onTeam: number;
         attackSpeed: number;
+        reloadBar: Phaser.Image;
+        
         constructor(game: Phaser.Game, holder: CanShoot, ammoType:number,teamNum:number) {
             this.game = game;
             this.holder = holder;
@@ -18,6 +20,11 @@
             this.ammoType = ammoType;
             this.onTeam = teamNum;
             this.attackSpeed = this.holder.attackSpeed;
+            if (this.onTeam == 0)
+                this.reloadBar = this.game.add.image(120, 60, ResKeys.reloadBar + '0');
+            else
+                this.reloadBar = this.game.add.image(904, 60, ResKeys.reloadBar + '1');
+            this.reloadBar.visible = false;
         }
 
         attack() {
@@ -37,9 +44,16 @@
                 if (this.attackSpeed > 10000) this.holder.attackSpeed = 10000;
                 var delay: number = 10000 - this.attackSpeed;
                 this.game.time.events.add(delay, this.resetShoot, this);
+                var rect = new Phaser.Rectangle(0, 0, 10, 60);
+                this.game.add.tween(rect).from({ y: 59, height: 1 }, delay, Phaser.Easing.Linear.None, true);
+                this.reloadBar.visible = true;
+                this.reloadBar.crop(rect);
             }
             
         }
+
+        
+
         changeAmmoType(ammoType: number) {
             this.ammoType = ammoType;
         }

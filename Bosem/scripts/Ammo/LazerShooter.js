@@ -9,6 +9,11 @@
             this.ammoType = ammoType;
             this.onTeam = teamNum;
             this.attackSpeed = this.holder.attackSpeed;
+            if (this.onTeam == 0)
+                this.reloadBar = this.game.add.image(120, 60, Bosem.ResKeys.reloadBar + '0');
+            else
+                this.reloadBar = this.game.add.image(904, 60, Bosem.ResKeys.reloadBar + '1');
+            this.reloadBar.visible = false;
         }
         LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
@@ -26,8 +31,13 @@
                     this.holder.attackSpeed = 10000;
                 var delay = 10000 - this.attackSpeed;
                 this.game.time.events.add(delay, this.resetShoot, this);
+                var rect = new Phaser.Rectangle(0, 0, 10, 60);
+                this.game.add.tween(rect).from({ y: 59, height: 1 }, delay, Phaser.Easing.Linear.None, true);
+                this.reloadBar.visible = true;
+                this.reloadBar.crop(rect);
             }
         };
+
         LazerShooter.prototype.changeAmmoType = function (ammoType) {
             this.ammoType = ammoType;
         };

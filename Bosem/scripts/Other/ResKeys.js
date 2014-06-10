@@ -32,6 +32,7 @@
         ResKeys.player2Health = 'p2Health';
         ResKeys.heartPic = 'heartPic';
         ResKeys.heartFill = 'heartFill';
+        ResKeys.reloadBar = 'reloadBar';
 
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';

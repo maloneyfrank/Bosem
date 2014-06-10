@@ -29,6 +29,7 @@
         static player2Health: string = 'p2Health';
         static heartPic: string = 'heartPic';
         static heartFill: string = 'heartFill';
+        static reloadBar: string = 'reloadBar';
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';

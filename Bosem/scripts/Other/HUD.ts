@@ -11,6 +11,8 @@
         static itemsInHolders: Phaser.Image[];
         static ITEM_IN_HOLDER_SIDE: number = 52; //actual picture is 60 by 60, but 4 pixels on each side is being used by the frame...
         static ITEM_IN_HOLDER_DISPLACEMENT: number = 4; //displacement from rects position in each direction due to frame.
+
+
         static init(game: Phaser.Game) {
             this.game = game;
 
@@ -154,5 +156,6 @@
                 
             }
         }
+
     }
 } 
