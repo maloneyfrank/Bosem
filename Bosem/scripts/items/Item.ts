@@ -48,6 +48,7 @@
             this.allItems.push(BottleOfJack);
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
+            return new BottleOfJack(game, x, y);
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;

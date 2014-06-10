@@ -50,10 +50,7 @@
                 if (this.attackSpeed > 10000) this.holder.attackSpeed = 10000;
                 var delay: number = 10000 - this.attackSpeed;
                 this.game.time.events.add(delay, this.resetShoot, this);
-               // var rect = new Phaser.Rectangle(0, 0, 10, 60);
                 this.game.add.tween(this.reloadBar).from({ height:1 }, delay, Phaser.Easing.Linear.None, true);
-                //this.reloadBar.visible = true;
-                //this.reloadBar.crop(rect);
             }
             
         }

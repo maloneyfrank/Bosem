@@ -30,6 +30,7 @@
         static heartPic: string = 'heartPic';
         static heartFill: string = 'heartFill';
         static reloadBar: string = 'reloadBar';
+        static redBar: string = 'redBar';
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';

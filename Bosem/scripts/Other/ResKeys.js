@@ -33,6 +33,7 @@
         ResKeys.heartPic = 'heartPic';
         ResKeys.heartFill = 'heartFill';
         ResKeys.reloadBar = 'reloadBar';
+        ResKeys.redBar = 'redBar';
 
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';

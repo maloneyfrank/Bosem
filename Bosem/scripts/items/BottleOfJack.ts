@@ -4,6 +4,7 @@
             super(game, x, y, ResKeys.bottleOfJack);
         }
         keys: number[];
+        reload: Phaser.Image;
         init(holder: Player) {
             super.init(holder);
             this.keys = [];
@@ -21,6 +22,8 @@
             var num = Math.floor(Math.random() * 4);
             holder.jump = this.game.input.keyboard.addKey(this.keys[num]);
 
+            this.reload = this.game.add.image(this.holder.x, this.holder.y, ResKeys.redBar);
+            this.game.add.tween(this.reload).from({ height: 1 }, 4900, Phaser.Easing.Linear.None, true);
             this.game.time.events.add(5000, this.resetKeys, this);
 
             holder.incrementMoveSpeed(100);
@@ -32,6 +35,8 @@
             this.holder.attackKey = this.game.input.keyboard.addKey(this.keys[2]);
             this.holder.jump = this.game.input.keyboard.addKey(this.keys[3]);
             this.holder.incrementMoveSpeed(-120);
+            this.reload.texture = null;
+            this.reload.destroy();
         }
     }
 } 
