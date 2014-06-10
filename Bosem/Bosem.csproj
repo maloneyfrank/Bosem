@@ -32,6 +32,8 @@
     <Content Include="assets\menuImage1.png" />
     <Content Include="assets\menuImage2.png" />
     <Content Include="assets\missle.png" />
+    <Content Include="assets\player1.png" />
+    <Content Include="assets\player2.png" />
     <Content Include="assets\radar.png" />
     <Content Include="assets\redHealth.png" />
     <Content Include="assets\ReloadBar.png" />
@@ -45,8 +47,6 @@
     <Content Include="assets\lazerAmmo.png" />
     <Content Include="assets\loader.png" />
     <Content Include="assets\player.png" />
-    <Content Include="assets\player1.png" />
-    <Content Include="assets\player2.png" />
     <Content Include="assets\shield.jpg" />
     <Content Include="assets\startButton.png" />
     <Content Include="index.html" />

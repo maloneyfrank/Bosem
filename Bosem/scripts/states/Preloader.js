@@ -17,8 +17,8 @@ var Bosem;
             this.load.setPreloadSprite(this.preloadBar);
 
             //  Load our actual games assets
-            this.load.spritesheet(Bosem.ResKeys.player1Sprite, 'assets/player1.png', 50, 65);
-            this.load.spritesheet(Bosem.ResKeys.player2Sprite, 'assets/player2.png', 50, 65);
+            this.load.spritesheet(Bosem.ResKeys.player1Sprite, 'assets/player1.png', 43, 65);
+            this.load.spritesheet(Bosem.ResKeys.player2Sprite, 'assets/player2.png', 43, 65);
             this.load.image(Bosem.ResKeys.startButtonSprite, 'assets/startButton.png');
             this.game.load.tilemap(Bosem.ResKeys.map1, 'assets/map1.json', null, Phaser.Tilemap.TILED_JSON);
             this.game.load.image(Bosem.ResKeys.bricks, 'assets/tiles1.png');

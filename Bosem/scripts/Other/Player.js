@@ -29,16 +29,16 @@ var Bosem;
             this.canDie = true;
 
             //animations
-            this.animations.add(Bosem.ResKeys.movingRightAttackAnimation, [0, 1, 2, 3, 4, 5, 6, 5, 4, 3, 2, 1], 20);
-            this.animations.add(Bosem.ResKeys.movingLeftAttackAnimation, [8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9], 20);
-            this.animations.add(Bosem.ResKeys.stillLeftAnimation, [8]);
+            this.animations.add(Bosem.ResKeys.movingRightAttackAnimation, [0, 1, 2, 3], 10);
+            this.animations.add(Bosem.ResKeys.movingLeftAttackAnimation, [4, 5, 6, 7], 10);
+            this.animations.add(Bosem.ResKeys.stillLeftAnimation, [4]);
             this.animations.add(Bosem.ResKeys.stillRightAnimation, [0]);
-            this.animations.add(Bosem.ResKeys.movingRight, [16, 17, 18, 19, 20, 21, 22, 23, 22, 21, 20, 19, 18, 17], 20);
-            this.animations.add(Bosem.ResKeys.movingLeft, [27, 26, 27, 28, 29, 30, 29, 28, 27, 26], 20);
-            this.animations.add(Bosem.ResKeys.stillAttackRight, [32, 33, 34, 35, 36, 37, 38, 37, 36, 35, 34, 33, 32], 20);
-            this.animations.add(Bosem.ResKeys.stillAttackLeft, [39, 40, 41, 42, 43, 44, 45, 44, 43, 42, 41, 40, 39], 20);
-            this.animations.add(Bosem.ResKeys.jumpRight, [46, 47, 48, 49, 50, 49, 48, 47, 46], 20);
-            this.animations.add(Bosem.ResKeys.jumpLeft, [51, 52, 53, 54, 55, 56, 55, 54, 53, 52, 51], 20);
+            this.animations.add(Bosem.ResKeys.movingRight, [8, 9, 10, 11], 10);
+            this.animations.add(Bosem.ResKeys.movingLeft, [12, 13, 14, 15], 10);
+            this.animations.add(Bosem.ResKeys.stillAttackRight, [16, 17, 18, 19], 10);
+            this.animations.add(Bosem.ResKeys.stillAttackLeft, [20, 21, 22, 23], 10);
+            this.animations.add(Bosem.ResKeys.jumpRight, [25, 26, 26, 25], 20);
+            this.animations.add(Bosem.ResKeys.jumpLeft, [32, 33, 33, 32], 20);
 
             //physics
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -74,7 +74,7 @@ var Bosem;
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BOOMERANG_AMMO, this.onTeam);
+            this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
         }
         Player.prototype.update = function () {
             this.keyControls();
