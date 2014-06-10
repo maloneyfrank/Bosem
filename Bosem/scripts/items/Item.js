@@ -46,7 +46,6 @@ var Bosem;
             this.allItems.push(Bosem.BottleOfJack);
         };
         Item.randomItem = function (game, x, y) {
-            return new Bosem.BottleOfJack(game, x, y);
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
                 var dropped = Math.random() * 100;
