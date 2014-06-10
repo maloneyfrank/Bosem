@@ -31,7 +31,6 @@ var Bosem;
                         this.x = this.lazerShooter.holder.x + this.lazerShooter.holder.width;
                 } else {
                     this.notReleased = false;
-                    this.loadTexture(Bosem.ResKeys.chargedLazer, 0);
                     this.initialHeight = this.height;
                     this.initialWidth = this.width;
                 }
@@ -66,7 +65,7 @@ var Bosem;
             if (this.notReleased)
                 this.dmg = 2;
             else
-                this.dmg = this.lazerShooter.holder.dmg * this.size / 5;
+                this.dmg = this.lazerShooter.holder.dmg * this.size / 8;
 
             return this.dmg;
         };

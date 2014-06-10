@@ -100,7 +100,7 @@
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.CHARGING_LAZER, this.onTeam);
         }
 
         update() {

@@ -40,7 +40,6 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.heartFill, 'assets/heartfill.png');
             this.game.load.image(Bosem.ResKeys.homingMissle, 'assets/missle.png');
             this.game.load.image(Bosem.ResKeys.radar, 'assets/radar.png');
-            this.game.load.image(Bosem.ResKeys.chargedLazer, 'assets/ChargedShot.png');
             this.game.load.image(Bosem.ResKeys.chargingBall, 'assets/ChargingShot.png');
             this.game.load.image(Bosem.ResKeys.chargingLazerGun, 'assets/charginglazergun.png');
             this.game.load.image(Bosem.ResKeys.boomerangGun, 'assets/boomerangGun.jpg');

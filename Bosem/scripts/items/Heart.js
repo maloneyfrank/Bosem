@@ -13,10 +13,7 @@ var Bosem;
         }
         Heart.prototype.init = function (holder) {
             _super.prototype.init.call(this, holder);
-            if (this.holder.lives < 8)
-                this.holder.lives++;
-            else
-                this.holder.hp = Bosem.Player.MAX_HP;
+            holder.incrementLives(1);
         };
         return Heart;
     })(Bosem.Item);

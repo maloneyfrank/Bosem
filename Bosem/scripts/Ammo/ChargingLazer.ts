@@ -27,7 +27,6 @@
                     }
                 else {
                     this.notReleased = false;
-                    this.loadTexture(ResKeys.chargedLazer, 0);
                     this.initialHeight = this.height;
                     this.initialWidth = this.width;
                 }
@@ -64,7 +63,7 @@
             if (this.notReleased)
                 this.dmg = 2;
             else
-                this.dmg = this.lazerShooter.holder.dmg * this.size / 5;
+                this.dmg = this.lazerShooter.holder.dmg * this.size /8;
 
             return this.dmg;
         }
