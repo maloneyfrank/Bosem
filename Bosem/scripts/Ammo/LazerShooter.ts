@@ -82,6 +82,9 @@
                             bullet.hitSomething(collidedWith);
                         }
                     }
+                    if(this.game.physics.arcade.collide(Collidable.layer, bullet))
+                        bullet.hitSomething(Collidable.layer)
+
                     if (bullet.killBullet) {
                         bullet.destroy();
                         this.bullets.splice(i, 1);

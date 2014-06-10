@@ -64,6 +64,9 @@
                             bullet.hitSomething(collidedWith);
                         }
                     }
+                    if (this.game.physics.arcade.collide(Bosem.Collidable.layer, bullet))
+                        bullet.hitSomething(Bosem.Collidable.layer);
+
                     if (bullet.killBullet) {
                         bullet.destroy();
                         this.bullets.splice(i, 1);
