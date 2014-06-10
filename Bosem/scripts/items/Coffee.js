@@ -13,9 +13,9 @@ var Bosem;
         }
         Coffee.prototype.init = function (holder) {
             holder.heldItems.push(this);
-            holder.moveSpeed += 100;
-            holder.jumpSpeed += 100;
-            holder.spriteBody.gravity.y += 50;
+            holder.incrementMoveSpeed(100);
+            holder.incrementJumpSpeed(100);
+            holder.incrementGravity(50);
         };
         Coffee.dropRate = 100;
         return Coffee;

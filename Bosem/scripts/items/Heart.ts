@@ -5,10 +5,7 @@
         }
         init(holder: Player) {
             super.init(holder);
-            if (this.holder.lives < 8)
-                this.holder.lives++;
-            else
-                this.holder.hp = Player.MAX_HP;
+            holder.incrementLives(1);
         }
     }
 } 

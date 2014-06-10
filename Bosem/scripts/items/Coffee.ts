@@ -7,9 +7,9 @@
         static dropRate: number = 100;
         init(holder: Player) {
             holder.heldItems.push(this);
-            holder.moveSpeed += 100;
-            holder.jumpSpeed += 100;
-            holder.spriteBody.gravity.y += 50;
+            holder.incrementMoveSpeed(100);
+            holder.incrementJumpSpeed(100);
+            holder.incrementGravity(50);
             
         }
     }

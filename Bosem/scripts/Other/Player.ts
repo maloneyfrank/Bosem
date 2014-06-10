@@ -1,5 +1,5 @@
 ﻿module Bosem {
-    export class Player extends Phaser.Sprite  implements CanShoot{
+    export class Player extends Phaser.Sprite implements CanShoot {
         game: Phaser.Game;
         spriteBody: Phaser.Physics.Arcade.Body;
         onTeam: number;
@@ -26,7 +26,7 @@
         dmg: number;
         shields: number;
         static MAX_HP: number = 1000;
-        
+
         //items
         heldItems: Item[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
@@ -57,22 +57,22 @@
             this.canDie = true;
             //animations
             this.animations.add(ResKeys.movingRightAttackAnimation, [0, 1, 2, 3], 10);
-            this.animations.add(ResKeys.movingLeftAttackAnimation, [4,5,6,7], 10);
+            this.animations.add(ResKeys.movingLeftAttackAnimation, [4, 5, 6, 7], 10);
             this.animations.add(ResKeys.stillLeftAnimation, [4]);
             this.animations.add(ResKeys.stillRightAnimation, [0]);
-            this.animations.add(ResKeys.movingRight, [8,9,10,11], 10);
-            this.animations.add(ResKeys.movingLeft, [12,13,14,15], 10);
-            this.animations.add(ResKeys.stillAttackRight, [16,17,18,19], 10);
-            this.animations.add(ResKeys.stillAttackLeft, [20,21,22,23], 10);
-            this.animations.add(ResKeys.jumpRight, [25,26,26,25], 20);
-            this.animations.add(ResKeys.jumpLeft, [32,33,33,32], 20);
+            this.animations.add(ResKeys.movingRight, [8, 9, 10, 11], 10);
+            this.animations.add(ResKeys.movingLeft, [12, 13, 14, 15], 10);
+            this.animations.add(ResKeys.stillAttackRight, [16, 17, 18, 19], 10);
+            this.animations.add(ResKeys.stillAttackLeft, [20, 21, 22, 23], 10);
+            this.animations.add(ResKeys.jumpRight, [25, 26, 26, 25], 20);
+            this.animations.add(ResKeys.jumpLeft, [32, 33, 33, 32], 20);
             //physics
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
 
             this.canWallJump = true;
-            
+
 
             //defaults
             this.moveSpeed = 300;
@@ -81,7 +81,7 @@
             this.lives = 5;
             this.hp = Player.MAX_HP;
             this.dmg = 10;
-            this.attackSpeed = 9500;
+            this.attackSpeed = 9000;
             this.shields = 0;
             //player controls
             if (playerOptions == 0) {
@@ -102,14 +102,14 @@
             this.spriteBody.collideWorldBounds = true;
             this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
         }
-        
+
         update() {
             this.keyControls();
             this.lazerShooter.update();
             for (var i = 0; i < this.effectItems.length; i++) {
                 this.effectItems[i].itemUpdate();
             }
-           
+
 
             if (this.lives == 0) {
                 var style = { font: '100px Impact', fill: 'Pink' };
@@ -118,7 +118,7 @@
                 timer.loop(5000, this.resetErrything, this);
                 timer.start();
             }
-            
+
 
         }
         resetErrything() {
@@ -132,21 +132,21 @@
             }
 
             if (this.moveRight.isDown && this.attackKey.isDown) {
-                if(this.x + this.width < this.game.camera.x + this.game.camera.width)
-                     this.spriteBody.velocity.x = this.moveSpeed;
+                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                    this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
                 this.animations.play(ResKeys.movingRightAttackAnimation);
                 this.lazerShooter.attack();
             }
             else if (this.moveRight.isDown) {
                 if (this.x + this.width < this.game.camera.x + this.game.camera.width)
-                     this.spriteBody.velocity.x = this.moveSpeed;
+                    this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
                 this.animations.play(ResKeys.movingRight);
             }
             else if (this.moveLeft.isDown && this.attackKey.isDown) {
-                if(this.x > this.game.camera.x)
-                     this.spriteBody.velocity.x = -this.moveSpeed;
+                if (this.x > this.game.camera.x)
+                    this.spriteBody.velocity.x = -this.moveSpeed;
                 this.facingLeft = true;
                 this.animations.play(ResKeys.movingLeftAttackAnimation);
                 this.lazerShooter.attack();
@@ -184,7 +184,7 @@
 
 
         }
-     
+
         respawn() {
             this.lives--;
         }
@@ -196,9 +196,42 @@
         }
 
         hitByBullet(bullet: Ammo) {
-            if(this.onTeam != bullet.onTeam)
+            if (this.onTeam != bullet.onTeam)
                 this.recieveDamage(bullet.getDamage());
         }
 
+        incrementMoveSpeed(increment: number) {
+            this.moveSpeed += increment;
+            if (this.moveSpeed < 10) this.moveSpeed = 10;
+            if (this.moveSpeed > 2000) this.moveSpeed = 2000;
+        }
+        incrementRange(increment: number) {
+            this.range += increment;
+            if (this.range < 10) this.range = 10;
+            if (this.range > 1500) this.range = 1500;
+        }
+        incrementJumpSpeed(increment: number) {
+            this.jumpSpeed += increment;
+            if (this.jumpSpeed < 10) this.jumpSpeed = 10;
+            if (this.jumpSpeed > 2000) this.jumpSpeed = 2000;
+        }
+        incrementLives(increment: number) {
+            this.lives += increment;
+            if (this.lives > 8) {
+                this.lives = 8;
+                this.hp = Player.MAX_HP;
+            }
+        }
+        incrementDamage(increment: number) {
+            this.dmg += increment;
+        }
+        incrementAttackSpeed(increment: number) {
+            this.attackSpeed += increment;
+            if (this.attackSpeed > 10000) this.attackSpeed = 10000;
+            if (this.attackSpeed < 1) this.attackSpeed = 1;
+        }
+        incrementGravity(increment: number) {
+            this.spriteBody.gravity.y += increment;
+        }
     }
 }

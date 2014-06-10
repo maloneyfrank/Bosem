@@ -54,7 +54,7 @@ var Bosem;
             this.lives = 5;
             this.hp = Player.MAX_HP;
             this.dmg = 10;
-            this.attackSpeed = 9500;
+            this.attackSpeed = 9000;
             this.shields = 0;
 
             //player controls
@@ -155,6 +155,48 @@ var Bosem;
         Player.prototype.hitByBullet = function (bullet) {
             if (this.onTeam != bullet.onTeam)
                 this.recieveDamage(bullet.getDamage());
+        };
+
+        Player.prototype.incrementMoveSpeed = function (increment) {
+            this.moveSpeed += increment;
+            if (this.moveSpeed < 10)
+                this.moveSpeed = 10;
+            if (this.moveSpeed > 2000)
+                this.moveSpeed = 2000;
+        };
+        Player.prototype.incrementRange = function (increment) {
+            this.range += increment;
+            if (this.range < 10)
+                this.range = 10;
+            if (this.range > 1500)
+                this.range = 1500;
+        };
+        Player.prototype.incrementJumpSpeed = function (increment) {
+            this.jumpSpeed += increment;
+            if (this.jumpSpeed < 10)
+                this.jumpSpeed = 10;
+            if (this.jumpSpeed > 2000)
+                this.jumpSpeed = 2000;
+        };
+        Player.prototype.incrementLives = function (increment) {
+            this.lives += increment;
+            if (this.lives > 8) {
+                this.lives = 8;
+                this.hp = Player.MAX_HP;
+            }
+        };
+        Player.prototype.incrementDamage = function (increment) {
+            this.dmg += increment;
+        };
+        Player.prototype.incrementAttackSpeed = function (increment) {
+            this.attackSpeed += increment;
+            if (this.attackSpeed > 10000)
+                this.attackSpeed = 10000;
+            if (this.attackSpeed < 1)
+                this.attackSpeed = 1;
+        };
+        Player.prototype.incrementGravity = function (increment) {
+            this.spriteBody.gravity.y += increment;
         };
         Player.MAX_HP = 1000;
         return Player;
