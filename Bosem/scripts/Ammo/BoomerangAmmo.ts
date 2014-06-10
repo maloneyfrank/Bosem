@@ -27,6 +27,8 @@
                 if (this.secondaryVelocityChangeable) {
                     this.spriteBody.velocity.x = this.spriteBody.velocity.x * -1;
                     this.secondaryVelocityChangeable = false;
+
+                    this.spriteBody.velocity.y = ((this.lazerShooter.holder.y + this.lazerShooter.holder.height / 2) - this.y) * 1.5;
                 }
             }
 
