@@ -39,6 +39,7 @@
             this.game.load.image(ResKeys.blink, 'assets/blink.jpg');
             this.game.load.image(ResKeys.jetpack, 'assets/jetpack.png');
             this.game.load.image(ResKeys.controlsPic, 'assets/Controls.png');
+            this.game.load.image(ResKeys.bottleOfJack, 'assets/bottleOfJack.png');
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');

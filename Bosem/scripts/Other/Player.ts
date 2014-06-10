@@ -81,7 +81,7 @@
             this.lives = 5;
             this.hp = Player.MAX_HP;
             this.dmg = 10;
-            this.attackSpeed = 9000;
+            this.attackSpeed = 9500;
             this.shields = 0;
             //player controls
             if (playerOptions == 0) {
@@ -100,7 +100,7 @@
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
-            this.lazerShooter = new LazerShooter(this.game, this, Ammo.CHARGING_LAZER, this.onTeam);
+            this.lazerShooter = new LazerShooter(this.game, this, Ammo.BASIC_AMMO, this.onTeam);
         }
 
         update() {

@@ -21,6 +21,7 @@
     <Content Include="assets\blink.jpg" />
     <Content Include="assets\blueHealth.png" />
     <Content Include="assets\boomerangGun.jpg" />
+    <Content Include="assets\bottleOfJack.png" />
     <Content Include="assets\charginglazergun.png" />
     <Content Include="assets\Controls.png" />
     <Content Include="assets\heart.png" />
@@ -80,6 +81,7 @@
     <TypeScriptCompile Include="scripts\items\BoomerangGun.ts" />
     <TypeScriptCompile Include="scripts\items\Blink.ts" />
     <TypeScriptCompile Include="scripts\items\Jetpack.ts" />
+    <TypeScriptCompile Include="scripts\items\BottleOfJack.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

@@ -50,6 +50,7 @@
         static boomerangGun: string = 'boomerangGun';
         static blink: string = 'blink';
         static jetpack: string = 'jetpack';
+        static bottleOfJack: string = 'bottleOfJack';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';

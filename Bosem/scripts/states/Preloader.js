@@ -47,6 +47,7 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.blink, 'assets/blink.jpg');
             this.game.load.image(Bosem.ResKeys.jetpack, 'assets/jetpack.png');
             this.game.load.image(Bosem.ResKeys.controlsPic, 'assets/Controls.png');
+            this.game.load.image(Bosem.ResKeys.bottleOfJack, 'assets/bottleOfJack.png');
 
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');

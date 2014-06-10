@@ -1,1 +1,1 @@
-{"version":3,"file":"file1.js","sourceRoot":"","sources":["file1.ts"],"names":[],"mappings":""}
+{"version":3,"file":"file1.js","sourceRoot":"","sources":["file1.ts"],"names":["Bosem","Bosem.BottleOfJack","Bosem.BottleOfJack.constructor"],"mappings":";;;;;;AAAA,IAAO,KAAK;AAIX,CAJD,UAAO,KAAK;IACRA;QAAkCC,+BAAIA;QAAtCA;YAAkCC,6BAAIA;QAEtCA,CAACA;AAAAD,QAADA,oBAACA;IAADA,CAACA,EAFiCD,UAAIA,EAErCA;IAFDA,kCAECA;AACLA,CAACA,yBAAA"}

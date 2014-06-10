@@ -45,6 +45,7 @@
             this.allItems.push(ChargingLazerGun);
             this.allItems.push(Blink);
             this.allItems.push(Jetpack);
+            this.allItems.push(BottleOfJack);
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
             while (true) {
