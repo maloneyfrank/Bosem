@@ -12,7 +12,7 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.shield);
         }
         Shield.prototype.init = function (holder) {
-            holder.heldItems.push(this);
+            _super.prototype.init.call(this, holder);
             holder.shields++;
         };
         Shield.newInstance = function (game, x, y) {

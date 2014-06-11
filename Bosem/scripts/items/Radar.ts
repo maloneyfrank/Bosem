@@ -5,7 +5,7 @@
             super(game, x, y, ResKeys.radar);
         }
         init(holder: Player) {
-            holder.heldItems.push(this);
+            super.init(holder);
             holder.lazerShooter.ammoType = Ammo.HOMING_MISSLE;
         } 
     }

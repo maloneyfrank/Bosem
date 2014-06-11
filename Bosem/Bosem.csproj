@@ -20,7 +20,7 @@
     <Content Include="app.css" />
     <Content Include="assets\blink.jpg" />
     <Content Include="assets\blueHealth.png" />
-    <Content Include="assets\boomerangGun.jpg" />
+    <Content Include="assets\boomerangGun.png" />
     <Content Include="assets\bottleOfJack.png" />
     <Content Include="assets\charginglazergun.png" />
     <Content Include="assets\Controls.png" />
@@ -39,8 +39,9 @@
     <Content Include="assets\RedBar.png" />
     <Content Include="assets\redHealth.png" />
     <Content Include="assets\ReloadBar.png" />
+    <Content Include="assets\shield.png" />
     <Content Include="assets\sniperAmmo.png" />
-    <Content Include="assets\sniperGun.jpg" />
+    <Content Include="assets\sniperGun.png" />
     <Content Include="assets\tabasco.png" />
     <Content Include="assets\tiles1.png" />
     <Content Include="assets\coffee.png" />
@@ -49,7 +50,6 @@
     <Content Include="assets\lazerAmmo.png" />
     <Content Include="assets\loader.png" />
     <Content Include="assets\player.png" />
-    <Content Include="assets\shield.jpg" />
     <Content Include="assets\startButton.png" />
     <Content Include="index.html" />
     <TypeScriptCompile Include="scripts\states\Boot.ts" />

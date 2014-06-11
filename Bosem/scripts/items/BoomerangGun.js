@@ -12,7 +12,6 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.boomerangGun);
         }
         BoomerangGun.prototype.init = function (holder) {
-            holder.heldItems.push(this);
             holder.lazerShooter.ammoType = Bosem.Ammo.BOOMERANG_AMMO;
         };
         BoomerangGun.dropRate = 40;

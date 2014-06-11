@@ -12,6 +12,7 @@
         static ITEM_IN_HOLDER_SIDE: number = 52; //actual picture is 60 by 60, but 4 pixels on each side is being used by the frame...
         static ITEM_IN_HOLDER_DISPLACEMENT: number = 4; //displacement from rects position in each direction due to frame.
 
+        static shieldTexts: Phaser.Text[];
 
         static init(game: Phaser.Game) {
             this.game = game;
@@ -22,6 +23,7 @@
             this.healthHearts = [];
             this.heartFills = [];
             this.cropRects = [];
+            this.shieldTexts = [];
             //currently only set up for 2 players but only because of placement...will work with more players but will not display
             for (var i = 0; i < KillableInGame.players.length; i++) {
                 this.healthHearts.push(new Array<Phaser.Sprite>());
@@ -29,9 +31,15 @@
                 this.cropRects.push(new Phaser.Rectangle(0, 0, 0, 0));
                 this.addHearts(i);
                 this.addItemFrames(i);
+                this.addShields(i);
 
             }
         }
+        static addShields(i: number) {
+            var y: number = this.itemHolderRects[i].y + this.itemHolderRects[i].height + 5;
+            this.shieldTexts.push(this.game.add.text(this.itemHolderRects[i].x , y, "Shields: 0", { font: '15px Arial', fill: '#000' }));
+        }
+
         static addHearts(i: number) {
             for (var j = 0; j < KillableInGame.players[i].lives; j++) {
                 if (j == KillableInGame.players[i].lives - 1) {
@@ -63,7 +71,7 @@
         }
         static addItemFrames(i: number) {
             //add it under the first heart 
-            this.itemHolderRects.push(new Phaser.Image(this.game, this.healthHearts[i][0].x, this.healthHearts[i][0].y + this.healthHearts[i][0].height + 1, ResKeys.itemAreaPic, 0));
+            this.itemHolderRects.push(new Phaser.Image(this.game, this.healthHearts[i][1].x, this.healthHearts[i][0].y + this.healthHearts[i][0].height + 1, ResKeys.itemAreaPic, 0));
             this.itemsInHolders.push(null);
             this.itemHolderRects[i].fixedToCamera = true;
             this.itemHolderRects[i].cameraOffset.set(this.itemHolderRects[i].x, this.itemHolderRects[i].y);
@@ -76,6 +84,7 @@
             for (var i = 0; i < KillableInGame.players.length; i++) {
                 this.dispayHealth(i);
                 this.displayUseItem(i);
+                this.displayShields(i);
             }
         }
         static dispayHealth(i: number) {
@@ -156,6 +165,8 @@
                 
             }
         }
-
+        static displayShields(i: number) {
+            this.shieldTexts[i].setText("Shields: " + KillableInGame.players[i].shields.toString());
+        }
     }
 } 

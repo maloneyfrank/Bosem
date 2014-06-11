@@ -5,7 +5,7 @@
             super(game, x, y, ResKeys.shield);
         }
         init(holder: Player) {
-            holder.heldItems.push(this);
+            super.init(holder);
             holder.shields++;
         }
         static newInstance(game: Phaser.Game, x: number, y: number) {

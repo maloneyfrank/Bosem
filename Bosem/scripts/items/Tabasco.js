@@ -12,7 +12,7 @@ var Bosem;
             _super.call(this, game, x, y, Bosem.ResKeys.tabasco);
         }
         Tabasco.prototype.init = function (holder) {
-            holder.heldItems.push(this);
+            _super.prototype.init.call(this, holder);
             //  holder.lazerShooter.ammoType = Ammo.FLAME_AMMO;
         };
         return Tabasco;

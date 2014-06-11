@@ -20,6 +20,7 @@
         init(holder: Player) {
             this.holder = holder;
             this.onTeam = holder.onTeam;
+            this.holder.heldItems.push(this);
             //code to be run only once, when the item is picked up by the player
         }
         effect() {

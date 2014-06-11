@@ -4,7 +4,7 @@
             super(game, x, y, ResKeys.tabasco);
         }
         init(holder: Player) {
-            holder.heldItems.push(this);
+            super.init(holder);
           //  holder.lazerShooter.ammoType = Ammo.FLAME_AMMO;
         }
     }

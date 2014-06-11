@@ -5,7 +5,6 @@
             super(game, x, y, ResKeys.boomerangGun);
         }
         init(holder: Player) {
-            holder.heldItems.push(this);
             holder.lazerShooter.ammoType = Ammo.BOOMERANG_AMMO;
         }
     }

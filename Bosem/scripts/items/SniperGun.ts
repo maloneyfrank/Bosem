@@ -5,7 +5,7 @@
             super(game, x, y, ResKeys.sniperGun);
         }
         init(holder: Player) {
-            holder.heldItems.push(this);
+            super.init(holder);
             holder.lazerShooter.ammoType = Ammo.SNIPER_AMMO;
         }
     }

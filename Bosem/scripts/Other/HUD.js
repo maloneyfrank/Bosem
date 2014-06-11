@@ -11,6 +11,7 @@
             this.healthHearts = [];
             this.heartFills = [];
             this.cropRects = [];
+            this.shieldTexts = [];
 
             for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
                 this.healthHearts.push(new Array());
@@ -18,8 +19,14 @@
                 this.cropRects.push(new Phaser.Rectangle(0, 0, 0, 0));
                 this.addHearts(i);
                 this.addItemFrames(i);
+                this.addShields(i);
             }
         };
+        HUD.addShields = function (i) {
+            var y = this.itemHolderRects[i].y + this.itemHolderRects[i].height + 5;
+            this.shieldTexts.push(this.game.add.text(this.itemHolderRects[i].x, y, "Shields: 0", { font: '15px Arial', fill: '#000' }));
+        };
+
         HUD.addHearts = function (i) {
             for (var j = 0; j < Bosem.KillableInGame.players[i].lives; j++) {
                 if (j == Bosem.KillableInGame.players[i].lives - 1) {
@@ -51,7 +58,7 @@
         };
         HUD.addItemFrames = function (i) {
             //add it under the first heart
-            this.itemHolderRects.push(new Phaser.Image(this.game, this.healthHearts[i][0].x, this.healthHearts[i][0].y + this.healthHearts[i][0].height + 1, Bosem.ResKeys.itemAreaPic, 0));
+            this.itemHolderRects.push(new Phaser.Image(this.game, this.healthHearts[i][1].x, this.healthHearts[i][0].y + this.healthHearts[i][0].height + 1, Bosem.ResKeys.itemAreaPic, 0));
             this.itemsInHolders.push(null);
             this.itemHolderRects[i].fixedToCamera = true;
             this.itemHolderRects[i].cameraOffset.set(this.itemHolderRects[i].x, this.itemHolderRects[i].y);
@@ -61,6 +68,7 @@
             for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
                 this.dispayHealth(i);
                 this.displayUseItem(i);
+                this.displayShields(i);
             }
         };
         HUD.dispayHealth = function (i) {
@@ -135,6 +143,9 @@
                 this.itemsInHolders[i].destroy();
                 this.itemsInHolders[i] = null;
             }
+        };
+        HUD.displayShields = function (i) {
+            this.shieldTexts[i].setText("Shields: " + Bosem.KillableInGame.players[i].shields.toString());
         };
         HUD.ITEM_IN_HOLDER_SIDE = 52;
         HUD.ITEM_IN_HOLDER_DISPLACEMENT = 4;
