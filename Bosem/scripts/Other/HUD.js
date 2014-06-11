@@ -25,6 +25,8 @@
         HUD.addShields = function (i) {
             var y = this.itemHolderRects[i].y + this.itemHolderRects[i].height + 5;
             this.shieldTexts.push(this.game.add.text(this.itemHolderRects[i].x, y, "Shields: 0", { font: '15px Arial', fill: '#000' }));
+            this.shieldTexts[i].fixedToCamera = true;
+            this.shieldTexts[i].cameraOffset.set(this.itemHolderRects[i].x, y);
         };
 
         HUD.addHearts = function (i) {
