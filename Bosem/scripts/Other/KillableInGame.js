@@ -33,21 +33,41 @@
         };
         KillableInGame.killPlayer = function (player) {
             if (player.canDie) {
-                player.canDie = false;
-                this.locationStuff(player);
-                player.lives--;
-                var killed = player;
-                player.kill();
-                player.hp = Bosem.Player.MAX_HP;
-                this.game.time.events.add(1000, function () {
-                    killed.revive();
-                    killed.canDie = true;
-                    var position = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
-                    killed.position.set(position, 0);
-                    killed.checkWorldBounds = true;
-                    killed.canDie = true;
-                }, this);
+                if (player.lives > 1) {
+                    player.canDie = false;
+                    this.locationStuff(player);
+                    player.lives--;
+                    var killed = player;
+                    player.kill();
+                    player.hp = Bosem.Player.MAX_HP;
+                    this.game.time.events.add(1000, function () {
+                        killed.revive();
+                        killed.canDie = true;
+                        var position = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
+                        killed.position.set(position, 0);
+                        killed.checkWorldBounds = true;
+                        killed.canDie = true;
+                    }, this);
+                } else {
+                    this.endGame(player.onTeam);
+                }
             }
+        };
+        KillableInGame.endGame = function (onTeam) {
+            localStorage.clear();
+
+            //stores loser
+            localStorage.setItem('loser', onTeam.toString());
+            localStorage.setItem('numPlayers', KillableInGame.players.length.toString());
+            for (var i = 0; i < KillableInGame.players.length; i++) {
+                var itemResKeys = "";
+                for (var j = 0; j < KillableInGame.players[i].heldItems.length; j++) {
+                    itemResKeys += KillableInGame.players[i].heldItems[j].key + "|";
+                }
+                localStorage.setItem("playerItems" + i.toString(), itemResKeys);
+            }
+
+            this.game.state.start(Bosem.ResKeys.endGameState, true, false);
         };
         KillableInGame.locationStuff = function (player) {
             var x = player.x;

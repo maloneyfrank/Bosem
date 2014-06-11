@@ -9,6 +9,7 @@
         ResKeys.battleState = 'Battle';
         ResKeys.menuState = 'Menu';
         ResKeys.startButtonSprite = 'startButton';
+        ResKeys.endGameState = 'EndGame';
         ResKeys.preloaderState = 'Preloader';
         ResKeys.map1 = 'map1';
         ResKeys.bricks = 'tiles1';

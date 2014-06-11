@@ -15,6 +15,7 @@ var Bosem;
             this.state.add(Bosem.ResKeys.menuState, Bosem.Menu);
             this.state.add(Bosem.ResKeys.battleState, Bosem.Battle);
             this.state.add(Bosem.ResKeys.preloaderState, Bosem.Preloader);
+            this.state.add(Bosem.ResKeys.endGameState, Bosem.EndGame);
             this.state.start(Bosem.ResKeys.bootState);
         }
         return Game;

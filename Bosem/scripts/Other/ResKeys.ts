@@ -6,6 +6,7 @@
         static battleState: string = 'Battle';
         static menuState: string = 'Menu';
         static startButtonSprite: string = 'startButton';
+        static endGameState: string = 'EndGame';
         static preloaderState: string = 'Preloader';
         static map1: string = 'map1';
         static bricks: string = 'tiles1';

@@ -39,23 +39,41 @@
         }
         static  killPlayer(player: Player) {
             if (player.canDie) {
-                player.canDie = false;
-                this.locationStuff(player);
-                player.lives--;
-                var killed = player;
-                player.kill();
-                player.hp = Player.MAX_HP;
-                this.game.time.events.add(1000, function () {
-                    killed.revive();
-                    killed.canDie = true;
-                    var position: number = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
-                    killed.position.set(position,0);
-                    killed.checkWorldBounds = true;
-                    killed.canDie = true;
-                },
-                    this);
-                
+                if (player.lives > 1) {
+                    player.canDie = false;
+                    this.locationStuff(player);
+                    player.lives--;
+                    var killed = player;
+                    player.kill();
+                    player.hp = Player.MAX_HP;
+                    this.game.time.events.add(1000, function () {
+                        killed.revive();
+                        killed.canDie = true;
+                        var position: number = Math.floor(killed.game.camera.x + (Math.random() * killed.game.camera.width));
+                        killed.position.set(position, 0);
+                        killed.checkWorldBounds = true;
+                        killed.canDie = true;
+                    },
+                        this);
+                } else {
+                    this.endGame(player.onTeam);
+                }
             }
+        }
+        static endGame(onTeam: number) { //isnt checking for ties currently
+            localStorage.clear();
+            //stores loser   
+            localStorage.setItem('loser', onTeam.toString());
+            localStorage.setItem('numPlayers', KillableInGame.players.length.toString());
+            for (var i = 0; i < KillableInGame.players.length; i++) {
+                var itemResKeys: string = "";
+                for (var j = 0; j < KillableInGame.players[i].heldItems.length; j++) {
+                    itemResKeys += KillableInGame.players[i].heldItems[j].key + "|";
+                }
+                localStorage.setItem("playerItems" + i.toString(), itemResKeys);
+            }
+
+            this.game.state.start(ResKeys.endGameState, true, false);
         }
         static locationStuff(player: Player){
             var x = player.x;

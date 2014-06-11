@@ -8,6 +8,7 @@ module Bosem
             this.state.add(ResKeys.menuState, Menu);
             this.state.add(ResKeys.battleState, Battle);
             this.state.add(ResKeys.preloaderState, Preloader);
+            this.state.add(ResKeys.endGameState, EndGame);
             this.state.start(ResKeys.bootState);
             
         }

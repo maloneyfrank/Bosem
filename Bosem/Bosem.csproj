@@ -94,6 +94,7 @@
     <TypeScriptCompile Include="scripts\Ammo\LazerShooter.ts" />
     <TypeScriptCompile Include="scripts\states\Menu.ts" />
     <TypeScriptCompile Include="scripts\states\Preloader.ts" />
+    <TypeScriptCompile Include="scripts\states\EndGame.ts" />
     <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
