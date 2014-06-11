@@ -16,14 +16,8 @@ var Bosem;
             Bosem.Collidable.init(this.game);
             Bosem.KillableInGame.init(this.game, 2);
             Bosem.HUD.init(this.game);
-            this.map = this.game.add.tilemap(Bosem.ResKeys.map1);
-            this.map.addTilesetImage('tiles1', 'tiles1');
-            this.map.setCollisionByExclusion([]);
+            Bosem.MapManager.init(this.game);
             Bosem.Item.init();
-            this.layer = this.map.createLayer('Tile Layer 1');
-            this.layer.resizeWorld();
-            Bosem.Collidable.setLayer(this.layer);
-
             this.players = Bosem.KillableInGame.getPlayers();
             Bosem.Camera.init(this.game);
             Bosem.ItemManager.init(this.game, Bosem.ItemManager.ON_TIME_INTERVAL_AND_SPAWN);
@@ -32,7 +26,7 @@ var Bosem;
         Battle.prototype.update = function () {
             for (var i = 0; i < this.players.length; i++) {
                 //check for collision with map
-                this.game.physics.arcade.collide(this.players[i], this.layer);
+                this.game.physics.arcade.collide(this.players[i], Bosem.MapManager.layer);
                 for (var j = 0; j < this.players.length; j++) {
                     //check for cillsion with other players
                     if (j != i) {
@@ -42,7 +36,7 @@ var Bosem;
             }
             Bosem.KillableInGame.update();
             Bosem.ItemManager.update();
-            this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, this.layer);
+            this.game.physics.arcade.collide(Bosem.ItemManager.itemsInGame, Bosem.MapManager.layer);
             Bosem.HUD.displayHud();
             Bosem.Camera.update();
         };

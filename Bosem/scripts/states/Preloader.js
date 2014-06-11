@@ -50,6 +50,9 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.bottleOfJack, 'assets/bottleOfJack.png');
             this.game.load.image(Bosem.ResKeys.reloadBar, 'assets/ReloadBar.png');
             this.game.load.image(Bosem.ResKeys.redBar, 'assets/RedBar.png');
+            this.game.load.image(Bosem.ResKeys.cityTiles, 'assets/concreteTileSet.png');
+            this.game.load.tilemap(Bosem.ResKeys.cityMap, 'assets/cityMap.json', null, Phaser.Tilemap.TILED_JSON);
+            this.game.load.image(Bosem.ResKeys.cityBackgroundString, 'assets/cityBackground.jpg');
 
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');

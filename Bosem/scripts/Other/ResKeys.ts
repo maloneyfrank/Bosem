@@ -11,6 +11,9 @@
         static bricks: string = 'tiles1';
         static itemAreaPic: string = 'itemAreaPic';
         static controlsPic: string = 'controlsPic';
+        static cityMap: string = 'cityMap';
+        static cityTiles: string = 'concreteTileSet';
+        static cityBackgroundString = 'cityBackground';
         //animations
         static movingRightAttackAnimation: string = 'movingRightAttack';
         static movingLeftAttackAnimation: string = 'movingLeftAttack';

@@ -14,6 +14,9 @@
         ResKeys.bricks = 'tiles1';
         ResKeys.itemAreaPic = 'itemAreaPic';
         ResKeys.controlsPic = 'controlsPic';
+        ResKeys.cityMap = 'cityMap';
+        ResKeys.cityTiles = 'concreteTileSet';
+        ResKeys.cityBackgroundString = 'cityBackground';
 
         ResKeys.movingRightAttackAnimation = 'movingRightAttack';
         ResKeys.movingLeftAttackAnimation = 'movingLeftAttack';

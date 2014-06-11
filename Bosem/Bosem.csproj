@@ -83,6 +83,9 @@
     <TypeScriptCompile Include="scripts\items\Blink.ts" />
     <TypeScriptCompile Include="scripts\items\Jetpack.ts" />
     <TypeScriptCompile Include="scripts\items\BottleOfJack.ts" />
+    <TypeScriptCompile Include="scripts\maps\MapManager.ts" />
+    <TypeScriptCompile Include="scripts\maps\BosemMap.ts" />
+    <TypeScriptCompile Include="scripts\maps\DefaultMap.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />
