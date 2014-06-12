@@ -87,16 +87,16 @@
             if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.T);
+                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
-                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.T);
             }
             if (playerOptions == 1) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
                 this.moveLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
-                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+                this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
-                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+                this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
