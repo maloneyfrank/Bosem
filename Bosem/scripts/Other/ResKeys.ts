@@ -26,6 +26,10 @@
         static movingRight: string = 'movingRight';
         static jumpRight: string = 'jumpRight';
         static jumpLeft: string = 'jumpLeft';
+        static duckRight: string = 'duckRight';
+        static duckLeft: string = 'duckLeft';
+        static stillDuckLeft: string = 'stillDuckLeft';
+        static stillDuckRight: string = 'stillDuckRight';
         static collisionSpriteSheet: string = 'collisionSpriteSheet';
         static flameAmmo: string = 'flameAmmo';
         static flameAnim: string = 'flameAnim';

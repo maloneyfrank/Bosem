@@ -29,6 +29,10 @@
         ResKeys.movingRight = 'movingRight';
         ResKeys.jumpRight = 'jumpRight';
         ResKeys.jumpLeft = 'jumpLeft';
+        ResKeys.duckRight = 'duckRight';
+        ResKeys.duckLeft = 'duckLeft';
+        ResKeys.stillDuckLeft = 'stillDuckLeft';
+        ResKeys.stillDuckRight = 'stillDuckRight';
         ResKeys.collisionSpriteSheet = 'collisionSpriteSheet';
         ResKeys.flameAmmo = 'flameAmmo';
         ResKeys.flameAnim = 'flameAnim';

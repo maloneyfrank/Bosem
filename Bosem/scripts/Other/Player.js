@@ -27,6 +27,7 @@ var Bosem;
             this.facingLeft = false;
             this.livesEditable = false;
             this.canDie = true;
+            this.isDucked = false;
 
             //animations
             this.animations.add(Bosem.ResKeys.movingRightAttackAnimation, [0, 1, 2, 3], 10);
@@ -39,6 +40,10 @@ var Bosem;
             this.animations.add(Bosem.ResKeys.stillAttackLeft, [20, 21, 22, 23], 10);
             this.animations.add(Bosem.ResKeys.jumpRight, [25, 26, 26, 25], 20);
             this.animations.add(Bosem.ResKeys.jumpLeft, [32, 33, 33, 32], 20);
+            this.animations.add(Bosem.ResKeys.duckRight, [25, 26, 27], 10);
+            this.animations.add(Bosem.ResKeys.duckLeft, [30, 31, 32], 10);
+            this.animations.add(Bosem.ResKeys.stillDuckLeft, [29]);
+            this.animations.add(Bosem.ResKeys.stillDuckRight, [28]);
 
             //physics
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
@@ -55,6 +60,7 @@ var Bosem;
             this.dmg = 10;
             this.attackSpeed = 9500;
             this.shields = 0;
+            this.ogHeight = this.height;
 
             //player controls
             if (playerOptions == 0) {
@@ -63,6 +69,7 @@ var Bosem;
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
                 this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.T);
+                this.duckKey = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
             }
             if (playerOptions == 1) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
@@ -70,6 +77,7 @@ var Bosem;
                 this.jump = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
                 this.attackKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
                 this.useItemKey = this.game.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+                this.duckKey = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN);
             }
             this.checkWorldBounds = true;
             this.spriteBody.collideWorldBounds = true;
@@ -81,14 +89,6 @@ var Bosem;
             for (var i = 0; i < this.effectItems.length; i++) {
                 this.effectItems[i].itemUpdate();
             }
-
-            if (this.lives == 0) {
-                var style = { font: '100px Impact', fill: 'Pink' };
-                this.game.add.text(300, 300, "PLAYER " + this.onTeam + " LOSES!", style);
-                var timer = this.game.time.create(true);
-                timer.loop(5000, this.resetErrything, this);
-                timer.start();
-            }
         };
         Player.prototype.resetErrything = function () {
             this.game.state.start(Bosem.ResKeys.battleState, true, false);
@@ -96,11 +96,28 @@ var Bosem;
 
         Player.prototype.keyControls = function () {
             this.spriteBody.velocity.x = 0;
+
             if (this.useItemKey.isDown && this.useItem != null) {
                 this.useItem.effect();
             }
 
-            if (this.moveRight.isDown && this.attackKey.isDown) {
+            if (this.isDucked) {
+                if (this.facingLeft) {
+                    this.animations.play(Bosem.ResKeys.stillDuckLeft);
+                } else {
+                    this.animations.play(Bosem.ResKeys.stillDuckRight);
+                }
+            } else if (this.duckKey.isDown) {
+                if (this.facingLeft) {
+                    this.animations.play(Bosem.ResKeys.duckLeft);
+                } else {
+                    this.animations.play(Bosem.ResKeys.duckRight);
+                }
+                this.isDucked = true;
+                this.duckKey.onUp.add(this.getUp, this);
+                this.scale.y = 0.3;
+                this.y = this.y + this.ogHeight * 2 / 3;
+            } else if (this.moveRight.isDown && this.attackKey.isDown) {
                 if (this.x + this.width < this.game.camera.x + this.game.camera.width)
                     this.spriteBody.velocity.x = this.moveSpeed;
                 this.facingLeft = false;
@@ -135,10 +152,16 @@ var Bosem;
                     this.animations.play(Bosem.ResKeys.stillRightAnimation);
                 }
             }
+            if (!this.isDucked)
+                if (this.jump.isDown && (this.spriteBody.onFloor() || this.spriteBody.onWall())) {
+                    this.spriteBody.velocity.y = -this.jumpSpeed;
+                }
+        };
 
-            if (this.jump.isDown && (this.spriteBody.onFloor() || this.spriteBody.onWall())) {
-                this.spriteBody.velocity.y = -this.jumpSpeed;
-            }
+        Player.prototype.getUp = function () {
+            this.scale.y = 1;
+            this.isDucked = false;
+            this.y = this.y - this.ogHeight * 2 / 3;
         };
 
         Player.prototype.respawn = function () {
