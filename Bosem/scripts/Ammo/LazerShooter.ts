@@ -12,7 +12,7 @@
         onTeam: number;
         attackSpeed: number;
         reloadBar: Phaser.Image;
-        
+        initalReloadBarHeight: number;
         constructor(game: Phaser.Game, holder: CanShoot, ammoType:number,teamNum:number) {
             this.game = game;
             this.holder = holder;
@@ -30,6 +30,7 @@
                 this.reloadBar.cameraOffset.setTo(904, 60);
                 this.reloadBar.fixedToCamera = true;
             }
+            this.initalReloadBarHeight = this.reloadBar.height;
             
         }
 
@@ -47,6 +48,7 @@
         }
         timerStuff() {
             if (this.attackSpeed > 0) {
+                this.reloadBar.height = this.initalReloadBarHeight;
                 if (this.attackSpeed > 10000) this.holder.attackSpeed = 10000;
                 var delay: number = 10000 - this.attackSpeed;
                 this.game.time.events.add(delay, this.resetShoot, this);

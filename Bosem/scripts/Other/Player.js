@@ -44,7 +44,6 @@ var Bosem;
             this.game.physics.enable(this, Phaser.Physics.ARCADE);
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
-            this.spriteBody.bounce.y = 0.2;
             this.canWallJump = true;
 
             //defaults

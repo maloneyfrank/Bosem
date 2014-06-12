@@ -18,6 +18,7 @@
                 this.reloadBar.cameraOffset.setTo(904, 60);
                 this.reloadBar.fixedToCamera = true;
             }
+            this.initalReloadBarHeight = this.reloadBar.height;
         }
         LazerShooter.prototype.attack = function () {
             if (this.canShoot) {
@@ -31,6 +32,7 @@
         };
         LazerShooter.prototype.timerStuff = function () {
             if (this.attackSpeed > 0) {
+                this.reloadBar.height = this.initalReloadBarHeight;
                 if (this.attackSpeed > 10000)
                     this.holder.attackSpeed = 10000;
                 var delay = 10000 - this.attackSpeed;
