@@ -63,6 +63,7 @@
         ResKeys.blink = 'blink';
         ResKeys.jetpack = 'jetpack';
         ResKeys.bottleOfJack = 'bottleOfJack';
+        ResKeys.scopeItem = 'scopeItem';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';

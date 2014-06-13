@@ -50,6 +50,7 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.bottleOfJack, 'assets/bottleOfJack.png');
             this.game.load.image(Bosem.ResKeys.reloadBar, 'assets/ReloadBar.png');
             this.game.load.image(Bosem.ResKeys.redBar, 'assets/RedBar.png');
+            this.game.load.image(Bosem.ResKeys.scopeItem, 'assets/Scope.png');
 
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');

@@ -47,8 +47,14 @@
             this.allItems.push(Blink);
             this.allItems.push(Jetpack);
             this.allItems.push(BottleOfJack);
+            this.allItems.push(Scope);
+
+            for (var i = 0; i < this.allItems.length; i++) {
+                this.allItems[i].timesDropped = 0;
+            }
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
+            // return new this.allItems[this.allItems.length - 1](game, x, y);
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;

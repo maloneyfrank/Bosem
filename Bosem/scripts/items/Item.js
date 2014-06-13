@@ -45,6 +45,11 @@ var Bosem;
             this.allItems.push(Bosem.Blink);
             this.allItems.push(Bosem.Jetpack);
             this.allItems.push(Bosem.BottleOfJack);
+            this.allItems.push(Bosem.Scope);
+
+            for (var i = 0; i < this.allItems.length; i++) {
+                this.allItems[i].timesDropped = 0;
+            }
         };
         Item.randomItem = function (game, x, y) {
             while (true) {

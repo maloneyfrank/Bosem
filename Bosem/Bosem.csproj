@@ -39,6 +39,7 @@
     <Content Include="assets\RedBar.png" />
     <Content Include="assets\redHealth.png" />
     <Content Include="assets\ReloadBar.png" />
+    <Content Include="assets\Scope.png" />
     <Content Include="assets\shield.png" />
     <Content Include="assets\sniperAmmo.png" />
     <Content Include="assets\sniperGun.png" />
@@ -86,6 +87,7 @@
     <TypeScriptCompile Include="scripts\maps\MapManager.ts" />
     <TypeScriptCompile Include="scripts\maps\BosemMap.ts" />
     <TypeScriptCompile Include="scripts\maps\DefaultMap.ts" />
+    <TypeScriptCompile Include="scripts\items\Scope.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />
