@@ -53,6 +53,8 @@ var Bosem;
             this.game.load.image(Bosem.ResKeys.scopeItem, 'assets/Scope.png');
             this.game.load.image(Bosem.ResKeys.bananaItem, 'assets/Banana.png');
             this.game.load.image(Bosem.ResKeys.bombItem, 'assets/Bomb.png');
+            this.game.load.image(Bosem.ResKeys.rocket, 'assets/Rocket.png');
+            this.game.load.image(Bosem.ResKeys.rocketLauncher, 'assets/RocketLauncher.png');
             this.game.load.spritesheet(Bosem.ResKeys.explosionAnimation, 'assets/Explosion.png', 128, 128);
 
             //croppable stuff, 1 for each player

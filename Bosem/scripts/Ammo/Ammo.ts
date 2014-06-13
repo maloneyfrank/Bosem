@@ -7,6 +7,7 @@
         static SNIPER_AMMO: number = 2;
         static CHARGING_LAZER: number = 3;
         static BOOMERANG_AMMO: number = 4;
+        static ROCKET: number = 5;
         distanceMoved:number;
         dmg: number;
         onTeam: number;
@@ -47,6 +48,9 @@
                     break;
                 case Ammo.BOOMERANG_AMMO:
                     return new BoomerangAmmo(lazerShooter);
+                    break;
+                case Ammo.ROCKET:
+                    return new Rocket(lazerShooter);
                     break;
             }
         }

@@ -48,6 +48,7 @@
         ResKeys.sniperAmmo = 'sniperAmmo';
         ResKeys.homingMissle = 'homingMissle';
         ResKeys.chargingBall = 'chargingBall';
+        ResKeys.rocket = 'rocket';
 
         ResKeys.fishSprite = 'fishSprite';
         ResKeys.cofee = 'coffeeSprite';
@@ -67,6 +68,7 @@
         ResKeys.scopeItem = 'scopeItem';
         ResKeys.bananaItem = 'bananaitem';
         ResKeys.bombItem = 'bombItem';
+        ResKeys.rocketLauncher = 'rocketLauncher';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';

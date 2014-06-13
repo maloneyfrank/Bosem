@@ -42,6 +42,8 @@
     <Content Include="assets\RedBar.png" />
     <Content Include="assets\redHealth.png" />
     <Content Include="assets\ReloadBar.png" />
+    <Content Include="assets\Rocket.png" />
+    <Content Include="assets\RocketLauncher.png" />
     <Content Include="assets\Scope.png" />
     <Content Include="assets\shield.png" />
     <Content Include="assets\sniperAmmo.png" />
@@ -95,6 +97,8 @@
     <TypeScriptCompile Include="scripts\items\Bomb.ts" />
     <TypeScriptCompile Include="scripts\Other\Killable.ts" />
     <TypeScriptCompile Include="scripts\items\Explosion.ts" />
+    <TypeScriptCompile Include="scripts\Ammo\Rocket.ts" />
+    <TypeScriptCompile Include="scripts\items\RocketLauncher.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

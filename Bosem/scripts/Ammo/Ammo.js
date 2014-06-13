@@ -42,6 +42,9 @@ var Bosem;
                 case Ammo.BOOMERANG_AMMO:
                     return new Bosem.BoomerangAmmo(lazerShooter);
                     break;
+                case Ammo.ROCKET:
+                    return new Bosem.Rocket(lazerShooter);
+                    break;
             }
         };
         Ammo.prototype.getAttackSpeed = function () {
@@ -71,6 +74,7 @@ var Bosem;
         Ammo.SNIPER_AMMO = 2;
         Ammo.CHARGING_LAZER = 3;
         Ammo.BOOMERANG_AMMO = 4;
+        Ammo.ROCKET = 5;
         return Ammo;
     })(Phaser.Sprite);
     Bosem.Ammo = Ammo;

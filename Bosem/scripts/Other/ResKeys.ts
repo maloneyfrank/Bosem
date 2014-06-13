@@ -45,6 +45,7 @@
         static sniperAmmo: string = 'sniperAmmo';
         static homingMissle: string = 'homingMissle';
         static chargingBall: string = 'chargingBall';
+        static rocket: string = 'rocket';
         //items
         static fishSprite: string='fishSprite';
         static cofee: string = 'coffeeSprite';
@@ -64,6 +65,7 @@
         static scopeItem: string = 'scopeItem';
         static bananaItem: string = 'bananaitem';
         static bombItem: string = 'bombItem';
+        static rocketLauncher: string = 'rocketLauncher';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';
