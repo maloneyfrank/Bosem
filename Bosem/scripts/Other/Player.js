@@ -50,6 +50,7 @@ var Bosem;
             this.spriteBody = this.body;
             this.spriteBody.acceleration.y = 1000;
             this.canWallJump = true;
+            this.fallingAttack = false;
 
             //defaults
             this.moveSpeed = 300;
@@ -59,6 +60,7 @@ var Bosem;
             this.hp = Player.MAX_HP;
             this.dmg = 10;
             this.attackSpeed = 9500;
+            this.fallingSpeed = 0;
             this.shields = 0;
             this.ogHeight = this.height;
             this.canMove = true;
@@ -109,6 +111,21 @@ var Bosem;
                 } else {
                     this.animations.play(Bosem.ResKeys.stillDuckRight);
                 }
+
+                if (!this.spriteBody.onFloor()) {
+                    this.spriteBody.velocity.y += 25;
+                    this.fallingSpeed += 25;
+                    this.fallingAttack = true;
+                }
+                for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                    if (this.fallingAttack && this.spriteBody.onFloor()) {
+                        this.fallingAttack = false;
+                        this.aerialAttack();
+                    } else if (this.fallingAttack && this.game.physics.arcade.collide(this, Bosem.KillableInGame.players[i])) {
+                        this.onTopAerialAttack();
+                        this.fallingAttack = false;
+                    }
+                }
             } else if (this.duckKey.isDown) {
                 if (this.facingLeft) {
                     this.animations.play(Bosem.ResKeys.duckLeft);
@@ -119,39 +136,43 @@ var Bosem;
                 this.duckKey.onUp.add(this.getUp, this);
                 this.scale.y = 0.3;
                 this.y = this.y + this.ogHeight * 2 / 3;
-            } else if (this.moveRight.isDown && this.attackKey.isDown) {
-                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
-                    this.spriteBody.velocity.x = this.moveSpeed;
-                this.facingLeft = false;
-                this.animations.play(Bosem.ResKeys.movingRightAttackAnimation);
-                this.lazerShooter.attack();
-            } else if (this.moveRight.isDown) {
-                if (this.x + this.width < this.game.camera.x + this.game.camera.width)
-                    this.spriteBody.velocity.x = this.moveSpeed;
-                this.facingLeft = false;
-                this.animations.play(Bosem.ResKeys.movingRight);
-            } else if (this.moveLeft.isDown && this.attackKey.isDown) {
-                if (this.x > this.game.camera.x)
-                    this.spriteBody.velocity.x = -this.moveSpeed;
-                this.facingLeft = true;
-                this.animations.play(Bosem.ResKeys.movingLeftAttackAnimation);
-                this.lazerShooter.attack();
-            } else if (this.moveLeft.isDown) {
-                if (this.x > this.game.camera.x)
-                    this.spriteBody.velocity.x = -this.moveSpeed;
-                this.facingLeft = true;
-                this.animations.play(Bosem.ResKeys.movingLeft);
-            } else if (this.attackKey.isDown && this.facingLeft == false) {
-                this.animations.play(Bosem.ResKeys.stillAttackRight);
-                this.lazerShooter.attack();
-            } else if (this.attackKey.isDown && this.facingLeft) {
-                this.lazerShooter.attack();
-                this.animations.play(Bosem.ResKeys.stillAttackLeft);
             } else {
-                if (this.facingLeft) {
-                    this.animations.play(Bosem.ResKeys.stillLeftAnimation);
+                this.fallingSpeed = 0;
+                this.fallingAttack = false;
+                if (this.moveRight.isDown && this.attackKey.isDown) {
+                    if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                        this.spriteBody.velocity.x = this.moveSpeed;
+                    this.facingLeft = false;
+                    this.animations.play(Bosem.ResKeys.movingRightAttackAnimation);
+                    this.lazerShooter.attack();
+                } else if (this.moveRight.isDown) {
+                    if (this.x + this.width < this.game.camera.x + this.game.camera.width)
+                        this.spriteBody.velocity.x = this.moveSpeed;
+                    this.facingLeft = false;
+                    this.animations.play(Bosem.ResKeys.movingRight);
+                } else if (this.moveLeft.isDown && this.attackKey.isDown) {
+                    if (this.x > this.game.camera.x)
+                        this.spriteBody.velocity.x = -this.moveSpeed;
+                    this.facingLeft = true;
+                    this.animations.play(Bosem.ResKeys.movingLeftAttackAnimation);
+                    this.lazerShooter.attack();
+                } else if (this.moveLeft.isDown) {
+                    if (this.x > this.game.camera.x)
+                        this.spriteBody.velocity.x = -this.moveSpeed;
+                    this.facingLeft = true;
+                    this.animations.play(Bosem.ResKeys.movingLeft);
+                } else if (this.attackKey.isDown && this.facingLeft == false) {
+                    this.animations.play(Bosem.ResKeys.stillAttackRight);
+                    this.lazerShooter.attack();
+                } else if (this.attackKey.isDown && this.facingLeft) {
+                    this.lazerShooter.attack();
+                    this.animations.play(Bosem.ResKeys.stillAttackLeft);
                 } else {
-                    this.animations.play(Bosem.ResKeys.stillRightAnimation);
+                    if (this.facingLeft) {
+                        this.animations.play(Bosem.ResKeys.stillLeftAnimation);
+                    } else {
+                        this.animations.play(Bosem.ResKeys.stillRightAnimation);
+                    }
                 }
             }
             if (!this.isDucked)
@@ -160,10 +181,49 @@ var Bosem;
                 }
         };
 
+        Player.prototype.aerialAttack = function () {
+            for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                var knockBackDistance = this.fallingSpeed * 5;
+                var blastZone = this.fallingSpeed / 7;
+                var fallAttackDmg = this.fallingSpeed / 6;
+                this.fallingSpeed = 0;
+                var enemy = Bosem.KillableInGame.players[i];
+                if (this.y < enemy.y + 50 && this.y > enemy.y - blastZone) {
+                    if (this.x < enemy.x && this.x > enemy.x - blastZone) {
+                        enemy.getKnockedBack(knockBackDistance);
+                        enemy.recieveDamage(200);
+                    } else if (this.x > enemy.x && this.x < enemy.x + blastZone) {
+                        enemy.getKnockedBack(-1 * knockBackDistance);
+                        enemy.recieveDamage(fallAttackDmg);
+                    }
+                }
+            }
+        };
+
+        Player.prototype.onTopAerialAttack = function () {
+            var fallAttackDmg = this.fallingSpeed / 6;
+            this.fallingSpeed = 0;
+            for (var i = 0; i < Bosem.KillableInGame.players.length; i++) {
+                Bosem.KillableInGame.players[i].recieveDamage(fallAttackDmg);
+            }
+        };
+
+        Player.prototype.getKnockedBack = function (velocity) {
+            this.spriteBody.acceleration.x = velocity;
+            this.game.time.events.add(500, this.resetAccel, this);
+        };
+
+        Player.prototype.resetAccel = function () {
+            this.spriteBody.acceleration.x = 0;
+        };
+
         Player.prototype.getUp = function () {
             this.scale.y = 1;
             this.isDucked = false;
             this.y = this.y - this.ogHeight * 2 / 3;
+        };
+
+        Player.prototype.checkCanMove = function (starting, distance) {
         };
 
         Player.prototype.respawn = function () {
