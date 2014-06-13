@@ -44,6 +44,8 @@
             this.game.load.image(ResKeys.redBar, 'assets/RedBar.png');
             this.game.load.image(ResKeys.scopeItem, 'assets/Scope.png');
             this.game.load.image(ResKeys.bananaItem, 'assets/Banana.png');
+            this.game.load.image(ResKeys.bombItem, 'assets/Bomb.png');
+            this.game.load.spritesheet(ResKeys.explosionAnimation, 'assets/Explosion.png', 128, 128);
             //croppable stuff, 1 for each player
             this.game.load.image('heartFill0', 'assets/heartfill.png');
             this.game.load.image('heartFill1', 'assets/heartfill.png');

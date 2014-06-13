@@ -21,10 +21,12 @@
     <Content Include="assets\Banana.png" />
     <Content Include="assets\blink.jpg" />
     <Content Include="assets\blueHealth.png" />
+    <Content Include="assets\Bomb.png" />
     <Content Include="assets\boomerangGun.png" />
     <Content Include="assets\bottleOfJack.png" />
     <Content Include="assets\charginglazergun.png" />
     <Content Include="assets\Controls.png" />
+    <Content Include="assets\Explosion.png" />
     <Content Include="assets\heart.png" />
     <Content Include="assets\heartfill.png" />
     <Content Include="assets\ItemArea.png" />
@@ -90,6 +92,9 @@
     <TypeScriptCompile Include="scripts\maps\DefaultMap.ts" />
     <TypeScriptCompile Include="scripts\items\Scope.ts" />
     <TypeScriptCompile Include="scripts\items\Banana.ts" />
+    <TypeScriptCompile Include="scripts\items\Bomb.ts" />
+    <TypeScriptCompile Include="scripts\Other\Killable.ts" />
+    <TypeScriptCompile Include="scripts\items\Explosion.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

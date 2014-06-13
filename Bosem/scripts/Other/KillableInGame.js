@@ -6,11 +6,13 @@
         KillableInGame.init = function (game, numPlayers) {
             this.game = game;
             this.players = [];
-            this.teams = [[numPlayers], []];
+            this.teams = [];
             for (var i = 0; i < numPlayers; i++) {
+                var team = [];
                 var xLoc = 300 + 60 * i;
                 this.players.push(new Bosem.Player(this.game, xLoc, 30, i));
-                this.teams[i].push(this.players[i]);
+                team.push(this.players[i]);
+                this.teams.push(team);
                 Bosem.Collidable.addCollidable(this.players[i]);
             }
         };
@@ -92,6 +94,13 @@
 
         KillableInGame.killKillable = function (killable) {
             //implement
+        };
+        KillableInGame.getKillables = function () {
+            var killables = [];
+            for (var i = 0; i < this.teams.length; i++) {
+                killables = killables.concat(this.teams[i]);
+            }
+            return killables;
         };
         return KillableInGame;
     })();

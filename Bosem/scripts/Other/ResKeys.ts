@@ -39,6 +39,7 @@
         static heartFill: string = 'heartFill';
         static reloadBar: string = 'reloadBar';
         static redBar: string = 'redBar';
+        static explosionAnimation: string = 'explosionAnimation';
         //ammo
         static lazerAmmo: string = 'lazerAmmo';
         static sniperAmmo: string = 'sniperAmmo';
@@ -62,6 +63,7 @@
         static bottleOfJack: string = 'bottleOfJack';
         static scopeItem: string = 'scopeItem';
         static bananaItem: string = 'bananaitem';
+        static bombItem: string = 'bombItem';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';

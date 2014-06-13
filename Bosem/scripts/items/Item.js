@@ -47,13 +47,12 @@ var Bosem;
             this.allItems.push(Bosem.BottleOfJack);
             this.allItems.push(Bosem.Scope);
             this.allItems.push(Bosem.Banana);
-
+            this.allItems.push(Bosem.Bomb);
             for (var i = 0; i < this.allItems.length; i++) {
                 this.allItems[i].timesDropped = 0;
             }
         };
         Item.randomItem = function (game, x, y) {
-            return new this.allItems[this.allItems.length - 1](game, x, y);
             while (true) {
                 var randItem = Math.floor(Math.random() * this.allItems.length);
                 var dropped = Math.random() * 100;

@@ -42,6 +42,7 @@
         ResKeys.heartFill = 'heartFill';
         ResKeys.reloadBar = 'reloadBar';
         ResKeys.redBar = 'redBar';
+        ResKeys.explosionAnimation = 'explosionAnimation';
 
         ResKeys.lazerAmmo = 'lazerAmmo';
         ResKeys.sniperAmmo = 'sniperAmmo';
@@ -65,6 +66,7 @@
         ResKeys.bottleOfJack = 'bottleOfJack';
         ResKeys.scopeItem = 'scopeItem';
         ResKeys.bananaItem = 'bananaitem';
+        ResKeys.bombItem = 'bombItem';
 
         ResKeys.menuImage1 = 'menuImage1';
         ResKeys.menuImage2 = 'menuImage2';

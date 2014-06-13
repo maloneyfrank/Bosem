@@ -49,13 +49,13 @@
             this.allItems.push(BottleOfJack);
             this.allItems.push(Scope);
             this.allItems.push(Banana);
-
+            this.allItems.push(Bomb);
             for (var i = 0; i < this.allItems.length; i++) {
                 this.allItems[i].timesDropped = 0;
             }
         }
         static randomItem(game: Phaser.Game, x: number, y: number) {
-            // return new this.allItems[this.allItems.length - 1](game, x, y);
+           //  return new this.allItems[this.allItems.length - 1](game, x, y);
             while (true) {
                 var randItem: number = Math.floor(Math.random() * this.allItems.length);
                 var dropped: number = Math.random() * 100;

@@ -9,18 +9,20 @@
         static init(game:Phaser.Game, numPlayers :number) {
             this.game = game;
             this.players = [];
-            this.teams = [[numPlayers], []];
+            this.teams = [];
             for (var i = 0; i < numPlayers; i++) {
+                var team: any[] =[];
                 var xLoc: number = 300 + 60 * i;
                 this.players.push(new Player(this.game,xLoc, 30, i));
-                this.teams[i].push(this.players[i]);
+                team.push(this.players[i]);
+                this.teams.push(team);
                 Collidable.addCollidable(this.players[i]);
             }
 
 
            
         }
-       static addKillable(killable:any, teamNum:number) {
+       static addKillable(killable:Killable, teamNum:number) {
            this.teams[teamNum].push(killable);
            Collidable.addCollidable(killable);
         }
@@ -101,7 +103,13 @@
         static   killKillable(killable: any) {
             //implement
         }
-
+        static getKillables() {
+            var killables: Killable[] = [];
+            for (var i = 0; i < this.teams.length; i++) {
+               killables = killables.concat(this.teams[i]);
+            }
+            return killables;
+        }
         
     }
 }
