@@ -33,14 +33,10 @@
 
             for (var i = 0; i < killables.length; i++) {
                 var kill: Killable = killables[i];
-                if (onTeam) {
-                    if (kill.onTeam == onTeam) {
-                        break;
-                    }
-                }
-                if (this.intersects(kill)) {
-                    kill.recieveDamage(damage);
-                }
+                if (kill.onTeam != onTeam)
+                    if (this.intersects(kill)) 
+                        kill.recieveDamage(damage);
+                
 
             }
             this.game.time.events.add(500, this.removeSelf, this);

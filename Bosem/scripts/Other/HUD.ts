@@ -106,7 +106,7 @@
                 this.game.add.existing(heartFill);
                 this.game.add.existing(healthHeart);
                 //moves the last hearts (this is croppable, moving is easier than changing pictures)
-                if (this.healthHearts[i][this.healthHearts[i].length - 3].x < this.healthHearts[i][this.healthHearts[i].length - 1].x) {
+                if (i==0) {
 
                     this.healthHearts[i][this.healthHearts[i].length - 1].cameraOffset.x += 60;
                     this.heartFills[i][this.healthHearts[i].length - 1].cameraOffset.x += 60;

@@ -50,8 +50,10 @@
             return -10;
         }
         hitSomething(something: any) {
-            if (something != this.lazerShooter.holder) {
-                this.killSelf();
+            if (!this.notReleased) {
+                if (something != this.lazerShooter.holder) {
+                    this.killSelf();
+                }
             }
         }
 
@@ -60,8 +62,8 @@
         }
 
         getDamage() {
-            if (this.notReleased)
-                this.dmg = 2;
+            if (this.notReleased) 
+                return 0;
             else
                 this.dmg = this.lazerShooter.holder.dmg * this.size /8;
 

@@ -52,8 +52,10 @@ var Bosem;
             return -10;
         };
         ChargingLazer.prototype.hitSomething = function (something) {
-            if (something != this.lazerShooter.holder) {
-                this.killSelf();
+            if (!this.notReleased) {
+                if (something != this.lazerShooter.holder) {
+                    this.killSelf();
+                }
             }
         };
 
@@ -63,7 +65,7 @@ var Bosem;
 
         ChargingLazer.prototype.getDamage = function () {
             if (this.notReleased)
-                this.dmg = 2;
+                return 0;
             else
                 this.dmg = this.lazerShooter.holder.dmg * this.size / 8;
 
