@@ -48,6 +48,7 @@
             this.allItems.push(Jetpack);
             this.allItems.push(BottleOfJack);
             this.allItems.push(Scope);
+            this.allItems.push(Banana);
 
             for (var i = 0; i < this.allItems.length; i++) {
                 this.allItems[i].timesDropped = 0;

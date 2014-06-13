@@ -61,6 +61,7 @@
         static jetpack: string = 'jetpack';
         static bottleOfJack: string = 'bottleOfJack';
         static scopeItem: string = 'scopeItem';
+        static bananaItem: string = 'bananaitem';
         //Menu
         static menuImage1: string = 'menuImage1';
         static menuImage2: string = 'menuImage2';

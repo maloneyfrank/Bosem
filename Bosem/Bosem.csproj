@@ -18,6 +18,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="app.css" />
+    <Content Include="assets\Banana.png" />
     <Content Include="assets\blink.jpg" />
     <Content Include="assets\blueHealth.png" />
     <Content Include="assets\boomerangGun.png" />
@@ -88,6 +89,7 @@
     <TypeScriptCompile Include="scripts\maps\BosemMap.ts" />
     <TypeScriptCompile Include="scripts\maps\DefaultMap.ts" />
     <TypeScriptCompile Include="scripts\items\Scope.ts" />
+    <TypeScriptCompile Include="scripts\items\Banana.ts" />
     <Content Include="scripts\res\phaser.d.ts" />
     <Content Include="scripts\res\phaser.js" />
     <Content Include="scripts\res\phaser.min.js" />

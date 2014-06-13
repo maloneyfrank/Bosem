@@ -17,6 +17,7 @@
         facingLeft: boolean;
         canWallJump: boolean;
         isDucked: boolean;
+        canMove: boolean;
         //stats
         moveSpeed: number;
         jumpSpeed: number;
@@ -90,6 +91,7 @@
             this.attackSpeed = 9500;
             this.shields = 0;
             this.ogHeight = this.height;
+            this.canMove = true;
             //player controls
             if (playerOptions == 0) {
                 this.moveRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
@@ -114,7 +116,8 @@
         }
 
         update() {
-            this.keyControls();
+            if(this.canMove)
+                this.keyControls();
             this.lazerShooter.update();
             for (var i = 0; i < this.effectItems.length; i++) {
                 this.effectItems[i].itemUpdate();

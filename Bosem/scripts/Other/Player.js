@@ -61,6 +61,7 @@ var Bosem;
             this.attackSpeed = 9500;
             this.shields = 0;
             this.ogHeight = this.height;
+            this.canMove = true;
 
             //player controls
             if (playerOptions == 0) {
@@ -84,7 +85,8 @@ var Bosem;
             this.lazerShooter = new Bosem.LazerShooter(this.game, this, Bosem.Ammo.BASIC_AMMO, this.onTeam);
         }
         Player.prototype.update = function () {
-            this.keyControls();
+            if (this.canMove)
+                this.keyControls();
             this.lazerShooter.update();
             for (var i = 0; i < this.effectItems.length; i++) {
                 this.effectItems[i].itemUpdate();
