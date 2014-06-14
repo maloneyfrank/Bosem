@@ -32,7 +32,7 @@
         static MAX_HP: number = 1000;
 
         //items
-        heldItems: Item[];
+        heldItems: string[];
         effectItems: Item[]; //if we implement effect items, this will be what the player can cycle through
         useItem: Item;
 

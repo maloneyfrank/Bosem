@@ -64,7 +64,7 @@
             for (var i = 0; i < KillableInGame.players.length; i++) {
                 var itemResKeys = "";
                 for (var j = 0; j < KillableInGame.players[i].heldItems.length; j++) {
-                    itemResKeys += KillableInGame.players[i].heldItems[j].key + "|";
+                    itemResKeys += KillableInGame.players[i].heldItems[j] + "|";
                 }
                 localStorage.setItem("playerItems" + i.toString(), itemResKeys);
             }

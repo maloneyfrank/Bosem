@@ -19,8 +19,6 @@
         }
         init(holder: Player) {
             super.init(holder);
-            holder.heldItems.push(this);
-            holder.effectItems.push(this);
             this.hp = 500;
             this.game.add.existing(this);
             this.spriteBody.acceleration.y = 0;
