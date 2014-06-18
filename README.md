@@ -9,7 +9,3 @@ It is a 1v1 arcade-style fighting game.
 
 ===
 
-It has flame throwing fish. (´･ω･｀)
-=====
-
-Yes, flame throwing fish.
